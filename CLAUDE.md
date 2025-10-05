@@ -50,8 +50,8 @@ All materials use a custom HTML theme with:
 - Keep worksheets to 30 minutes maximum (supplementary to school work)
 
 ## GitHub Pages Setup
-- **Repository**: https://github.com/slimkrazy/nathaniel-cs-gsce.git
-- **GitHub Pages URL**: https://slimkrazy.github.io/nathaniel-cs-gsce/
+- **Repository**: https://github.com/slimkrazy/nathaniel-cs-gcse.git
+- **GitHub Pages URL**: https://slimkrazy.github.io/nathaniel-cs-gcse/
 - **Structure**:
   - `index.html` - Main landing page with navigation
   - `teacher/index.html` - Teacher resources (lesson plans, answers, progress tracking)
