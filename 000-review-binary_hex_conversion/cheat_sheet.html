@@ -200,7 +200,7 @@
             <div class="section">
                 <h2>Quick Conversion Methods</h2>
                 
-                <h3>Decimal to Binary (Division Method)</h3>
+                <h3>Convert Decimal 50 to Binary (Division Method)</h3>
                 <div class="code-block">
 50 ÷ 2 = 25 remainder 0
 25 ÷ 2 = 12 remainder 1  
@@ -210,20 +210,33 @@
 1  ÷ 2 = 0  remainder 1
 
 Read remainders UP: 110010₂
+Answer: 50 = 110010₂
                 </div>
                 
-                <h3>Binary to Decimal (Place Values)</h3>
+                <h3>Convert Binary 110010₂ to Decimal (Place Values)</h3>
                 <div class="code-block">
 1  1  0  0  1  0₂
 32 16 8  4  2  1   ← place values
 32+16+0+ 0+ 2+ 0 = 50
+
+Answer: 110010₂ = 50
                 </div>
                 
-                <h3>Hex to Decimal</h3>
+                <h3>Convert Hex 2A₁₆ to Decimal</h3>
                 <div class="code-block">
 2A₁₆ = (2 × 16¹) + (A × 16⁰)
      = (2 × 16) + (10 × 1)
      = 32 + 10 = 42
+
+Answer: 2A₁₆ = 42
+                </div>
+                
+                <h3>Convert Decimal 42 to Hex (Division Method)</h3>
+                <div class="code-block">
+42 ÷ 16 = 2 remainder 10
+10 in hex = A
+
+Answer: 42 = 2A₁₆
                 </div>
             </div>
             
@@ -248,12 +261,12 @@ Read remainders UP: 110010₂
                     </tr>
                 </table>
                 
-                <h3>Example</h3>
+                <h3>Example: 1011₂ + 1101₂</h3>
                 <div class="code-block">
-  1011₂
-+ 1101₂
--------
- 11000₂
+   1011₂
+ + 1101₂
+ -------
+  11000₂
 
 Working right to left:
 1+1=10 (write 0, carry 1)
