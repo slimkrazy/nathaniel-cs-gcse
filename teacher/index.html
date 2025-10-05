@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Resources - Nathaniel's GCSE Computer Science</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .nav-breadcrumb {
+            background: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        
+        .nav-breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .progress-section {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            margin-bottom: 30px;
+        }
+        
+        .progress-section h2 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-table th,
+        .progress-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .progress-table th {
+            background: #27ae60;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .status-ready {
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .status-completed {
+            background: #27ae60;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .lesson-section {
+            margin: 30px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+        }
+        
+        .lesson-header {
+            background: #34495e;
+            color: white;
+            padding: 15px 20px;
+            margin: 0;
+        }
+        
+        .lesson-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .lesson-content {
+            padding: 20px;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .resource-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .resource-card.lesson-plan {
+            border-left: 4px solid #f39c12;
+        }
+        
+        .resource-card.worksheet {
+            border-left: 4px solid #3498db;
+        }
+        
+        .resource-card.answers {
+            border-left: 4px solid #27ae60;
+        }
+        
+        .resource-card.cheat-sheet {
+            border-left: 4px solid #9b59b6;
+        }
+        
+        .resource-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .resource-card.lesson-plan .resource-icon {
+            color: #f39c12;
+        }
+        
+        .resource-card.worksheet .resource-icon {
+            color: #3498db;
+        }
+        
+        .resource-card.answers .resource-icon {
+            color: #27ae60;
+        }
+        
+        .resource-card.cheat-sheet .resource-icon {
+            color: #9b59b6;
+        }
+        
+        .resource-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .resource-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .header {
+                background: #e74c3c !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👨‍🏫 Teacher Resources</h1>
+            <div class="subtitle">Nathaniel's GCSE Computer Science - Lesson Plans & Materials</div>
+        </div>
+        
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> | 
+            <a href="../student/">Student Resources</a>
+        </div>
+        
+        <div class="progress-section">
+            <h2>📊 Learning Progress Overview</h2>
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Lesson</th>
+                        <th>Specification Section</th>
+                        <th>Topic Name</th>
+                        <th>Date First Covered</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000</td>
+                        <td>Review</td>
+                        <td>Binary/Hex Conversion</td>
+                        <td>TBD</td>
+                        <td><span class="status-ready">Materials Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>2.4</td>
+                        <td>Boolean Logic Introduction</td>
+                        <td>TBD</td>
+                        <td><span class="status-ready">Materials Ready</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="info-box">
+            <h4>📝 Teaching Notes</h4>
+            <ul>
+                <li><strong>Worksheet Duration:</strong> Each worksheet is designed for 25-30 minutes</li>
+                <li><strong>Prerequisites:</strong> Binary/hex conversion review should be completed before Boolean logic</li>
+                <li><strong>Analogies:</strong> Lesson plans include age-appropriate analogies for complex concepts</li>
+                <li><strong>Assessment:</strong> Answer sheets include detailed marking schemes</li>
+            </ul>
+        </div>
+        
+        <div class="lesson-section">
+            <div class="lesson-header">
+                <h3>Lesson 000: Binary/Hex Conversion Review</h3>
+            </div>
+            <div class="lesson-content">
+                <p><strong>Specification:</strong> Review | <strong>Focus:</strong> Number systems, conversions, bit shifting</p>
+                <p>Reinforcement of fundamental concepts needed for programming. Includes exam-style questions and practical applications.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card worksheet">
+                        <a href="../000-review-binary_hex_conversion/worksheet.html">
+                            <span class="resource-icon">📝</span>
+                            <div class="resource-title">Student Worksheet</div>
+                            <div class="resource-description">25-30 min practice exercise</div>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card answers">
+                        <a href="../000-review-binary_hex_conversion/worksheet_answers.html">
+                            <span class="resource-icon">✅</span>
+                            <div class="resource-title">Answer Sheet</div>
+                            <div class="resource-description">Complete solutions & working</div>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card cheat-sheet">
+                        <a href="../000-review-binary_hex_conversion/cheat_sheet.html">
+                            <span class="resource-icon">📋</span>
+                            <div class="resource-title">Reference Guide</div>
+                            <div class="resource-description">Number systems cheat sheet</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="lesson-section">
+            <div class="lesson-header">
+                <h3>Lesson 001: Boolean Logic Introduction</h3>
+            </div>
+            <div class="lesson-content">
+                <p><strong>Specification:</strong> 2.4 Boolean Logic | <strong>Focus:</strong> Basic gates, truth tables, circuits</p>
+                <p>Introduction to fundamental Boolean logic concepts with real-world analogies and programming connections.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card lesson-plan">
+                        <a href="../001-2.4-boolean_logic_introduction/lesson_plan.html">
+                            <span class="resource-icon">📚</span>
+                            <div class="resource-title">Lesson Plan</div>
+                            <div class="resource-description">60-90 min teaching guide</div>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card worksheet">
+                        <a href="../001-2.4-boolean_logic_introduction/worksheet.html">
+                            <span class="resource-icon">📝</span>
+                            <div class="resource-title">Student Worksheet</div>
+                            <div class="resource-description">25-30 min practice exercise</div>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card answers">
+                        <a href="../001-2.4-boolean_logic_introduction/worksheet_answers.html">
+                            <span class="resource-icon">✅</span>
+                            <div class="resource-title">Answer Sheet</div>
+                            <div class="resource-description">Complete solutions & marking</div>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card cheat-sheet">
+                        <a href="../001-2.4-boolean_logic_introduction/cheat_sheet.html">
+                            <span class="resource-icon">📋</span>
+                            <div class="resource-title">Reference Guide</div>
+                            <div class="resource-description">Boolean logic cheat sheet</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h4>🎯 Next Steps</h4>
+            <p>Future lessons will cover:</p>
+            <ul>
+                <li><strong>2.2 Programming Fundamentals:</strong> Data types, variables, operators</li>
+                <li><strong>2.1 Algorithms:</strong> Flowcharts, pseudocode, searching, sorting</li>
+                <li><strong>Advanced Boolean Logic:</strong> Combined gates, circuit optimization</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

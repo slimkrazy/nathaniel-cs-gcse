@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Systems & Conversions Cheat Sheet - Nathaniel's GCSE Computer Science</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 20px;
+            margin: -25px -25px 25px -25px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 300;
+        }
+        
+        .header .student-name {
+            font-size: 1.2em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 8px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            font-size: 0.9em;
+        }
+        
+        th, td {
+            border: 1px solid #8e44ad;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        th {
+            background: #8e44ad;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .quick-ref {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #27ae60;
+        }
+        
+        .quick-ref h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+                font-size: 11px;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+                padding: 15px;
+            }
+            
+            .header {
+                background: #8e44ad !important;
+                -webkit-print-color-adjust: exact;
+                color: white !important;
+            }
+            
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin: 15px 0;
+                padding: 15px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Number Systems & Conversions Cheat Sheet</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+        
+        <div class="section">
+            <h2>Number System Notation</h2>
+            
+            <h3>Standard Computer Science Notation</h3>
+            <table>
+                <tr>
+                    <th>System</th>
+                    <th>Example</th>
+                    <th>Alternative Forms</th>
+                </tr>
+                <tr>
+                    <td><strong>Decimal</strong></td>
+                    <td>42</td>
+                    <td>(no subscript needed)</td>
+                </tr>
+                <tr>
+                    <td><strong>Binary</strong></td>
+                    <td>101010₂</td>
+                    <td>0b101010</td>
+                </tr>
+                <tr>
+                    <td><strong>Hexadecimal</strong></td>
+                    <td>2A₁₆</td>
+                    <td>0x2A or 2Ah</td>
+                </tr>
+            </table>
+            
+            <div class="highlight">
+                <strong>Key Point:</strong> Decimal numbers don't need subscripts - they're the default. Only mark non-decimal bases with subscripts or prefixes.
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div class="section">
+                <h2>Quick Conversion Methods</h2>
+                
+                <h3>Decimal to Binary (Division Method)</h3>
+                <div class="code-block">
+50 ÷ 2 = 25 remainder 0
+25 ÷ 2 = 12 remainder 1  
+12 ÷ 2 = 6  remainder 0
+6  ÷ 2 = 3  remainder 0
+3  ÷ 2 = 1  remainder 1
+1  ÷ 2 = 0  remainder 1
+
+Read remainders UP: 110010₂
+                </div>
+                
+                <h3>Binary to Decimal (Place Values)</h3>
+                <div class="code-block">
+1  1  0  0  1  0₂
+32 16 8  4  2  1   ← place values
+32+16+0+ 0+ 2+ 0 = 50
+                </div>
+                
+                <h3>Hex to Decimal</h3>
+                <div class="code-block">
+2A₁₆ = (2 × 16¹) + (A × 16⁰)
+     = (2 × 16) + (10 × 1)
+     = 32 + 10 = 42
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Binary Addition Rules</h2>
+                
+                <table style="width: 60%; margin: 0 auto;">
+                    <tr>
+                        <th>+</th>
+                        <th>0</th>
+                        <th>1</th>
+                    </tr>
+                    <tr>
+                        <th>0</th>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td>1</td>
+                        <td>10 (carry 1)</td>
+                    </tr>
+                </table>
+                
+                <h3>Example</h3>
+                <div class="code-block">
+  1011₂
++ 1101₂
+-------
+ 11000₂
+
+Working right to left:
+1+1=10 (write 0, carry 1)
+1+0+1(carry)=10 (write 0, carry 1)  
+0+1+1(carry)=10 (write 0, carry 1)
+1+1+1(carry)=11 (write 11)
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Bit Shifting Quick Reference</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Left Shift (&lt;&lt;)</h3>
+                    <ul>
+                        <li><strong>Effect:</strong> Multiplies by 2 for each position</li>
+                        <li><strong>Example:</strong> 1100₂ &lt;&lt; 1 = 11000₂</li>
+                        <li><strong>In decimal:</strong> 12 × 2 = 24</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Right Shift (&gt;&gt;)</h3>
+                    <ul>
+                        <li><strong>Effect:</strong> Divides by 2 for each position</li>
+                        <li><strong>Example:</strong> 1100₂ &gt;&gt; 1 = 110₂</li>
+                        <li><strong>In decimal:</strong> 12 ÷ 2 = 6</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="quick-ref">
+                <h3>Memory Trick</h3>
+                <strong>Left = Double</strong> (×2) | <strong>Right = Halve</strong> (÷2)
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div class="section">
+                <h2>Hex Digit Values</h2>
+                <table>
+                    <tr>
+                        <th>Hex</th>
+                        <th>Decimal</th>
+                        <th>Binary</th>
+                    </tr>
+                    <tr><td>0</td><td>0</td><td>0000</td></tr>
+                    <tr><td>1</td><td>1</td><td>0001</td></tr>
+                    <tr><td>2</td><td>2</td><td>0010</td></tr>
+                    <tr><td>3</td><td>3</td><td>0011</td></tr>
+                    <tr><td>4</td><td>4</td><td>0100</td></tr>
+                    <tr><td>5</td><td>5</td><td>0101</td></tr>
+                    <tr><td>6</td><td>6</td><td>0110</td></tr>
+                    <tr><td>7</td><td>7</td><td>0111</td></tr>
+                    <tr><td>8</td><td>8</td><td>1000</td></tr>
+                    <tr><td>9</td><td>9</td><td>1001</td></tr>
+                    <tr><td>A</td><td>10</td><td>1010</td></tr>
+                    <tr><td>B</td><td>11</td><td>1011</td></tr>
+                    <tr><td>C</td><td>12</td><td>1100</td></tr>
+                    <tr><td>D</td><td>13</td><td>1101</td></tr>
+                    <tr><td>E</td><td>14</td><td>1110</td></tr>
+                    <tr><td>F</td><td>15</td><td>1111</td></tr>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>Common Powers of 2</h2>
+                <table>
+                    <tr>
+                        <th>2ⁿ</th>
+                        <th>Value</th>
+                        <th>Binary</th>
+                    </tr>
+                    <tr><td>2⁰</td><td>1</td><td>1</td></tr>
+                    <tr><td>2¹</td><td>2</td><td>10</td></tr>
+                    <tr><td>2²</td><td>4</td><td>100</td></tr>
+                    <tr><td>2³</td><td>8</td><td>1000</td></tr>
+                    <tr><td>2⁴</td><td>16</td><td>10000</td></tr>
+                    <tr><td>2⁵</td><td>32</td><td>100000</td></tr>
+                    <tr><td>2⁶</td><td>64</td><td>1000000</td></tr>
+                    <tr><td>2⁷</td><td>128</td><td>10000000</td></tr>
+                    <tr><td>2⁸</td><td>256</td><td>100000000</td></tr>
+                </table>
+                
+                <div class="quick-ref">
+                    <h3>Quick Checks</h3>
+                    <ul>
+                        <li><strong>Largest 4-bit:</strong> 1111₂ = 15</li>
+                        <li><strong>Largest 8-bit:</strong> 11111111₂ = 255 = FF₁₆</li>
+                        <li><strong>Binary to hex:</strong> Group by 4s</li>
+                        <li><strong>Example:</strong> 10110101₂ = 1011 0101 = B5₁₆</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

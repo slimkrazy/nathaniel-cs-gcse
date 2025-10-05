@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean Logic Introduction - Lesson Plan - Nathaniel's GCSE Computer Science</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e67e22, #f39c12);
+            color: white;
+            padding: 20px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 300;
+        }
+        
+        .header .student-name {
+            font-size: 1.2em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .objectives {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            margin-bottom: 25px;
+        }
+        
+        .objectives h2 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .lesson-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e67e22;
+        }
+        
+        .lesson-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 8px;
+        }
+        
+        .lesson-section h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        
+        .analogy {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        
+        .analogy h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .gate-diagram {
+            font-family: 'Courier New', monospace;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        
+        th, td {
+            border: 1px solid #e67e22;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th {
+            background: #e67e22;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tips {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        
+        .tips h3 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        
+        .warning {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #fdcb6e;
+            margin: 20px 0;
+        }
+        
+        .warning h3 {
+            color: #e17055;
+            margin-top: 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .header {
+                background: #e67e22 !important;
+                -webkit-print-color-adjust: exact;
+                color: white !important;
+            }
+            
+            .lesson-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Boolean Logic Introduction - Lesson Plan</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+        
+        <div class="objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lesson, Nathaniel will:</p>
+            <ul>
+                <li>Understand what Boolean logic is and why it's fundamental to computing</li>
+                <li>Know the three basic logic gates (NOT, AND, OR) and their symbols</li>
+                <li>Be able to complete truth tables for basic gates</li>
+                <li>Understand how logic gates combine to form circuits</li>
+                <li>Recognize the connection between Boolean logic and programming conditions</li>
+            </ul>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>Lesson Structure (60-90 minutes)</h2>
+            
+            <h3>1. Introduction to Boolean Logic (15 minutes)</h3>
+            
+            <div class="analogy">
+                <h4>Analogy: The Light Switch House</h4>
+                <ul>
+                    <li>Imagine a house where every room has special light switches</li>
+                    <li>These switches can only be ON (1/True) or OFF (0/False)</li>
+                    <li>Different rooms have different rules for when the lights turn on</li>
+                    <li>Boolean logic is like these rules - simple yes/no decisions that computers make millions of times per second</li>
+                </ul>
+            </div>
+            
+            <h4>Key Points:</h4>
+            <ul>
+                <li>Named after George Boole (mathematician, 1815-1864)</li>
+                <li>Everything in a computer comes down to 1s and 0s (binary)</li>
+                <li>Boolean logic processes these 1s and 0s using simple rules</li>
+                <li>These rules are implemented using "logic gates"</li>
+            </ul>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>2. The Three Basic Logic Gates (30 minutes)</h2>
+            
+            <h3>NOT Gate (Inverter)</h3>
+            <div class="analogy">
+                <h4>Analogy: The Opposite Switch</h4>
+                <ul>
+                    <li>Like a switch that does the opposite of what you expect</li>
+                    <li>If you press it when it's OFF, it turns ON</li>
+                    <li>If you press it when it's ON, it turns OFF</li>
+                </ul>
+            </div>
+            
+            <h4>Symbol:</h4>
+            <div class="gate-diagram">
+Input ──●──○── Output
+       NOT
+            </div>
+            
+            <h4>Truth Table:</h4>
+            <table style="width: 40%;">
+                <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            
+            <h3>AND Gate</h3>
+            <div class="analogy">
+                <h4>Analogy: The Security Door</h4>
+                <ul>
+                    <li>Imagine a bank vault with two guards</li>
+                    <li>The door only opens if BOTH guards turn their keys</li>
+                    <li>If only one guard turns their key, nothing happens</li>
+                    <li>Both conditions must be true</li>
+                </ul>
+            </div>
+            
+            <h4>Symbol:</h4>
+            <div class="gate-diagram">
+Input A ──┐
+          │ D──── Output
+Input B ──┘
+            </div>
+            
+            <h4>Truth Table:</h4>
+            <table style="width: 60%;">
+                <tr>
+                    <th>Input A</th>
+                    <th>Input B</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            
+            <h3>OR Gate</h3>
+            <div class="analogy">
+                <h4>Analogy: The Helpful Friends</h4>
+                <ul>
+                    <li>You want to go to the cinema</li>
+                    <li>Either your friend Sam OR your friend Alex can give you a lift</li>
+                    <li>If Sam can drive, you can go</li>
+                    <li>If Alex can drive, you can go</li>
+                    <li>If both can drive, you can still go (you just pick one)</li>
+                    <li>Only if neither can drive do you stay home</li>
+                </ul>
+            </div>
+            
+            <h4>Symbol:</h4>
+            <div class="gate-diagram">
+Input A ──┐
+          │ )──── Output
+Input B ──┘
+            </div>
+            
+            <h4>Truth Table:</h4>
+            <table style="width: 60%;">
+                <tr>
+                    <th>Input A</th>
+                    <th>Input B</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>3. Combining Gates - Simple Circuits (20 minutes)</h2>
+            
+            <h4>Circuit Example 1: AND followed by NOT</h4>
+            <div class="gate-diagram">
+A ──┐
+    │ D──●──○── Output
+B ──┘      NOT
+            </div>
+            <p>This is called NAND (NOT-AND). Walk through each possible input combination.</p>
+            
+            <h4>Circuit Example 2: Two inputs through different gates</h4>
+            <div class="gate-diagram">
+A ──●──○──┐
+   NOT    │ )──── Output
+B ────────┘ OR
+            </div>
+            <p>Show how to work through this step by step:</p>
+            <ol>
+                <li>Calculate NOT A</li>
+                <li>Calculate (NOT A) OR B</li>
+            </ol>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>4. Connection to Programming (10 minutes)</h2>
+            
+            <h4>Real-world Programming Example:</h4>
+            <div class="gate-diagram">
+if (age >= 18 AND hasLicense == True):
+    print("Can drive")
+else:
+    print("Cannot drive")
+            </div>
+            
+            <p>Explain how:</p>
+            <ul>
+                <li><code>age >= 18</code> gives True or False</li>
+                <li><code>hasLicense == True</code> gives True or False</li>
+                <li><code>AND</code> combines these using the AND gate logic</li>
+                <li>The IF statement acts like a gate that only "opens" when the result is True</li>
+            </ul>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>5. Practice & Questions (10 minutes)</h2>
+            <p>Work through 2-3 simple truth tables together before the worksheet.</p>
+        </div>
+        
+        <div class="tips">
+            <h3>Teaching Tips</h3>
+            <ol>
+                <li><strong>Visual Learning:</strong> Draw the gates on paper/whiteboard as you explain</li>
+                <li><strong>Repetition:</strong> Keep referring back to the analogies</li>
+                <li><strong>Step by Step:</strong> For circuits, always work left to right, one gate at a time</li>
+                <li><strong>Check Understanding:</strong> Ask "What would happen if...?" questions</li>
+                <li><strong>Real Examples:</strong> Connect to everyday technology (phones, games, etc.)</li>
+            </ol>
+        </div>
+        
+        <div class="warning">
+            <h3>Common Misconceptions to Address</h3>
+            <ol>
+                <li><strong>OR means "either...or" (exclusive):</strong> Explain that in Boolean logic, OR includes "both"</li>
+                <li><strong>Confusion with English:</strong> "AND" in English vs Boolean AND can differ</li>
+                <li><strong>Gate symbols:</strong> Emphasize the importance of recognizing the symbols</li>
+                <li><strong>Multiple inputs:</strong> Start simple, build complexity gradually</li>
+            </ol>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>Extension Activities</h2>
+            <p>If Nathaniel grasps concepts quickly:</p>
+            <ul>
+                <li>Introduce XOR (exclusive OR) gate</li>
+                <li>Show how NAND can build any other gate</li>
+                <li>Discuss how gates are made from transistors</li>
+                <li>Look at real circuit diagrams</li>
+            </ul>
+        </div>
+        
+        <div class="lesson-section">
+            <h2>Assessment</h2>
+            <p>Watch for:</p>
+            <ul>
+                <li>Correct completion of truth tables</li>
+                <li>Understanding of gate symbols</li>
+                <li>Ability to trace through simple circuits</li>
+                <li>Making connections to programming concepts</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
