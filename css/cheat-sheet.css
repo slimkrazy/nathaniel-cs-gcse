@@ -110,10 +110,11 @@ th {
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
         padding: 10px;
         font-size: 14px;
+        background-color: #f0f8ff; /* Debug: light blue background on mobile */
     }
     
     .container {
@@ -144,10 +145,20 @@ th {
     }
     
     /* Force single column on mobile */
+    .container .section .two-column,
+    .container .section .three-column,
     .two-column,
     .three-column {
-        grid-template-columns: 1fr !important;
-        gap: 15px;
+        display: block !important;
+        grid-template-columns: none !important;
+        gap: 15px !important;
+    }
+    
+    .container .section .two-column > div,
+    .container .section .three-column > div,
+    .two-column > div,
+    .three-column > div {
+        margin-bottom: 20px !important;
     }
     
     /* Improve table readability on mobile */
@@ -195,7 +206,7 @@ th {
 }
 
 /* Small mobile devices */
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     body {
         padding: 5px;
         font-size: 13px;
