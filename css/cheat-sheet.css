@@ -1,0 +1,131 @@
+/* Cheat sheet specific styles */
+
+/* Cheat sheet header theme */
+.header {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+}
+
+/* Reduced padding for cheat sheets */
+body {
+    padding: 15px;
+}
+
+.container {
+    padding: 25px;
+}
+
+/* Section styling */
+.section {
+    margin: 25px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #8e44ad;
+}
+
+.section h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    border-bottom: 2px solid #8e44ad;
+    padding-bottom: 8px;
+}
+
+.section h3 {
+    color: #34495e;
+    margin-top: 20px;
+}
+
+/* Cheat sheet table styling */
+th, td {
+    border-color: #8e44ad;
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+th {
+    background: #8e44ad;
+}
+
+/* Gate symbols for Boolean logic */
+.gate-symbol {
+    font-family: 'Courier New', monospace;
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px;
+    white-space: pre-line;
+    line-height: 1.4;
+}
+
+/* Highlight boxes */
+.highlight {
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin: 10px 0;
+}
+
+/* Two and three column layouts */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+/* Quick reference boxes */
+.quick-ref {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #27ae60;
+    margin: 15px 0;
+}
+
+.quick-ref h3 {
+    color: #27ae60;
+    margin-top: 0;
+}
+
+/* Memory tricks */
+.memory-trick {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #ffc107;
+    margin: 15px 0;
+}
+
+.memory-trick h3 {
+    color: #856404;
+    margin-top: 0;
+}
+
+/* Print styles for cheat sheets */
+@media print {
+    body {
+        font-size: 11px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .section {
+        margin: 15px 0;
+        padding: 15px;
+    }
+    
+    .three-column,
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}

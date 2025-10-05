@@ -1,0 +1,82 @@
+/* Worksheet-specific styles */
+
+/* Worksheet header theme */
+.header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
+
+/* Worksheet info box */
+.worksheet-info {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 25px;
+}
+
+/* Student details */
+.student-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.student-details span {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 2px;
+    min-width: 200px;
+    display: inline-block;
+}
+
+/* Questions */
+.question {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+/* Worksheet-specific table styles */
+th, td {
+    border-color: #3498db;
+}
+
+th {
+    background: #3498db;
+}
+
+/* Answer spaces */
+.answer-space {
+    border-bottom: 2px solid #3498db;
+    min-width: 100px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.working-space {
+    border: 2px dashed #3498db;
+    min-height: 60px;
+    padding: 10px;
+    margin: 10px 0;
+    background: #f0f8ff;
+}
+
+/* Total marks styling */
+.total-marks {
+    color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    .student-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

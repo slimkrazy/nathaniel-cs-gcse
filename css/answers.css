@@ -1,0 +1,72 @@
+/* Answer sheet specific styles */
+
+/* Answer sheet header theme */
+.header {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+/* Answer-specific question styling */
+.question {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #27ae60;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+/* Answer highlighting */
+.answer {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Working sections */
+.working {
+    background: #e8f5e8;
+    border-left: 3px solid #27ae60;
+}
+
+/* Explanation boxes */
+.explanation {
+    background: #e8f5e8;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-style: italic;
+    border-left: 3px solid #27ae60;
+}
+
+/* Answer sheet table styling */
+th, td {
+    border-color: #27ae60;
+}
+
+th {
+    background: #27ae60;
+}
+
+/* Marking notes */
+.marking-notes {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+    margin-top: 20px;
+}
+
+.marking-notes h3 {
+    color: #856404;
+    margin-top: 0;
+}
+
+/* Total marks styling */
+.total-marks {
+    color: #27ae60;
+    background: #e8f5e8;
+}
