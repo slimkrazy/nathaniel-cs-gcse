@@ -13,84 +13,168 @@
             <h1>Boolean Logic Cheat Sheet</h1>
             <div class="student-name">Nathaniel's GCSE Computer Science</div>
         </div>
-        
+
         <div class="nav-breadcrumb">
-            <a href="../">← Back to Home</a> | 
-            <a href="../student/">← Back to Student Resources</a> | 
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
             <a href="../teacher/">Teacher Resources</a>
         </div>
-        
+
         <div class="section">
             <h2>Quick Reference for Logic Gates</h2>
-            
+
             <table>
                 <tr>
                     <th>Gate</th>
                     <th>Symbol</th>
+                    <th>Text Symbol</th>
                     <th>Rule</th>
                     <th>Example</th>
                 </tr>
                 <tr>
                     <td><strong>NOT</strong></td>
-                    <td><span class="gate-symbol">──●──○──</span></td>
+                    <td><span><img src="images/notgate.png" alt="NOT gate symbol" /></span></td>
+                    <td><strong>¬</strong></td>
                     <td>Opposite of input</td>
                     <td>If input is 1, output is 0</td>
                 </tr>
                 <tr>
                     <td><strong>AND</strong></td>
-                    <td><span class="gate-symbol">──┐<br>&nbsp;&nbsp;│ D──<br>──┘</span></td>
+                    <td><span><img src="images/and-gate.png" alt="AND gate symbol" /></span></td>
+                    <td><strong>∧</strong></td>
                     <td>Both inputs must be 1</td>
                     <td>Like a bank vault - need BOTH keys</td>
                 </tr>
                 <tr>
                     <td><strong>OR</strong></td>
-                    <td><span class="gate-symbol">──┐<br>&nbsp;&nbsp;│ )──<br>──┘</span></td>
+                    <td><span><img src="images/orgate.png" alt="OR gate symbol" /></span></td>
+                    <td><strong>∨</strong></td>
                     <td>At least one input is 1</td>
                     <td>Like having two friends who can drive</td>
                 </tr>
             </table>
         </div>
-        
+
         <div class="section">
-            <h2>Truth Tables - Quick Memory</h2>
+            <h2>Boolean Expressions</h2>
             
+            <h3>Example Circuit Expressions:</h3>
+            <table>
+                <tr>
+                    <th>Word Expression</th>
+                    <th>Symbol Expression</th>
+                </tr>
+                <tr>
+                    <td>(x AND y) OR (NOT c)</td>
+                    <td>(x ∧ y) ∨ (¬c)</td>
+                </tr>
+                <tr>
+                    <td>NOT (a OR b)</td>
+                    <td>¬(a ∨ b)</td>
+                </tr>
+                <tr>
+                    <td>(p AND q) AND (NOT r)</td>
+                    <td>(p ∧ q) ∧ (¬r)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Truth Tables</h2>
+
             <div class="three-column">
                 <div>
-                    <h3>NOT: Always opposite</h3>
-                    <div class="gate-symbol">
-0 → 1<br>
-1 → 0
-                    </div>
+                    <h3>NOT Gate</h3>
+                    <table>
+                        <tr>
+                            <th>Input A</th>
+                            <th>Output</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
                 </div>
-                
+
                 <div>
-                    <h3>AND: Only true when ALL are true</h3>
-                    <div class="gate-symbol">
-0 AND 0 = 0    |    1 AND 0 = 0<br>
-0 AND 1 = 0    |    1 AND 1 = 1
-                    </div>
+                    <h3>AND Gate</h3>
+                    <table>
+                        <tr>
+                            <th>Input A</th>
+                            <th>Input B</th>
+                            <th>Output</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
                 </div>
-                
+
                 <div>
-                    <h3>OR: True when ANY are true</h3>
-                    <div class="gate-symbol">
-0 OR 0 = 0     |    1 OR 0 = 1<br>
-0 OR 1 = 1     |    1 OR 1 = 1
-                    </div>
+                    <h3>OR Gate</h3>
+                    <table>
+                        <tr>
+                            <th>Input A</th>
+                            <th>Input B</th>
+                            <th>Output</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-        
+
         <div class="section">
             <h2>Circuit Analysis Steps</h2>
-            
+
             <ol>
                 <li><strong>Identify</strong> each gate in the circuit</li>
                 <li><strong>Work left to right</strong> through the circuit</li>
                 <li><strong>Calculate</strong> intermediate values first</li>
                 <li><strong>Combine</strong> results using the final gate</li>
             </ol>
-            
+
             <h3>Example:</h3>
             <div class="gate-symbol">
 A ──●──○── P ──┐<br>
@@ -99,10 +183,10 @@ B ────────────Q ──┘ OR
             </div>
             <p><strong>Steps:</strong> P = NOT A, then Output = P OR B</p>
         </div>
-        
+
         <div class="section">
             <h2>Programming Connections</h2>
-            
+
             <table>
                 <tr>
                     <th>Programming</th>
@@ -126,10 +210,10 @@ B ────────────Q ──┘ OR
                 </tr>
             </table>
         </div>
-        
+
         <div class="section">
             <h2>Common Exam Keywords</h2>
-            
+
             <div class="two-column">
                 <div>
                     <ul>
@@ -145,7 +229,7 @@ B ────────────Q ──┘ OR
                 </div>
             </div>
         </div>
-        
+
         <div class="memory-trick">
             <h3>Memory Tricks</h3>
             <ul>
@@ -154,7 +238,7 @@ B ────────────Q ──┘ OR
                 <li><strong>NOT = Opposite:</strong> Always does the reverse</li>
             </ul>
         </div>
-        
+
         <div class="quick-ref">
             <h3>Quick Check Questions</h3>
             <div class="two-column">
