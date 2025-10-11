@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Cheat Sheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cheat-sheet.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals Cheat Sheet</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
+            <a href="../teacher/">Teacher Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>OCR Data Types</h2>
+
+            <table>
+                <tr>
+                    <th>OCR Data Type</th>
+                    <th>Python Type</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                    <th>Memory Usage</th>
+                </tr>
+                <tr>
+                    <td><strong>Integer</strong></td>
+                    <td>int</td>
+                    <td>Whole numbers</td>
+                    <td>14, -5, 0, 1000</td>
+                    <td>4 bytes (32 bits)</td>
+                </tr>
+                <tr>
+                    <td><strong>Real</strong></td>
+                    <td>float</td>
+                    <td>Numbers with decimal places</td>
+                    <td>3.14, -2.5, 0.0</td>
+                    <td>8 bytes (64 bits)</td>
+                </tr>
+                <tr>
+                    <td><strong>Boolean</strong></td>
+                    <td>bool</td>
+                    <td>True or False values</td>
+                    <td>True, False</td>
+                    <td>1 byte</td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td>str (length 1)</td>
+                    <td>Single letter/symbol</td>
+                    <td>'A', 'x', '5', '!'</td>
+                    <td>Variable</td>
+                </tr>
+                <tr>
+                    <td><strong>String</strong></td>
+                    <td>str</td>
+                    <td>Text/sequences of characters</td>
+                    <td>"Hello", "Nathaniel"</td>
+                    <td>Variable</td>
+                </tr>
+            </table>
+
+            <h3>What You'll Be Expected To Do:</h3>
+            <ul>
+                <li><strong>Identify Data Types:</strong> Recognize which type to use for different data</li>
+                <li><strong>Type Casting:</strong> Convert between data types using int(), float(), str()</li>
+                <li><strong>Choose Appropriate Types:</strong> Select the right data type for real-world scenarios</li>
+                <li><strong>Understand Memory:</strong> Know that all data is stored as binary in computer memory</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Variables and Assignment</h2>
+            
+            <div class="concept-box">
+                <h3>Key Rule: = means "ASSIGN" not "equals"</h3>
+                <p>Assignment flows <strong>right to left</strong></p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>What Happens</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td><code>age = 14</code></td>
+                    <td>Store the value 14 in variable called age</td>
+                    <td>age contains 14</td>
+                </tr>
+                <tr>
+                    <td><code>name = "Sam"</code></td>
+                    <td>Store the text "Sam" in variable called name</td>
+                    <td>name contains "Sam"</td>
+                </tr>
+                <tr>
+                    <td><code>result = 5 + 3</code></td>
+                    <td>Calculate 5+3, then store 8 in result</td>
+                    <td>result contains 8</td>
+                </tr>
+                <tr>
+                    <td><code>x = x + 1</code></td>
+                    <td>Get current value of x, add 1, store back in x</td>
+                    <td>x increases by 1</td>
+                </tr>
+            </table>
+
+            <h3>Variables vs Constants</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Variables</h4>
+                    <ul>
+                        <li>Can be changed</li>
+                        <li>Values can be updated</li>
+                        <li>Example: <code>score = 10</code><br>Later: <code>score = 15</code></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Constants</h4>
+                    <ul>
+                        <li>Never change</li>
+                        <li>Fixed values</li>
+                        <li>Example: <code>PI = 3.14159</code><br>Always stays the same</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Variable Naming Rules</h3>
+            <table>
+                <tr>
+                    <th>Rule</th>
+                    <th>Good Example</th>
+                    <th>Bad Example</th>
+                </tr>
+                <tr>
+                    <td>Start with letter</td>
+                    <td><code>age</code> ✓</td>
+                    <td><code>2age</code> ✗</td>
+                </tr>
+                <tr>
+                    <td>No spaces</td>
+                    <td><code>firstName</code> ✓</td>
+                    <td><code>first name</code> ✗</td>
+                </tr>
+                <tr>
+                    <td>Be descriptive</td>
+                    <td><code>playerScore</code> ✓</td>
+                    <td><code>x</code> ✗</td>
+                </tr>
+                <tr>
+                    <td>No reserved words</td>
+                    <td><code>myPrint</code> ✓</td>
+                    <td><code>print</code> ✗</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Arithmetic Operators</h2>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Example</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td><strong>+</strong></td>
+                    <td>Addition</td>
+                    <td><code>5 + 3</code></td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td><strong>-</strong></td>
+                    <td>Subtraction</td>
+                    <td><code>5 - 3</code></td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><strong>*</strong></td>
+                    <td>Multiplication</td>
+                    <td><code>5 * 3</code></td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td><strong>/</strong></td>
+                    <td>Division</td>
+                    <td><code>6 / 3</code></td>
+                    <td>2.0</td>
+                </tr>
+                <tr>
+                    <td><strong>%</strong></td>
+                    <td>Modulus (remainder)</td>
+                    <td><code>7 % 3</code></td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+            <h3>Order of Operations (BODMAS)</h3>
+            <div class="calculation-examples">
+                <div><code>2 + 3 * 4 = 14</code> (multiplication first)</div>
+                <div><code>(2 + 3) * 4 = 20</code> (brackets first)</div>
+                <div><code>10 / 2 + 3 = 8.0</code> (division first)</div>
+                <div><code>15 % 4 * 2 = 6</code> (left to right for same precedence)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Functions and Return Values</h2>
+
+            <div class="concept-box">
+                <h3>Some functions return values you can store, others don't!</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>What it Does</th>
+                    <th>Returns</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>input()</code></td>
+                    <td>Gets text from user</td>
+                    <td>String</td>
+                    <td><code>name = input("Enter name: ")</code></td>
+                </tr>
+                <tr>
+                    <td><code>int()</code></td>
+                    <td>Converts to integer</td>
+                    <td>Integer</td>
+                    <td><code>age = int("14")</code></td>
+                </tr>
+                <tr>
+                    <td><code>float()</code></td>
+                    <td>Converts to real number</td>
+                    <td>Real (float)</td>
+                    <td><code>height = float("5.8")</code></td>
+                </tr>
+                <tr>
+                    <td><code>str()</code></td>
+                    <td>Converts to string</td>
+                    <td>String</td>
+                    <td><code>text = str(100)</code></td>
+                </tr>
+                <tr>
+                    <td><code>print()</code></td>
+                    <td>Displays text</td>
+                    <td>None (nothing useful)</td>
+                    <td><code>print("Hello")</code></td>
+                </tr>
+            </table>
+
+            <h3>Important Distinction:</h3>
+            <ul>
+                <li><strong>Functions that return useful values:</strong> input(), int(), float(), str() - you can assign these to variables</li>
+                <li><strong>Functions that don't return useful values:</strong> print() - these do something but don't give you data back</li>
+                <li><strong>Example:</strong> <code>x = print("Hello")</code> would store None in x (not useful!)</li>
+            </ul>
+
+            <h3>Combining Functions</h3>
+            <div class="code-examples">
+                <div class="code-example">
+                    <h4>Step by Step:</h4>
+                    <pre><code>user_text = input("Enter a number: ")    # Returns string
+number = int(user_text)                   # Returns integer
+result = number * 2                       # Calculate
+print(f"Double is {result}")              # Display result</code></pre>
+                </div>
+                
+                <div class="code-example">
+                    <h4>Combined (Advanced):</h4>
+                    <pre><code>number = int(input("Enter a number: "))  # Function inside function!
+print(f"Double is {number * 2}")          # Calculate and display</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Input and Output</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Getting Input</h3>
+                    <ul>
+                        <li><code>input("prompt")</code> - Always returns string</li>
+                        <li><code>int(input("prompt"))</code> - Convert to integer</li>
+                        <li><code>float(input("prompt"))</code> - Convert to real</li>
+                    </ul>
+                    
+                    <h4>Examples:</h4>
+                    <div class="code-block">
+                        <code>name = input("Name? ")</code><br>
+                        <code>age = int(input("Age? "))</code><br>
+                        <code>height = float(input("Height? "))</code>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Displaying Output</h3>
+                    <ul>
+                        <li><code>print("text")</code> - Print text</li>
+                        <li><code>print(variable)</code> - Print variable</li>
+                        <li><code>print("text", variable)</code> - Print both</li>
+                        <li><code>print(f"text {variable}")</code> - F-strings</li>
+                    </ul>
+                    
+                    <h4>Examples:</h4>
+                    <div class="code-block">
+                        <code>print("Hello!")</code><br>
+                        <code>print(name)</code><br>
+                        <code>print("Hi", name)</code><br>
+                        <code>print(f"Hi {name}")</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Type Casting</h2>
+
+            <div class="concept-box">
+                <h3>Why? Because input() always returns strings!</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Function</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>Integer</td>
+                    <td><code>int()</code></td>
+                    <td><code>int("42")</code> → 42</td>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>Real</td>
+                    <td><code>float()</code></td>
+                    <td><code>float("3.14")</code> → 3.14</td>
+                </tr>
+                <tr>
+                    <td>Integer</td>
+                    <td>String</td>
+                    <td><code>str()</code></td>
+                    <td><code>str(42)</code> → "42"</td>
+                </tr>
+                <tr>
+                    <td>Real</td>
+                    <td>String</td>
+                    <td><code>str()</code></td>
+                    <td><code>str(3.14)</code> → "3.14"</td>
+                </tr>
+                <tr>
+                    <td>Real</td>
+                    <td>Integer</td>
+                    <td><code>int()</code></td>
+                    <td><code>int(3.8)</code> → 3 (truncated!)</td>
+                </tr>
+            </table>
+
+            <h3>Common Pattern:</h3>
+            <div class="code-example">
+                <pre><code># User types "25"
+age_text = input("Enter age: ")     # age_text = "25" (string)
+age_number = int(age_text)          # age_number = 25 (integer)
+next_year = age_number + 1          # next_year = 26 (math works!)
+print(f"Next year: {next_year}")    # Output: Next year: 26</code></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Complete Program Example</h2>
+
+            <div class="code-example">
+                <h3>Simple Calculator</h3>
+                <pre><code># Get user information
+name = input("What's your name? ")
+print(f"Hello {name}! Let's do some math.")
+
+# Get numbers from user (with type casting)
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Calculate results (arithmetic operators)
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+
+# Display results (formatted output)
+print(f"{num1} + {num2} = {addition}")
+print(f"{num1} - {num2} = {subtraction}")
+print(f"{num1} * {num2} = {multiplication}")
+print(f"Thanks for using the calculator, {name}!")</code></pre>
+            </div>
+
+            <h3>This Program Shows:</h3>
+            <ul>
+                <li>String and Real data types</li>
+                <li>Variable assignment</li>
+                <li>Functions with return values</li>
+                <li>Type casting with float()</li>
+                <li>Arithmetic operators</li>
+                <li>Input → Process → Output flow</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Memory Connection</h2>
+
+            <div class="memory-flow">
+                <h3>From Your Code to Computer Memory:</h3>
+                <div class="flow-steps">
+                    <div class="step">
+                        <strong>1. You write:</strong> <code>age = 14</code>
+                    </div>
+                    <div class="step">
+                        <strong>2. Python evaluates:</strong> 14
+                    </div>
+                    <div class="step">
+                        <strong>3. Python converts:</strong> 14 → binary 00001110
+                    </div>
+                    <div class="step">
+                        <strong>4. Python stores:</strong> Binary in 4 bytes of RAM
+                    </div>
+                    <div class="step">
+                        <strong>5. Python creates:</strong> Label "age" pointing to that memory
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Remember:</strong> All your data (numbers, text, booleans) eventually becomes binary in computer memory - connecting back to your Boolean logic and binary knowledge!</p>
+        </div>
+
+        <div class="section">
+            <h2>Quick Reference</h2>
+
+            <div class="quick-ref-grid">
+                <div class="ref-card">
+                    <h4>Input Pattern</h4>
+                    <code>variable = type(input("prompt"))</code>
+                </div>
+                
+                <div class="ref-card">
+                    <h4>Assignment Pattern</h4>
+                    <code>variable = expression</code>
+                </div>
+                
+                <div class="ref-card">
+                    <h4>Output Pattern</h4>
+                    <code>print(f"text {variable}")</code>
+                </div>
+                
+                <div class="ref-card">
+                    <h4>Calculation Pattern</h4>
+                    <code>result = value1 operator value2</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-trick">
+            <h3>Memory Tricks</h3>
+            <ul>
+                <li><strong>Assignment = Storage:</strong> Think "put the value INTO the variable"</li>
+                <li><strong>Functions = Machines:</strong> They take input and give you output to store</li>
+                <li><strong>Types = Containers:</strong> Different containers for different kinds of data</li>
+                <li><strong>Casting = Conversion:</strong> Changing one type of container to another</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

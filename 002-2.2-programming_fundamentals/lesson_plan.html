@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals - Lesson Plan - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/lesson-plan.css">
+    <style>
+        .problem-example {
+            background: #ffe6e6;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .solution-example {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .problem-example h5 {
+            color: #c0392b;
+            margin-top: 0;
+        }
+        
+        .solution-example h5 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .process-flow {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .process-flow p {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        .memory-example {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .code-example pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .assignment-example {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .function-example {
+            background: #f0f8f0;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals - Lesson Plan</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
+            <a href="../teacher/">Teacher Resources</a>
+        </div>
+
+        <div class="lesson-overview">
+            <h2>Lesson Overview</h2>
+            <div class="overview-grid">
+                <div>
+                    <strong>Topic:</strong> 2.2 Programming Fundamentals<br>
+                    <strong>Duration:</strong> 45-60 minutes<br>
+                    <strong>Prerequisite:</strong> Boolean Logic (2.4)
+                </div>
+                <div>
+                    <strong>Key Concepts:</strong> Data types, Variables, Operators<br>
+                    <strong>Assessment:</strong> Worksheet (30 minutes)<br>
+                    <strong>Resources:</strong> Cheat sheet, Code examples
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lesson, Nathaniel will be able to:</p>
+            <ul>
+                <li>Identify and explain the five OCR data types (Integer, Real, Boolean, Character, String) and their Python equivalents</li>
+                <li>Understand the difference between variables and constants</li>
+                <li>Use arithmetic operators (+, -, *, /, %) correctly</li>
+                <li>Write simple programs using input() and print() functions</li>
+                <li>Understand type casting with int(), float(), and str() functions</li>
+                <li>Create a basic program that takes input, processes it, and produces output</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Strategy</h2>
+            
+            <h3>Building on Previous Knowledge (5 minutes)</h3>
+            <div class="teaching-note">
+                <strong>Key Connection:</strong> "Remember Boolean logic and binary? Let's see how they connect to programming!"
+                <ul>
+                    <li>Review: Boolean values are True/False (1/0 in binary)</li>
+                    <li>Connect: Programming has Boolean data type</li>
+                    <li>Preview: AND, OR, NOT become programming operators</li>
+                    <li>Bridge: All data eventually becomes binary in computer memory</li>
+                </ul>
+            </div>
+
+            <h3>From Binary to Python - The Big Picture (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>How Your Code Becomes Binary:</h4>
+                <div class="process-flow">
+                    <p><strong>1. You write Python:</strong> <code>age = 14</code></p>
+                    <p><strong>2. Python converts to bytecode:</strong> (intermediate form)</p>
+                    <p><strong>3. Python Virtual Machine (VM):</strong> Translates bytecode to CPU operations</p>
+                    <p><strong>4. CPU executes:</strong> Binary instructions (like your Boolean logic!)</p>
+                </div>
+
+                <h4>Why High-Level Languages Like Python?</h4>
+                <ul>
+                    <li><strong>Human-friendly:</strong> We write <code>age = 14</code> instead of binary memory addresses</li>
+                    <li><strong>Less errors:</strong> Python handles memory management for us</li>
+                    <li><strong>Faster development:</strong> One line of Python = many lines of machine code</li>
+                    <li><strong>Cross-platform:</strong> Same Python code works on different computers</li>
+                </ul>
+
+                <h4>Memory and Variables (Connecting to Your Classroom Learning):</h4>
+                <div class="memory-example">
+                    <p><strong>When you write:</strong> <code>name = "Nathaniel"</code></p>
+                    <ul>
+                        <li>Python finds empty space in computer memory (RAM)</li>
+                        <li>Stores "Nathaniel" as binary (remember ASCII/Unicode from class!)</li>
+                        <li>Creates a label "name" that points to that memory location</li>
+                        <li>Different data types need different amounts of memory:
+                            <ul>
+                                <li>Integer: Usually 4 bytes (32 bits)</li>
+                                <li>Real (float): Usually 8 bytes (64 bits)</li>
+                                <li>String: Variable length depending on text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Data Types Introduction (15 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Why Do We Need Data Types? (5 minutes)</h4>
+                <p><strong>The Problem:</strong> Imagine if everything was just text...</p>
+                
+                <div class="problem-example">
+                    <h5>Without Data Types:</h5>
+                    <ul>
+                        <li><strong>Math becomes impossible:</strong> "5" + "3" = "53" (text joining, not addition!)</li>
+                        <li><strong>Comparisons fail:</strong> "10" is considered "smaller" than "2" (alphabetically!)</li>
+                        <li><strong>Memory waste:</strong> Storing the number 5 as text "5" uses more computer memory</li>
+                        <li><strong>Logic breaks:</strong> "True" is just text, not a yes/no decision</li>
+                    </ul>
+                </div>
+
+                <div class="solution-example">
+                    <h5>With Data Types:</h5>
+                    <ul>
+                        <li><strong>Math works:</strong> 5 + 3 = 8 (actual addition)</li>
+                        <li><strong>Comparisons work:</strong> 10 > 2 is True (numerical comparison)</li>
+                        <li><strong>Memory efficient:</strong> Number 5 stored as binary, not text</li>
+                        <li><strong>Logic works:</strong> True enables if statements and decisions</li>
+                    </ul>
+                </div>
+
+                <p><strong>Real Example:</strong> If you're making a game and the score is stored as text "100", you can't easily add 10 points or check if the player beat the high score!</p>
+
+                <h4>The Five OCR Data Types (10 minutes):</h4>
+                <table>
+                    <tr>
+                        <th>OCR Data Type</th>
+                        <th>Python Type</th>
+                        <th>Real-World Analogy</th>
+                        <th>Programming Example</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Integer</strong></td>
+                        <td>int</td>
+                        <td>Counting whole items (apples, people)</td>
+                        <td>age = 14, score = 100</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Real</strong></td>
+                        <td>float</td>
+                        <td>Measuring (height, temperature, money)</td>
+                        <td>height = 1.75, price = 9.99</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Boolean</strong></td>
+                        <td>bool</td>
+                        <td>Yes/No questions, switches</td>
+                        <td>isRaining = True, gameOver = False</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Character</strong></td>
+                        <td>str (length 1)</td>
+                        <td>Single letter on keyboard</td>
+                        <td>grade = 'A', initial = 'N'</td>
+                    </tr>
+                    <tr>
+                        <td><strong>String</strong></td>
+                        <td>str</td>
+                        <td>Words, sentences, names</td>
+                        <td>name = "Nathaniel", message = "Hello"</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Important Note:</strong> The OCR specification lists five data types, but Python only has four distinct types. Character is treated as a string of length 1 in Python.</p>
+            </div>
+
+            <h3>Variables vs Constants (15 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Memory Storage Analogy:</h4>
+                <ul>
+                    <li><strong>Variable:</strong> A labeled memory location where you can change the contents
+                        <br><code>score = 10</code> (stores binary 00001010 in memory)
+                        <br>→ later → <code>score = 15</code> (overwrites with binary 00001111)</li>
+                    <li><strong>Constant:</strong> A labeled memory location that's read-only
+                        <br><code>PI = 3.14159</code> (stored once, never changed)</li>
+                </ul>
+                
+                <h4>Understanding Assignment - The = Operator:</h4>
+                <div class="assignment-example">
+                    <p><strong>Key Point:</strong> = means "assign" or "store", NOT "equals"!</p>
+                    <ul>
+                        <li><code>x = 5</code> → "Store the value 5 in variable x"</li>
+                        <li><code>name = "Sam"</code> → "Store the text 'Sam' in variable name"</li>
+                        <li><code>result = 3 + 4</code> → "Calculate 3+4, then store 7 in variable result"</li>
+                    </ul>
+                    
+                    <p><strong>Assignment flows right to left:</strong></p>
+                    <div class="code-example">
+                        <pre><code>x = 10        # Store 10 in x
+y = x + 5     # Get value from x (10), add 5, store 15 in y
+x = x + 1     # Get value from x (10), add 1, store 11 back in x</code></pre>
+                    </div>
+                </div>
+                
+                <h4>What Happens in Memory:</h4>
+                <div class="memory-example">
+                    <p><strong>When you write <code>age = 14</code>:</strong></p>
+                    <ol>
+                        <li>Python evaluates the right side: 14</li>
+                        <li>Python finds 4 bytes of free RAM</li>
+                        <li>Converts 14 to binary: 00000000 00000000 00000000 00001110</li>
+                        <li>Stores this binary in memory</li>
+                        <li>Creates a reference "age" pointing to that memory address</li>
+                        <li>Later, <code>age = 15</code> overwrites the same memory location</li>
+                    </ol>
+                </div>
+                
+                <h4>Naming Rules (Like labeling memory clearly):</h4>
+                <ul>
+                    <li>Start with letter: <code>age</code> ✓, <code>2age</code> ✗</li>
+                    <li>No spaces: <code>firstName</code> ✓, <code>first name</code> ✗</li>
+                    <li>Descriptive names: <code>score</code> ✓, <code>x</code> ✗</li>
+                </ul>
+            </div>
+
+            <h3>Arithmetic Operators (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Basic Math Operations in Programming:</h4>
+                <table>
+                    <tr><td><strong>+</strong></td><td>Addition</td><td>5 + 3 = 8</td></tr>
+                    <tr><td><strong>-</strong></td><td>Subtraction</td><td>5 - 3 = 2</td></tr>
+                    <tr><td><strong>*</strong></td><td>Multiplication</td><td>5 * 3 = 15</td></tr>
+                    <tr><td><strong>/</strong></td><td>Division</td><td>6 / 3 = 2.0</td></tr>
+                    <tr><td><strong>%</strong></td><td>Modulus (remainder)</td><td>7 % 3 = 1</td></tr>
+                </table>
+
+                <h4>Order of Operations (BODMAS/PEMDAS):</h4>
+                <ul>
+                    <li><code>2 + 3 * 4 = 14</code> (multiplication first)</li>
+                    <li><code>(2 + 3) * 4 = 20</code> (brackets first)</li>
+                </ul>
+                
+                <p><strong>Note:</strong> We'll cover comparison and logical operators in the next lesson when we learn about decision making!</p>
+            </div>
+
+            <h3>Functions - A Quick Introduction (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>What is a Function?</h4>
+                <p>A function is like a mini-program that does one specific job. Think of it as a machine that takes input and gives you output.</p>
+                
+                <h4>Functions That Return Values:</h4>
+                <p><strong>Key Concept:</strong> Many functions "return" (give back) a value that you can store in a variable!</p>
+                
+                <div class="function-example">
+                    <p><strong>Examples of Functions Returning Values:</strong></p>
+                    <ul>
+                        <li><code>user_input = input("Enter your name: ")</code>
+                            <br>→ input() function returns the text the user typed</li>
+                        <li><code>number = int("42")</code>
+                            <br>→ int() function returns the integer 42</li>
+                        <li><code>decimal = float("3.14")</code>
+                            <br>→ float() function returns the real number 3.14</li>
+                        <li><code>text = str(100)</code>
+                            <br>→ str() function returns the string "100"</li>
+                    </ul>
+                </div>
+                
+                <h4>Functions That Don't Return Values:</h4>
+                <ul>
+                    <li><code>print("Hello")</code> → Displays text but doesn't return anything useful</li>
+                </ul>
+                
+                <h4>Combining Functions and Assignment:</h4>
+                <div class="code-example">
+                    <pre><code># Function returns value, we assign it to variable
+age_text = input("How old are you? ")    # Returns string
+age_number = int(age_text)               # Returns integer
+print(f"Next year you'll be {age_number + 1}")  # Use the stored value
+
+# We can combine these steps:
+age = int(input("How old are you? "))    # Function inside function!</code></pre>
+                </div>
+                
+                <p><strong>Function Structure:</strong> <code>variable = function_name(parameter)</code></p>
+            </div>
+
+            <h3>Input/Output Operations (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Getting Input from Users:</h4>
+                <ul>
+                    <li><code>name = input("What's your name? ")</code> - Gets text from user</li>
+                    <li><code>age = int(input("How old are you? "))</code> - Gets number from user</li>
+                    <li><strong>Remember:</strong> input() always returns a string, so we need type casting!</li>
+                </ul>
+                
+                <h4>Displaying Output:</h4>
+                <ul>
+                    <li><code>print("Hello", name)</code> - Print multiple items</li>
+                    <li><code>print("You are", age, "years old")</code> - Mix text and variables</li>
+                    <li><code>print(f"Hello {name}, you are {age}")</code> - f-strings (advanced)</li>
+                </ul>
+            </div>
+
+            <h3>Type Casting (5 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Converting Between Data Types:</h4>
+                <p><strong>Key OCR Requirement:</strong> Python assumes all inputs are strings, so we need to convert them.</p>
+                <table>
+                    <tr>
+                        <th>Python Function</th>
+                        <th>OCR Data Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code>int()</code></td>
+                        <td>Integer</td>
+                        <td><code>age = int(input("Enter age: "))</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>float()</code></td>
+                        <td>Real</td>
+                        <td><code>height = float(input("Enter height: "))</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>str()</code></td>
+                        <td>String</td>
+                        <td><code>message = str(score) + " points"</code></td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Putting It All Together - First Program (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Goal: Create a Simple Calculator</h4>
+                <div class="code-example">
+                    <pre><code># Simple calculator program
+name = input("What's your name? ")
+print(f"Hello {name}! Let's do some math.")
+
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Calculate results
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+
+# Display results
+print(f"{num1} + {num2} = {addition}")
+print(f"{num1} - {num2} = {subtraction}")
+print(f"{num1} * {num2} = {multiplication}")
+print(f"Thanks for using the calculator, {name}!")</code></pre>
+                </div>
+                
+                <h4>What This Program Demonstrates:</h4>
+                <ul>
+                    <li>String and Real data types</li>
+                    <li>Variables storing different types</li>
+                    <li>input() and print() functions</li>
+                    <li>Type casting with float()</li>
+                    <li>Arithmetic operators</li>
+                    <li>A complete input → process → output program</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Mistakes to Address</h2>
+            <div class="mistake-prevention">
+                <ul>
+                    <li><strong>Assignment vs Equality:</strong> = (assigns) vs == (compares)</li>
+                    <li><strong>Data Type Confusion:</strong> "5" (string) vs 5 (integer)</li>
+                    <li><strong>Variable Naming:</strong> Using reserved words or starting with numbers</li>
+                    <li><strong>Operator Precedence:</strong> 2 + 3 * 4 = 14 (not 20)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Assessment Approach</h2>
+            <div class="assessment-grid">
+                <div>
+                    <h3>During Lesson:</h3>
+                    <ul>
+                        <li>Quick verbal checks</li>
+                        <li>Examples together</li>
+                        <li>Connect to Boolean logic</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Worksheet (30 mins):</h3>
+                    <ul>
+                        <li>Data type identification</li>
+                        <li>Variable naming practice</li>
+                        <li>Operator evaluation</li>
+                        <li>Simple code reading</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Activities</h2>
+            <ul>
+                <li>Write a simple "Mad Libs" program using different data types</li>
+                <li>Create a calculator using arithmetic operators</li>
+                <li>Design a quiz using Boolean logic and comparison operators</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Next Lesson Preview</h2>
+            <p><strong>Topic:</strong> Programming Fundamentals Part 2 - Decision Making</p>
+            <p><strong>Focus:</strong> Comparison operators, logical operators, IF statements</p>
+            <p><strong>Connection:</strong> "Now we can use Boolean logic to make decisions in programs!"</p>
+            <p><strong>Goal:</strong> Create programs that can make choices based on user input</p>
+        </div>
+    </div>
+</body>
+</html>

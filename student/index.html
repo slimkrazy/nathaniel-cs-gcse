@@ -253,6 +253,37 @@
             opacity: 0.9;
         }
         
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        
+        .progress-table th,
+        .progress-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        
+        .progress-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .status-completed {
+            background: #27ae60;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .header h1 {
@@ -267,6 +298,15 @@
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
+            }
+            
+            .progress-table {
+                font-size: 0.8em;
+            }
+            
+            .progress-table th,
+            .progress-table td {
+                padding: 8px 4px;
             }
         }
     </style>
@@ -293,24 +333,71 @@
             
             <div class="progress-stats">
                 <div class="stat-card">
-                    <span class="stat-number">2</span>
+                    <span class="stat-number">3</span>
                     <div class="stat-label">Topics Available</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">0</span>
+                    <span class="stat-number">2</span>
                     <div class="stat-label">Topics Completed</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">2</span>
+                    <span class="stat-number">3</span>
                     <div class="stat-label">Cheat Sheets Ready</div>
                 </div>
             </div>
         </div>
         
+        <div class="progress-section">
+            <h2>📚 Quick Topic Navigation</h2>
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Lesson</th>
+                        <th>Topic Name</th>
+                        <th>Date Covered</th>
+                        <th>Status</th>
+                        <th>Quick Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000</td>
+                        <td><a href="#binary-hex" style="color: #3498db; text-decoration: none;">Binary/Hex Conversion</a></td>
+                        <td>Sun 21st Sept</td>
+                        <td><span class="status-completed">✅ Completed</span></td>
+                        <td>
+                            <a href="../000-review-binary_hex_conversion/worksheet.html" style="color: #3498db;">📝 Worksheet</a> | 
+                            <a href="../000-review-binary_hex_conversion/cheat_sheet.html" style="color: #9b59b6;">📋 Cheat Sheet</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#boolean-logic" style="color: #3498db; text-decoration: none;">Boolean Logic Introduction</a></td>
+                        <td>Sun 5th Oct</td>
+                        <td><span class="status-completed">✅ Completed</span></td>
+                        <td>
+                            <a href="../001-2.4-boolean_logic_introduction/worksheet.html" style="color: #3498db;">📝 Worksheet</a> | 
+                            <a href="../001-2.4-boolean_logic_introduction/cheat_sheet.html" style="color: #9b59b6;">📋 Cheat Sheet</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td><a href="#programming-fundamentals" style="color: #3498db; text-decoration: none;">Programming Fundamentals</a></td>
+                        <td>Sun 12th Oct</td>
+                        <td><span class="status-ready">📋 Materials Ready</span></td>
+                        <td>
+                            <a href="../002-2.2-programming_fundamentals/worksheet.html" style="color: #3498db;">📝 Worksheet</a> | 
+                            <a href="../002-2.2-programming_fundamentals/cheat_sheet.html" style="color: #9b59b6;">📋 Cheat Sheet</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
         <div class="topics-section">
             <h2>📚 Study Topics</h2>
             
-            <div class="topic-card">
+            <div id="binary-hex" class="topic-card">
                 <div class="topic-header">
                     <h3 class="topic-title">Binary, Denary & Hexadecimal</h3>
                     <span class="topic-spec">Review Topic</span>
@@ -331,7 +418,7 @@
                 </div>
             </div>
             
-            <div class="topic-card">
+            <div id="boolean-logic" class="topic-card">
                 <div class="topic-header">
                     <h3 class="topic-title">Boolean Logic Introduction</h3>
                     <span class="topic-spec">Section 2.4</span>
@@ -346,6 +433,27 @@
                             📝 Practice Worksheet
                         </a>
                         <a href="../001-2.4-boolean_logic_introduction/cheat_sheet.html" class="cheat-sheet-link">
+                            📋 Cheat Sheet
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="programming-fundamentals" class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Programming Fundamentals</h3>
+                    <span class="topic-spec">Section 2.2</span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-status status-ready">📋 Materials Ready</div>
+                    <div class="topic-description">
+                        Learn the building blocks of programming: data types, variables, operators, and input/output - connecting your Boolean logic knowledge to real code!
+                    </div>
+                    <div class="topic-links">
+                        <a href="../002-2.2-programming_fundamentals/worksheet.html" class="worksheet-link">
+                            📝 Practice Worksheet
+                        </a>
+                        <a href="../002-2.2-programming_fundamentals/cheat_sheet.html" class="cheat-sheet-link">
                             📋 Cheat Sheet
                         </a>
                     </div>
