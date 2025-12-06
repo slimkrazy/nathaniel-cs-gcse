@@ -7,29 +7,40 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/worksheet.css">
     <style>
+        body {
+            color: #2c3e50;
+        }
+        
         .code-block {
             background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            border: 2px solid #dee2e6;
             border-radius: 5px;
             padding: 15px;
             margin: 10px 0;
-            font-family: monospace;
+            font-family: 'Courier New', monospace;
             white-space: pre-wrap;
+            color: #2c3e50;
+            line-height: 1.5;
         }
         
         .answer-space {
-            border-bottom: 1px solid #333;
+            border-bottom: 2px solid #3498db;
             display: inline-block;
             min-width: 100px;
             margin: 0 5px;
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: bold;
         }
         
         .answer-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 5px 0;
-            min-height: 40px;
-            background: #fafafa;
+            border: 2px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            min-height: 60px;
+            background: #ffffff;
+            border-radius: 5px;
+            color: #2c3e50;
         }
         
         .truth-table {
@@ -38,26 +49,31 @@
         }
         
         .truth-table th, .truth-table td {
-            border: 1px solid #333;
-            padding: 8px;
+            border: 1px solid #2c3e50;
+            padding: 10px;
             text-align: center;
-            min-width: 60px;
+            min-width: 80px;
+            color: #2c3e50;
         }
         
         .truth-table th {
-            background-color: #f0f0f0;
+            background-color: #3498db;
+            color: white;
             font-weight: bold;
         }
         
         .fill-blank {
             background-color: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 3px;
-            padding: 2px 8px;
-            margin: 0 2px;
-            min-width: 50px;
+            border: 2px solid #f39c12;
+            border-radius: 5px;
+            padding: 4px 12px;
+            margin: 0 3px;
+            min-width: 60px;
             display: inline-block;
             text-align: center;
+            color: #2c3e50;
+            font-weight: bold;
+            min-height: 20px;
         }
         
         .code-trace {
@@ -84,6 +100,12 @@
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
+        }
+        
+        .debug-section .code-block {
+            background: #ffffff;
+            border: 2px solid #e74c3c;
+            color: #2c3e50;
         }
     </style>
 </head>
