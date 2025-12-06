@@ -440,95 +440,7 @@ elif operation == "*":
         <!-- Exercise 3 -->
         <div class="exercise-card">
             <div class="exercise-header">
-                <h3 class="exercise-title">Exercise 3: Shopping List Manager</h3>
-                <span class="difficulty medium">Medium</span>
-            </div>
-            <div class="exercise-content">
-                <div class="exercise-description">
-                    Create a smart shopping list that can handle different types of data and make decisions about your shopping budget!
-                </div>
-                
-                <div class="concepts-tested">
-                    <h4>📚 Concepts Tested</h4>
-                    <ul>
-                        <li>Lists/arrays for storing multiple items</li>
-                        <li>Float variables for prices and money</li>
-                        <li>Loops with conditional logic</li>
-                        <li>String manipulation and formatting</li>
-                        <li>Complex decision making with if/elif/else</li>
-                    </ul>
-                </div>
-                
-                <div class="requirements">
-                    <h4>📋 Requirements</h4>
-                    <ul>
-                        <li>Create a list of at least 5 items with their prices</li>
-                        <li>Ask the user for their budget</li>
-                        <li>Calculate the total cost of all items</li>
-                        <li>Tell them if they can afford everything or what to remove</li>
-                        <li>Show the shopping list in a nice table format</li>
-                        <li>Use different colors for affordable vs expensive items</li>
-                        <li>Add emojis for different item categories</li>
-                    </ul>
-                </div>
-                
-                <div class="rich-example">
-                    <h4>🎨 Rich Examples to Help You</h4>
-                    <div class="code-example">
-from rich.console import Console
-from rich.table import Table
-
-console = Console()
-
-# Creating lists
-items = ["Bread", "Milk", "Eggs", "Cheese", "Apples"]
-prices = [2.50, 3.20, 4.00, 5.50, 3.00]
-
-# Creating a table
-table = Table(title="🛒 Shopping List")
-table.add_column("Item", style="cyan")
-table.add_column("Price", style="green")
-
-# Adding rows to table
-for i in range(len(items)):
-    table.add_row(items[i], f"£{prices[i]:.2f}")
-
-console.print(table)
-
-# Calculating total
-total = sum(prices)
-console.print(f"[bold]Total: £{total:.2f}[/bold]")
-                    </div>
-                </div>
-                
-                <div class="sample-output">
-                    <strong>Expected Output Example:</strong><br>
-                    ╭─── 🛒 Shopping List ────────╮<br>
-                    │ Item   │ Price  │ Status  │<br>
-                    │ 🍞 Bread │ £2.50  │ ✅ Get  │<br>
-                    │ 🥛 Milk  │ £3.20  │ ✅ Get  │<br>
-                    │ 🥚 Eggs  │ £4.00  │ ❌ Skip │<br>
-                    ╰─────────────────────────────╯<br>
-                    Total: £18.20 | Budget: £15.00<br>
-                    💸 You're £3.20 over budget!
-                </div>
-                
-                <div class="hint-box">
-                    <h4>💡 Hints</h4>
-                    <ul>
-                        <li>Use <code>sum()</code> to add up all prices in a list</li>
-                        <li>Compare total cost with budget using if statements</li>
-                        <li>Use <code>:.2f</code> in f-strings to show 2 decimal places</li>
-                        <li>Think about which items to recommend removing (most expensive first?)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Exercise 4 -->
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <h3 class="exercise-title">Exercise 4: Password Strength Checker</h3>
+                <h3 class="exercise-title">Exercise 3: Password Strength Checker</h3>
                 <span class="difficulty medium">Medium</span>
             </div>
             <div class="exercise-content">
@@ -617,144 +529,21 @@ else:
             </div>
         </div>
 
-        <!-- Exercise 5 -->
+        <!-- Exercise 4 -->
         <div class="exercise-card">
             <div class="exercise-header">
-                <h3 class="exercise-title">Exercise 5: Grade Calculator & Report Card</h3>
+                <h3 class="exercise-title">Exercise 4: Text-Based Adventure Game</h3>
                 <span class="difficulty hard">Hard</span>
             </div>
             <div class="exercise-content">
                 <div class="exercise-description">
-                    Create a comprehensive grade calculator that handles multiple subjects, calculates averages, and generates a beautiful report card!
-                </div>
-                
-                <div class="concepts-tested">
-                    <h4>📚 Concepts Tested</h4>
-                    <ul>
-                        <li>Lists for storing multiple grades</li>
-                        <li>Dictionaries for subject-grade pairs</li>
-                        <li>Float calculations and averages</li>
-                        <li>Complex conditional logic for grade boundaries</li>
-                        <li>String formatting and manipulation</li>
-                        <li>Data validation and error handling</li>
-                    </ul>
-                </div>
-                
-                <div class="requirements">
-                    <h4>📋 Requirements</h4>
-                    <ul>
-                        <li>Ask for grades in 5 different subjects (0-100)</li>
-                        <li>Validate that grades are in the correct range</li>
-                        <li>Calculate the overall average</li>
-                        <li>Convert percentage grades to letter grades (A*, A, B, C, D, U)</li>
-                        <li>Determine if the student passes overall (average ≥ 50)</li>
-                        <li>Create a beautiful report card using Rich tables and panels</li>
-                        <li>Add motivational messages based on performance</li>
-                        <li>Use appropriate emojis and colors for different grades</li>
-                    </ul>
-                </div>
-                
-                <div class="rich-example">
-                    <h4>🎨 Rich Examples to Help You</h4>
-                    <div class="code-example">
-from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
-
-console = Console()
-
-# Dictionary to store subjects and grades
-grades = {}
-subjects = ["Maths", "English", "Science", "History", "Art"]
-
-# Getting grades with validation
-for subject in subjects:
-    while True:
-        try:
-            grade = float(Prompt.ask(f"Enter {subject} grade (0-100)"))
-            if 0 <= grade <= 100:
-                grades[subject] = grade
-                break
-            else:
-                console.print("[red]Grade must be between 0 and 100![/red]")
-        except ValueError:
-            console.print("[red]Please enter a valid number![/red]")
-
-# Function to convert percentage to letter grade
-def get_letter_grade(percentage):
-    if percentage >= 90: return "A*", "green"
-    elif percentage >= 80: return "A", "blue"
-    elif percentage >= 70: return "B", "cyan"
-    elif percentage >= 60: return "C", "yellow"
-    elif percentage >= 50: return "D", "orange"
-    else: return "U", "red"
-
-# Creating a report table
-table = Table(title="📊 Academic Report Card")
-table.add_column("Subject", style="cyan")
-table.add_column("Grade %", justify="center")
-table.add_column("Letter Grade", justify="center")
-
-for subject, grade in grades.items():
-    letter, color = get_letter_grade(grade)
-    table.add_row(
-        subject, 
-        f"{grade:.1f}%", 
-        f"[{color}]{letter}[/{color}]"
-    )
-
-console.print(table)
-                    </div>
-                </div>
-                
-                <div class="sample-output">
-                    <strong>Expected Output Example:</strong><br>
-                    ╭─────── 📊 Academic Report Card ───────╮<br>
-                    │ Subject  │ Grade % │ Letter Grade │<br>
-                    │ Maths    │  85.0%  │      A       │<br>
-                    │ English  │  78.0%  │      B       │<br>
-                    │ Science  │  92.0%  │     A*       │<br>
-                    │ History  │  67.0%  │      C       │<br>
-                    │ Art      │  88.0%  │      A       │<br>
-                    ╰────────────────────────────────────────╯<br><br>
-                    ╭─────── 🎓 Overall Performance ────────╮<br>
-                    │ Average Grade: 82.0%                  │<br>
-                    │ Overall Grade: A                      │<br>
-                    │ Status: ✅ PASSED                     │<br>
-                    │                                       │<br>
-                    │ 🌟 Excellent work! Keep it up!       │<br>
-                    ╰───────────────────────────────────────╯
-                </div>
-                
-                <div class="hint-box">
-                    <h4>💡 Hints</h4>
-                    <ul>
-                        <li>Use a dictionary to store subject names and grades together</li>
-                        <li>Use <code>try/except</code> to handle invalid number input</li>
-                        <li>Calculate average using <code>sum(grades.values()) / len(grades)</code></li>
-                        <li>Create a function to convert percentages to letter grades</li>
-                        <li>Use different colors for different grade ranges</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Exercise 6 -->
-        <div class="exercise-card">
-            <div class="exercise-header">
-                <h3 class="exercise-title">Exercise 6: Text-Based Adventure Game</h3>
-                <span class="difficulty hard">Hard</span>
-            </div>
-            <div class="exercise-content">
-                <div class="exercise-description">
-                    Create an interactive story game that uses everything you've learned - variables, lists, input/output, and complex decision-making!
+                    Create an interactive story game that uses everything you've learned - variables, input/output, and complex decision-making!
                 </div>
                 
                 <div class="concepts-tested">
                     <h4>📚 Concepts Tested</h4>
                     <ul>
                         <li>Complex nested conditional logic</li>
-                        <li>Lists for inventory and choices</li>
                         <li>String variables for story text</li>
                         <li>Integer variables for health/score</li>
                         <li>Boolean variables for game state</li>
@@ -768,11 +557,11 @@ console.print(table)
                     <ul>
                         <li>Create a short adventure with at least 5 decision points</li>
                         <li>Track player health (starting at 100)</li>
-                        <li>Have an inventory list where players can collect items</li>
+                        <li>Track player score or gold using integer variables</li>
                         <li>Include at least 3 different endings based on choices</li>
                         <li>Use Rich to create immersive scenes with panels and colors</li>
                         <li>Add a combat system with conditional logic</li>
-                        <li>Include character stats and inventory display</li>
+                        <li>Include character stats display (health, score)</li>
                         <li>Make it engaging with emojis and storytelling!</li>
                     </ul>
                 </div>
@@ -783,14 +572,13 @@ console.print(table)
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt, Confirm
-from rich.table import Table
 from rich import print
 
 console = Console()
 
 # Game variables
 player_health = 100
-inventory = []
+player_gold = 0
 game_over = False
 
 # Creating dramatic scenes
@@ -809,28 +597,20 @@ choice = Prompt.ask(
     choices=["enter", "run", "investigate"]
 )
 
-# Inventory display
-def show_inventory():
-    if inventory:
-        console.print("\n[cyan]🎒 Your Inventory:[/cyan]")
-        for item in inventory:
-            console.print(f"  • {item}")
-    else:
-        console.print("\n[dim]🎒 Your inventory is empty[/dim]")
-
 # Health display with colors
-def show_health():
+def show_stats():
     if player_health > 70:
-        color = "green"
-        emoji = "💚"
+        health_color = "green"
+        health_emoji = "💚"
     elif player_health > 30:
-        color = "yellow" 
-        emoji = "💛"
+        health_color = "yellow" 
+        health_emoji = "💛"
     else:
-        color = "red"
-        emoji = "❤️"
+        health_color = "red"
+        health_emoji = "❤️"
     
-    console.print(f"[{color}]{emoji} Health: {player_health}/100[/{color}]")
+    console.print(f"[{health_color}]{health_emoji} Health: {player_health}/100[/{health_color}]")
+    console.print(f"[yellow]💰 Gold: {player_gold}[/yellow]")
                     </div>
                 </div>
                 
@@ -845,16 +625,14 @@ def show_health():
                     ╰────────────────────────────────────────╯<br><br>
                     What do you do? (enter/run/investigate): enter<br><br>
                     💚 Health: 100/100<br>
-                    🎒 Your Inventory:<br>
-                    • 🗝️ Rusty Key<br>
-                    • 🕯️ Candle
+                    💰 Gold: 0
                 </div>
                 
                 <div class="hint-box">
                     <h4>💡 Hints</h4>
                     <ul>
                         <li>Plan your story structure first - draw a flowchart!</li>
-                        <li>Use functions to avoid repeating code (like inventory display)</li>
+                        <li>Use functions to avoid repeating code (like stats display)</li>
                         <li>Use <code>choices=[]</code> in Prompt.ask() to limit valid options</li>
                         <li>Create variables to track different game states</li>
                         <li>Use nested if statements for complex branching stories</li>
@@ -878,11 +656,10 @@ def show_health():
             <h2>🏁 Completion Checklist</h2>
             <p>When you've completed each exercise, make sure you can answer these questions:</p>
             <ul>
-                <li>✅ <strong>Variables:</strong> Can you create and use different data types (strings, integers, floats, booleans, lists)?</li>
+                <li>✅ <strong>Variables:</strong> Can you create and use different data types (strings, integers, floats, booleans)?</li>
                 <li>✅ <strong>Input/Output:</strong> Can you get user input and display formatted output using Rich?</li>
                 <li>✅ <strong>Casting:</strong> Can you convert between different data types when needed?</li>
                 <li>✅ <strong>Conditionals:</strong> Can you use if/elif/else to make decisions in your programs?</li>
-                <li>✅ <strong>Lists:</strong> Can you store multiple items and work with them?</li>
                 <li>✅ <strong>Rich Library:</strong> Can you create colorful, styled output with panels and tables?</li>
             </ul>
             
