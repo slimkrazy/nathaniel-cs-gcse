@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Coding Exercises - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .nav-breadcrumb {
+            background: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        
+        .nav-breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .exercise-card {
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+            margin: 25px 0;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .exercise-header {
+            background: #34495e;
+            color: white;
+            padding: 15px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .exercise-title {
+            font-size: 1.4em;
+            margin: 0;
+        }
+        
+        .difficulty {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .difficulty.easy { background: #27ae60; }
+        .difficulty.medium { background: #f39c12; }
+        .difficulty.hard { background: #e74c3c; }
+        
+        .exercise-content {
+            padding: 20px;
+        }
+        
+        .exercise-description {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        
+        .requirements {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .requirements h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+        
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .hint-box {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .hint-box h4 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .rich-example {
+            background: #f0f8ff;
+            border: 2px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .rich-example h4 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        
+        .sample-output {
+            background: #1e1e1e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .emoji-reference {
+            background: #fff0f5;
+            border: 2px solid #e91e63;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .emoji-reference h3 {
+            color: #e91e63;
+            margin-top: 0;
+        }
+        
+        .concepts-tested {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .concepts-tested h4 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        
+        .concepts-tested ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .concepts-tested li {
+            margin: 5px 0;
+        }
+        
+        .setup-section {
+            background: #f0f8e8;
+            border-left: 5px solid #27ae60;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .setup-section h2 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .header { background: #2c3e50 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐍 Python Coding Exercises</h1>
+            <div class="subtitle">Programming Fundamentals Practice - Nathaniel's GCSE Computer Science</div>
+        </div>
+        
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Student Resources</a> |
+            <a href="lesson_plan.html">← Lesson Plan</a> |
+            <a href="worksheet.html">← Worksheet</a>
+        </div>
+        
+        <div class="setup-section">
+            <h2>🚀 Getting Started</h2>
+            <p>Before you begin these exercises, make sure you have:</p>
+            <ul>
+                <li><strong>Python 3.8+</strong> installed on your computer</li>
+                <li><strong>Rich library</strong> installed: <code>pip install rich</code></li>
+                <li>Your favorite code editor (VS Code, PyCharm, or even IDLE)</li>
+                <li>The motivation to create something awesome! 💪</li>
+            </ul>
+            
+            <div class="rich-example">
+                <h4>🎨 Rich Library Quick Reference</h4>
+                <div class="code-example">
+# Basic rich imports and usage
+from rich.console import Console
+from rich.text import Text
+from rich.panel import Panel
+from rich.prompt import Prompt
+
+console = Console()
+
+# Colored text
+console.print("Hello World!", style="bold red")
+console.print("Success!", style="green")
+console.print("Warning!", style="yellow")
+
+# Text with emojis (use actual emojis or :emoji_name:)
+console.print("🎉 Congratulations! 🎉", style="bold blue")
+
+# Panels and boxes
+console.print(Panel("Important Message", style="red"))
+
+# Getting styled input
+name = Prompt.ask("Enter your name", style="cyan")
+                </div>
+            </div>
+        </div>
+        
+        <div class="emoji-reference">
+            <h3>😃 Emoji Reference</h3>
+            <p>For a complete list of emojis you can use, check out:</p>
+            <ul>
+                <li><strong>GitHub Emoji List:</strong> <a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md" target="_blank">https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md</a></li>
+                <li><strong>Quick favorites:</strong> 🎮 🚀 ⚡ 🔥 💯 ✨ 🎯 🏆 💪 🎉 🤖 👾 🌟</li>
+            </ul>
+            <p><strong>Tip:</strong> You can copy-paste emojis directly into your Python strings!</p>
+        </div>
+
+        <!-- Exercise 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 1: Gaming Profile Creator</h3>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Create a program that builds a gaming profile by collecting user information and displaying it in a stylish format using the Rich library.
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>String variables and concatenation</li>
+                        <li>Integer variables</li>
+                        <li>Input and output with Rich</li>
+                        <li>Basic conditional logic (if/else)</li>
+                        <li>String formatting</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Ask for the user's gamer tag, real name, age, and favorite game</li>
+                        <li>Use Rich to make the input prompts colorful</li>
+                        <li>Check if the user is old enough to play mature games (18+)</li>
+                        <li>Display the profile in a nice panel with emojis</li>
+                        <li>Add different messages based on their age group</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.prompt import Prompt
+from rich.panel import Panel
+
+console = Console()
+
+# Colored input prompts
+name = Prompt.ask("[cyan]What's your name?[/cyan]")
+age = Prompt.ask("[yellow]How old are you?[/yellow]")
+
+# Converting string input to integer
+age_num = int(age)
+
+# Displaying in a panel
+profile_text = f"🎮 Name: {name}\n🎂 Age: {age}"
+console.print(Panel(profile_text, title="Gaming Profile", style="green"))
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    ╭─── Gaming Profile ─────────────────╮<br>
+                    │ 🎮 Gamer Tag: CoolGamer123         │<br>
+                    │ 👤 Real Name: Alex                 │<br>
+                    │ 🎂 Age: 16                         │<br>
+                    │ 🕹️  Favorite Game: Minecraft       │<br>
+                    │ ⚠️  Too young for mature games     │<br>
+                    │ 🌟 Keep gaming and having fun!    │<br>
+                    ╰────────────────────────────────────╯
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Use <code>int()</code> to convert string input to numbers</li>
+                        <li>Use f-strings for easy text formatting: <code>f"Hello {name}!"</code></li>
+                        <li>Remember your if/else statements for age checking!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 2: Ultimate Calculator</h3>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Build a calculator that can handle different data types and shows off your casting skills while looking awesome with Rich styling!
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>Float and integer variables</li>
+                        <li>Type casting (str to int, str to float)</li>
+                        <li>Mathematical operators</li>
+                        <li>Conditional logic for operation selection</li>
+                        <li>Error handling with if statements</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Ask the user for two numbers (allow decimals)</li>
+                        <li>Let them choose an operation (+, -, *, /)</li>
+                        <li>Handle division by zero with a proper error message</li>
+                        <li>Display the result with proper formatting</li>
+                        <li>Use different colors for different operations</li>
+                        <li>Add fun emojis for each operation type</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.prompt import Prompt
+from rich import print
+
+console = Console()
+
+# Getting numbers (strings that need converting)
+num1 = Prompt.ask("[blue]Enter first number[/blue]")
+num1_float = float(num1)  # Convert to decimal number
+
+# Colored output based on conditions
+if operation == "+":
+    print(f"[green]➕ {num1_float} + {num2_float} = {result}[/green]")
+elif operation == "*":
+    print(f"[yellow]✖️ {num1_float} * {num2_float} = {result}[/yellow]")
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    <span style="color: blue;">Enter first number: </span>15.5<br>
+                    <span style="color: blue;">Enter second number: </span>3<br>
+                    <span style="color: yellow;">Choose operation (+, -, *, /): </span>*<br>
+                    <span style="color: green;">✖️ 15.5 * 3.0 = 46.5</span>
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Use <code>float()</code> to convert strings to decimal numbers</li>
+                        <li>Check if the second number is 0 before dividing</li>
+                        <li>Use elif statements to handle different operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 3: Shopping List Manager</h3>
+                <span class="difficulty medium">Medium</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Create a smart shopping list that can handle different types of data and make decisions about your shopping budget!
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>Lists/arrays for storing multiple items</li>
+                        <li>Float variables for prices and money</li>
+                        <li>Loops with conditional logic</li>
+                        <li>String manipulation and formatting</li>
+                        <li>Complex decision making with if/elif/else</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Create a list of at least 5 items with their prices</li>
+                        <li>Ask the user for their budget</li>
+                        <li>Calculate the total cost of all items</li>
+                        <li>Tell them if they can afford everything or what to remove</li>
+                        <li>Show the shopping list in a nice table format</li>
+                        <li>Use different colors for affordable vs expensive items</li>
+                        <li>Add emojis for different item categories</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
+# Creating lists
+items = ["Bread", "Milk", "Eggs", "Cheese", "Apples"]
+prices = [2.50, 3.20, 4.00, 5.50, 3.00]
+
+# Creating a table
+table = Table(title="🛒 Shopping List")
+table.add_column("Item", style="cyan")
+table.add_column("Price", style="green")
+
+# Adding rows to table
+for i in range(len(items)):
+    table.add_row(items[i], f"£{prices[i]:.2f}")
+
+console.print(table)
+
+# Calculating total
+total = sum(prices)
+console.print(f"[bold]Total: £{total:.2f}[/bold]")
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    ╭─── 🛒 Shopping List ────────╮<br>
+                    │ Item   │ Price  │ Status  │<br>
+                    │ 🍞 Bread │ £2.50  │ ✅ Get  │<br>
+                    │ 🥛 Milk  │ £3.20  │ ✅ Get  │<br>
+                    │ 🥚 Eggs  │ £4.00  │ ❌ Skip │<br>
+                    ╰─────────────────────────────╯<br>
+                    Total: £18.20 | Budget: £15.00<br>
+                    💸 You're £3.20 over budget!
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Use <code>sum()</code> to add up all prices in a list</li>
+                        <li>Compare total cost with budget using if statements</li>
+                        <li>Use <code>:.2f</code> in f-strings to show 2 decimal places</li>
+                        <li>Think about which items to recommend removing (most expensive first?)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 4: Password Strength Checker</h3>
+                <span class="difficulty medium">Medium</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Build a cybersecurity tool that analyzes password strength and gives advice on creating secure passwords!
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>String variables and methods</li>
+                        <li>Boolean variables for conditions</li>
+                        <li>Complex conditional logic with multiple criteria</li>
+                        <li>String analysis (length, character types)</li>
+                        <li>Nested if statements</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Ask user to enter a password</li>
+                        <li>Check password length (minimum 8 characters)</li>
+                        <li>Check if it contains uppercase letters, lowercase letters, numbers, and symbols</li>
+                        <li>Rate the password as Weak, Medium, or Strong</li>
+                        <li>Give specific advice on how to improve it</li>
+                        <li>Use colors: red for weak, yellow for medium, green for strong</li>
+                        <li>Add security-themed emojis</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.prompt import Prompt
+from rich.panel import Panel
+
+console = Console()
+
+password = Prompt.ask("[cyan]Enter password to check[/cyan]", password=True)
+
+# Checking different conditions
+has_upper = any(c.isupper() for c in password)
+has_lower = any(c.islower() for c in password)
+has_digit = any(c.isdigit() for c in password)
+has_symbol = any(not c.isalnum() for c in password)
+is_long_enough = len(password) >= 8
+
+# Counting how many criteria are met
+strength_score = sum([has_upper, has_lower, has_digit, has_symbol, is_long_enough])
+
+if strength_score >= 4:
+    console.print("[green]🔒 Strong password![/green]")
+elif strength_score >= 3:
+    console.print("[yellow]⚠️ Medium strength[/yellow]")
+else:
+    console.print("[red]❌ Weak password![/red]")
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    ╭──── 🔐 Password Analysis ────╮<br>
+                    │ Length: ✅ 12 characters     │<br>
+                    │ Uppercase: ✅ Found          │<br>
+                    │ Lowercase: ✅ Found          │<br>
+                    │ Numbers: ❌ Missing          │<br>
+                    │ Symbols: ✅ Found            │<br>
+                    │                              │<br>
+                    │ 🟡 MEDIUM STRENGTH           │<br>
+                    │                              │<br>
+                    │ 💡 Try adding some numbers!  │<br>
+                    ╰──────────────────────────────╯
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Use <code>password=True</code> in Prompt.ask() to hide the password</li>
+                        <li>Use string methods like <code>.isupper()</code>, <code>.isdigit()</code></li>
+                        <li>Count how many criteria are met to determine strength</li>
+                        <li>Give specific advice based on what's missing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 5: Grade Calculator & Report Card</h3>
+                <span class="difficulty hard">Hard</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Create a comprehensive grade calculator that handles multiple subjects, calculates averages, and generates a beautiful report card!
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>Lists for storing multiple grades</li>
+                        <li>Dictionaries for subject-grade pairs</li>
+                        <li>Float calculations and averages</li>
+                        <li>Complex conditional logic for grade boundaries</li>
+                        <li>String formatting and manipulation</li>
+                        <li>Data validation and error handling</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Ask for grades in 5 different subjects (0-100)</li>
+                        <li>Validate that grades are in the correct range</li>
+                        <li>Calculate the overall average</li>
+                        <li>Convert percentage grades to letter grades (A*, A, B, C, D, U)</li>
+                        <li>Determine if the student passes overall (average ≥ 50)</li>
+                        <li>Create a beautiful report card using Rich tables and panels</li>
+                        <li>Add motivational messages based on performance</li>
+                        <li>Use appropriate emojis and colors for different grades</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+
+console = Console()
+
+# Dictionary to store subjects and grades
+grades = {}
+subjects = ["Maths", "English", "Science", "History", "Art"]
+
+# Getting grades with validation
+for subject in subjects:
+    while True:
+        try:
+            grade = float(Prompt.ask(f"Enter {subject} grade (0-100)"))
+            if 0 <= grade <= 100:
+                grades[subject] = grade
+                break
+            else:
+                console.print("[red]Grade must be between 0 and 100![/red]")
+        except ValueError:
+            console.print("[red]Please enter a valid number![/red]")
+
+# Function to convert percentage to letter grade
+def get_letter_grade(percentage):
+    if percentage >= 90: return "A*", "green"
+    elif percentage >= 80: return "A", "blue"
+    elif percentage >= 70: return "B", "cyan"
+    elif percentage >= 60: return "C", "yellow"
+    elif percentage >= 50: return "D", "orange"
+    else: return "U", "red"
+
+# Creating a report table
+table = Table(title="📊 Academic Report Card")
+table.add_column("Subject", style="cyan")
+table.add_column("Grade %", justify="center")
+table.add_column("Letter Grade", justify="center")
+
+for subject, grade in grades.items():
+    letter, color = get_letter_grade(grade)
+    table.add_row(
+        subject, 
+        f"{grade:.1f}%", 
+        f"[{color}]{letter}[/{color}]"
+    )
+
+console.print(table)
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    ╭─────── 📊 Academic Report Card ───────╮<br>
+                    │ Subject  │ Grade % │ Letter Grade │<br>
+                    │ Maths    │  85.0%  │      A       │<br>
+                    │ English  │  78.0%  │      B       │<br>
+                    │ Science  │  92.0%  │     A*       │<br>
+                    │ History  │  67.0%  │      C       │<br>
+                    │ Art      │  88.0%  │      A       │<br>
+                    ╰────────────────────────────────────────╯<br><br>
+                    ╭─────── 🎓 Overall Performance ────────╮<br>
+                    │ Average Grade: 82.0%                  │<br>
+                    │ Overall Grade: A                      │<br>
+                    │ Status: ✅ PASSED                     │<br>
+                    │                                       │<br>
+                    │ 🌟 Excellent work! Keep it up!       │<br>
+                    ╰───────────────────────────────────────╯
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Use a dictionary to store subject names and grades together</li>
+                        <li>Use <code>try/except</code> to handle invalid number input</li>
+                        <li>Calculate average using <code>sum(grades.values()) / len(grades)</code></li>
+                        <li>Create a function to convert percentages to letter grades</li>
+                        <li>Use different colors for different grade ranges</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="exercise-title">Exercise 6: Text-Based Adventure Game</h3>
+                <span class="difficulty hard">Hard</span>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description">
+                    Create an interactive story game that uses everything you've learned - variables, lists, input/output, and complex decision-making!
+                </div>
+                
+                <div class="concepts-tested">
+                    <h4>📚 Concepts Tested</h4>
+                    <ul>
+                        <li>Complex nested conditional logic</li>
+                        <li>Lists for inventory and choices</li>
+                        <li>String variables for story text</li>
+                        <li>Integer variables for health/score</li>
+                        <li>Boolean variables for game state</li>
+                        <li>Input validation and error handling</li>
+                        <li>Advanced Rich formatting and styling</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Create a short adventure with at least 5 decision points</li>
+                        <li>Track player health (starting at 100)</li>
+                        <li>Have an inventory list where players can collect items</li>
+                        <li>Include at least 3 different endings based on choices</li>
+                        <li>Use Rich to create immersive scenes with panels and colors</li>
+                        <li>Add a combat system with conditional logic</li>
+                        <li>Include character stats and inventory display</li>
+                        <li>Make it engaging with emojis and storytelling!</li>
+                    </ul>
+                </div>
+                
+                <div class="rich-example">
+                    <h4>🎨 Rich Examples to Help You</h4>
+                    <div class="code-example">
+from rich.console import Console
+from rich.panel import Panel
+from rich.prompt import Prompt, Confirm
+from rich.table import Table
+from rich import print
+
+console = Console()
+
+# Game variables
+player_health = 100
+inventory = []
+game_over = False
+
+# Creating dramatic scenes
+console.print(Panel(
+    "[bold red]🏰 THE HAUNTED CASTLE 🏰[/bold red]\n\n"
+    "You stand before a mysterious castle...\n"
+    "Strange sounds echo from within...\n"
+    "Do you dare to enter?",
+    style="red",
+    width=50
+))
+
+# Getting player choice
+choice = Prompt.ask(
+    "\n[yellow]What do you do?[/yellow]",
+    choices=["enter", "run", "investigate"]
+)
+
+# Inventory display
+def show_inventory():
+    if inventory:
+        console.print("\n[cyan]🎒 Your Inventory:[/cyan]")
+        for item in inventory:
+            console.print(f"  • {item}")
+    else:
+        console.print("\n[dim]🎒 Your inventory is empty[/dim]")
+
+# Health display with colors
+def show_health():
+    if player_health > 70:
+        color = "green"
+        emoji = "💚"
+    elif player_health > 30:
+        color = "yellow" 
+        emoji = "💛"
+    else:
+        color = "red"
+        emoji = "❤️"
+    
+    console.print(f"[{color}]{emoji} Health: {player_health}/100[/{color}]")
+                    </div>
+                </div>
+                
+                <div class="sample-output">
+                    <strong>Expected Output Example:</strong><br>
+                    ╭─────── 🏰 THE HAUNTED CASTLE 🏰 ──────╮<br>
+                    │                                        │<br>
+                    │ You stand before a mysterious castle..│<br>
+                    │ Strange sounds echo from within...     │<br>
+                    │ Do you dare to enter?                  │<br>
+                    │                                        │<br>
+                    ╰────────────────────────────────────────╯<br><br>
+                    What do you do? (enter/run/investigate): enter<br><br>
+                    💚 Health: 100/100<br>
+                    🎒 Your Inventory:<br>
+                    • 🗝️ Rusty Key<br>
+                    • 🕯️ Candle
+                </div>
+                
+                <div class="hint-box">
+                    <h4>💡 Hints</h4>
+                    <ul>
+                        <li>Plan your story structure first - draw a flowchart!</li>
+                        <li>Use functions to avoid repeating code (like inventory display)</li>
+                        <li>Use <code>choices=[]</code> in Prompt.ask() to limit valid options</li>
+                        <li>Create variables to track different game states</li>
+                        <li>Use nested if statements for complex branching stories</li>
+                        <li>Test all possible paths through your story!</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements">
+                    <h4>🎯 Bonus Challenges</h4>
+                    <ul>
+                        <li>Add a scoring system based on choices made</li>
+                        <li>Include random events using the <code>random</code> module</li>
+                        <li>Create a save/load feature using files</li>
+                        <li>Add multiple character classes with different abilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="setup-section">
+            <h2>🏁 Completion Checklist</h2>
+            <p>When you've completed each exercise, make sure you can answer these questions:</p>
+            <ul>
+                <li>✅ <strong>Variables:</strong> Can you create and use different data types (strings, integers, floats, booleans, lists)?</li>
+                <li>✅ <strong>Input/Output:</strong> Can you get user input and display formatted output using Rich?</li>
+                <li>✅ <strong>Casting:</strong> Can you convert between different data types when needed?</li>
+                <li>✅ <strong>Conditionals:</strong> Can you use if/elif/else to make decisions in your programs?</li>
+                <li>✅ <strong>Lists:</strong> Can you store multiple items and work with them?</li>
+                <li>✅ <strong>Rich Library:</strong> Can you create colorful, styled output with panels and tables?</li>
+            </ul>
+            
+            <div class="rich-example">
+                <h4>🎉 Show Off Your Work!</h4>
+                <p>When you complete these exercises:</p>
+                <ul>
+                    <li>Save each exercise as a separate Python file (exercise1.py, exercise2.py, etc.)</li>
+                    <li>Add comments to explain your thinking</li>
+                    <li>Test your programs with different inputs</li>
+                    <li>Try to break them - good programmers test edge cases!</li>
+                    <li>Share your favorite creations and show off your Rich styling skills!</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="emoji-reference">
+            <h3>🚀 Ready for More?</h3>
+            <p>If you complete all these exercises and want more challenges, try:</p>
+            <ul>
+                <li><strong>Rock Paper Scissors:</strong> Create a game with score tracking</li>
+                <li><strong>Number Guessing Game:</strong> With hints and attempts tracking</li>
+                <li><strong>Unit Converter:</strong> Convert between different measurements</li>
+                <li><strong>Quiz Game:</strong> Multiple choice questions with scoring</li>
+                <li><strong>Personal Finance Tracker:</strong> Track income and expenses</li>
+            </ul>
+            <p>Remember: The best way to learn programming is by building things you're interested in! 💪</p>
+        </div>
+    </div>
+</body>
+</html>
