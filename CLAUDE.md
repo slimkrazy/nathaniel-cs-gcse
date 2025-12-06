@@ -9,6 +9,12 @@ This project helps teach Nathaniel (14 years old) GCSE Computer Science, focusin
 - Weekly lessons with more time per topic than school allows
 - Structured progression through specification
 
+## Student Learning Profile
+- **Name:** Nathaniel (14 years old)
+- **Learning Style:** Visual learner - benefits from diagrams, flowcharts, visual analogies
+- **Preferences:** Practical coding exercises, step-by-step visual breakdowns
+- **Teaching Approach:** Use visual aids, flowcharts, code tracing, and practical examples
+
 ## Current Progress
 ### Completed Topics (J277/01):
 - **1.2.3 Units** - Basic understanding established
@@ -22,7 +28,7 @@ This project helps teach Nathaniel (14 years old) GCSE Computer Science, focusin
 - **2.2 Programming fundamentals Part 1** - Data types, variables, operators, functions, input/output
 
 ### Next Topics to Cover:
-1. **2.2 Programming fundamentals Part 3** - Iteration (for loops, while loops, count-controlled vs condition-controlled)
+1. **2.2 Programming fundamentals Part 4** - Arrays/Lists and data processing
 2. **2.4 Boolean logic** (continuation) - Combined gates, circuit analysis
 3. **2.1 Algorithms** - Flowcharts, pseudocode, searching, sorting
 
@@ -72,6 +78,7 @@ Keep this updated as lessons are completed:
 | 001 | 2.4 | Boolean Logic Introduction | TBD | Materials Ready |
 | 002 | 2.2 | Programming Fundamentals Part 1 | TBD | Materials Ready |
 | 003 | 2.2 | Programming Fundamentals Part 2 - Decision Making | 2024-11-23 | Completed |
+| 004 | 2.2 | Programming Fundamentals Part 3 - Iteration (Loops) | TBD | Materials Ready |
 
 ## Specification Reference
 OCR GCSE Computer Science J277: https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf
