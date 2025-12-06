@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Part 2 - Decision Making - Worksheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/worksheet.css">
+    <style>
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .answer-space {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            min-width: 100px;
+            margin: 0 5px;
+        }
+        
+        .answer-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+            min-height: 40px;
+            background: #fafafa;
+        }
+        
+        .truth-table {
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        .truth-table th, .truth-table td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .truth-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .fill-blank {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 3px;
+            padding: 2px 8px;
+            margin: 0 2px;
+            min-width: 50px;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .code-trace {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .multiple-choice {
+            margin: 10px 0;
+        }
+        
+        .multiple-choice label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        
+        .debug-section {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals Part 2 - Decision Making</h1>
+            <h2>Worksheet</h2>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+            <div class="worksheet-info">
+                <strong>Time:</strong> 30 minutes | <strong>Total Points:</strong> 50
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <ul>
+                <li>Answer all questions in the spaces provided</li>
+                <li>For coding questions, write clear, correctly indented Python code</li>
+                <li>Show your working for Boolean expression evaluations</li>
+                <li>Remember the connection to Boolean logic from previous lessons</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Part A: Comparison Operators (10 points)</h2>
+            
+            <div class="question">
+                <h4>Question 1 (2 points)</h4>
+                <p>Fill in the missing comparison operators to make each expression True:</p>
+                
+                <div class="code-block">a) 5 <span class="fill-blank"></span> 3     (greater than)
+b) 10 <span class="fill-blank"></span> 10   (equal to)
+c) 7 <span class="fill-blank"></span> 9     (less than or equal)
+d) "apple" <span class="fill-blank"></span> "banana"  (not equal)</div>
+            </div>
+
+            <div class="question">
+                <h4>Question 2 (3 points)</h4>
+                <p>Evaluate these comparison expressions. Write True or False:</p>
+                
+                <div class="code-block">a) 15 >= 15     Answer: <span class="answer-space"></span>
+b) "hello" == "Hello"     Answer: <span class="answer-space"></span>
+c) 8 != 9     Answer: <span class="answer-space"></span></div>
+            </div>
+
+            <div class="question">
+                <h4>Question 3 (5 points)</h4>
+                <p>A common mistake is using <code>=</code> instead of <code>==</code>. Explain the difference:</p>
+                
+                <div class="answer-box"></div>
+                
+                <p>Fix this incorrect code:</p>
+                <div class="code-block">age = 16
+if age = 18:
+    print("Can vote")</div>
+                
+                <p>Corrected code:</p>
+                <div class="answer-box"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Part B: Logical Operators and Truth Tables (10 points)</h2>
+            
+            <div class="question">
+                <h4>Question 4 (4 points)</h4>
+                <p>Complete these truth tables (remember your Boolean logic lesson!):</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <p><strong>AND operator</strong></p>
+                        <table class="truth-table">
+                            <tr><th>A</th><th>B</th><th>A and B</th></tr>
+                            <tr><td>True</td><td>True</td><td class="fill-blank"></td></tr>
+                            <tr><td>True</td><td>False</td><td class="fill-blank"></td></tr>
+                            <tr><td>False</td><td>True</td><td class="fill-blank"></td></tr>
+                            <tr><td>False</td><td>False</td><td class="fill-blank"></td></tr>
+                        </table>
+                    </div>
+                    <div>
+                        <p><strong>OR operator</strong></p>
+                        <table class="truth-table">
+                            <tr><th>A</th><th>B</th><th>A or B</th></tr>
+                            <tr><td>True</td><td>True</td><td class="fill-blank"></td></tr>
+                            <tr><td>True</td><td>False</td><td class="fill-blank"></td></tr>
+                            <tr><td>False</td><td>True</td><td class="fill-blank"></td></tr>
+                            <tr><td>False</td><td>False</td><td class="fill-blank"></td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h4>Question 5 (6 points)</h4>
+                <p>Evaluate these logical expressions step by step:</p>
+                
+                <div class="code-block">a) True and False or True
+   Step 1: True and False = <span class="answer-space"></span>
+   Step 2: <span class="answer-space"></span> or True = <span class="answer-space"></span>
+
+b) not (5 == 5) and (3 < 4)
+   Step 1: 5 == 5 = <span class="answer-space"></span>
+   Step 2: not <span class="answer-space"></span> = <span class="answer-space"></span>
+   Step 3: 3 < 4 = <span class="answer-space"></span>
+   Step 4: <span class="answer-space"></span> and <span class="answer-space"></span> = <span class="answer-space"></span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Part C: IF Statements (15 points)</h2>
+            
+            <div class="question">
+                <h4>Question 6 (5 points)</h4>
+                <p>Complete this if statement to check if someone can drive. They can drive if they are 18 or older AND have a license:</p>
+                
+                <div class="code-block">age = 19
+has_license = True
+
+if <span class="fill-blank" style="min-width: 200px;"></span>:
+    print("You can drive!")
+else:
+    print("You cannot drive yet")</div>
+            </div>
+
+            <div class="question">
+                <h4>Question 7 (10 points)</h4>
+                <p>Write a complete program that:</p>
+                <ul>
+                    <li>Asks the user for their test score (0-100)</li>
+                    <li>Assigns grades: A (90+), B (80-89), C (70-79), D (60-69), F (below 60)</li>
+                    <li>Prints the grade with an appropriate message</li>
+                </ul>
+                
+                <div class="answer-box" style="min-height: 200px;"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Part D: Code Tracing (10 points)</h2>
+            
+            <div class="question">
+                <h4>Question 8 (5 points)</h4>
+                <p>Trace through this code and write what it will output:</p>
+                
+                <div class="code-trace">
+                    <div class="code-block">temperature = 25
+raining = False
+weekend = True
+
+if temperature > 20 and not raining:
+    print("Perfect weather!")
+    if weekend:
+        print("Great day for a picnic!")
+elif raining:
+    print("Stay inside")
+else:
+    print("Too cold outside")
+
+print("End of weather check")</div>
+                    
+                    <p><strong>Output:</strong></p>
+                    <div class="answer-box"></div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h4>Question 9 (5 points)</h4>
+                <p>What values would make this condition True? Give one example set of values:</p>
+                
+                <div class="code-block">if (age >= 16 and has_permit) or age >= 18:
+    print("Can drive")</div>
+                
+                <div class="answer-box">
+                    <p>age = <span class="answer-space"></span></p>
+                    <p>has_permit = <span class="answer-space"></span></p>
+                    <p>Explain why this works: <span class="answer-space" style="min-width: 300px;"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Part E: Debugging (5 points)</h2>
+            
+            <div class="question">
+                <h4>Question 10 (5 points)</h4>
+                <p>This code has several errors. Find and fix them:</p>
+                
+                <div class="debug-section">
+                    <div class="code-block">age = int(input("Enter your age: "))
+password = input("Enter password: ")
+
+if age = 18
+print("You are an adult")
+if password == "secret" and age > 16 or not logged_in
+    print("Access granted")
+else
+    print("Access denied")</div>
+                    
+                    <p><strong>Errors found:</strong></p>
+                    <div class="answer-box" style="min-height: 80px;"></div>
+                    
+                    <p><strong>Corrected code:</strong></p>
+                    <div class="answer-box" style="min-height: 120px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Challenge (Bonus: +5 points)</h2>
+            
+            <div class="question">
+                <h4>Bonus Question</h4>
+                <p>Create a program that determines if a year is a leap year. A year is a leap year if:</p>
+                <ul>
+                    <li>It's divisible by 4 AND not divisible by 100</li>
+                    <li>OR it's divisible by 400</li>
+                </ul>
+                <p>(Hint: Use the modulus operator % to check divisibility)</p>
+                
+                <div class="answer-box" style="min-height: 150px;"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Remember:</strong> Check your work for proper indentation, colons after if statements, and correct use of == vs =</p>
+            <p>Programming Fundamentals Part 2 - Decision Making | GCSE Computer Science | Specification 2.2</p>
+        </div>
+    </div>
+</body>
+</html>

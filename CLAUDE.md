@@ -15,9 +15,15 @@ This project helps teach Nathaniel (14 years old) GCSE Computer Science, focusin
 - **1.2.4 Data storage** - Binary and hexadecimal number systems, bit shifting, binary addition
 - **2.4 Boolean logic** - Basic gates (NOT, AND, OR), truth tables introduced
 
+### Recently Completed (J277/02):
+- **2.2 Programming fundamentals Part 2** - Decision making: comparison operators, logical operators, IF statements (completed Nov 23rd)
+
+### Currently Teaching (J277/02):
+- **2.2 Programming fundamentals Part 1** - Data types, variables, operators, functions, input/output
+
 ### Next Topics to Cover:
-1. **2.4 Boolean logic** (continuation) - Combined gates, circuit analysis
-2. **2.2 Programming fundamentals** - Data types, variables, operators
+1. **2.2 Programming fundamentals Part 3** - Iteration (for loops, while loops, count-controlled vs condition-controlled)
+2. **2.4 Boolean logic** (continuation) - Combined gates, circuit analysis
 3. **2.1 Algorithms** - Flowcharts, pseudocode, searching, sorting
 
 ## Directory Structure
@@ -64,6 +70,8 @@ Keep this updated as lessons are completed:
 |--------|----------------------|------------|-------------------|---------|
 | 000 | Review | Binary/Hex Conversion | TBD | Materials Ready |
 | 001 | 2.4 | Boolean Logic Introduction | TBD | Materials Ready |
+| 002 | 2.2 | Programming Fundamentals Part 1 | TBD | Materials Ready |
+| 003 | 2.2 | Programming Fundamentals Part 2 - Decision Making | 2024-11-23 | Completed |
 
 ## Specification Reference
 OCR GCSE Computer Science J277: https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf

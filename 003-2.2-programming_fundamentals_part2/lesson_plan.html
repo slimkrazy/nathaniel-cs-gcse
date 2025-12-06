@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Part 2 - Decision Making - Lesson Plan - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/lesson-plan.css">
+    <style>
+        .decision-example {
+            background: #f0f8f0;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .logic-example {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .code-example pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .flow-diagram {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .truth-table {
+            margin: 15px 0;
+        }
+        
+        .truth-table table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .truth-table th, .truth-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .truth-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .boolean-connection {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .nested-example {
+            background: #fff0f5;
+            border-left: 4px solid #e91e63;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals Part 2 - Decision Making - Lesson Plan</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
+            <a href="../teacher/">Teacher Resources</a>
+        </div>
+
+        <div class="lesson-overview">
+            <h2>Lesson Overview</h2>
+            <div class="overview-grid">
+                <div>
+                    <strong>Topic:</strong> 2.2 Programming Fundamentals Part 2<br>
+                    <strong>Duration:</strong> 45-60 minutes<br>
+                    <strong>Prerequisites:</strong> Boolean Logic (2.4), Programming Fundamentals Part 1
+                </div>
+                <div>
+                    <strong>Key Concepts:</strong> Comparison operators, Logical operators, IF statements, Decision structures<br>
+                    <strong>Assessment:</strong> Worksheet (30 minutes)<br>
+                    <strong>Resources:</strong> Cheat sheet, Code examples, Decision flowcharts
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lesson, Nathaniel will be able to:</p>
+            <ul>
+                <li>Use comparison operators (==, !=, <, >, <=, >=) to compare values</li>
+                <li>Apply logical operators (AND, OR, NOT) in programming contexts</li>
+                <li>Connect Boolean logic concepts to programming decision-making</li>
+                <li>Write simple if statements to control program flow</li>
+                <li>Create if-elif-else structures for multiple conditions</li>
+                <li>Combine comparison and logical operators in complex conditions</li>
+                <li>Design programs that make decisions based on user input</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Strategy</h2>
+            
+            <h3>Connecting to Previous Learning (5 minutes)</h3>
+            <div class="boolean-connection">
+                <strong>Key Connection:</strong> "Remember Boolean logic? Now we're going to use it to make decisions in programs!"
+                <ul>
+                    <li><strong>Boolean Logic:</strong> AND, OR, NOT gates with True/False outputs</li>
+                    <li><strong>Programming Logic:</strong> and, or, not operators with True/False results</li>
+                    <li><strong>Decision Making:</strong> if statements use Boolean results to choose what to do</li>
+                    <li><strong>Real-world Connection:</strong> Every decision involves Boolean logic (Yes/No, True/False)</li>
+                </ul>
+                
+                <p><strong>Quick Review:</strong> What does AND gate output when both inputs are True? (Answer: True) 
+                <br>What does a program's if statement do when its condition is True? (Answer: Executes the code inside)</p>
+            </div>
+
+            <h3>From Boolean Logic to Programming Decisions (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Boolean Logic in Real Life vs Programming:</h4>
+                <div class="comparison-table">
+                    <table>
+                        <tr>
+                            <th>Real Life Decision</th>
+                            <th>Boolean Logic</th>
+                            <th>Programming Equivalent</th>
+                        </tr>
+                        <tr>
+                            <td>"Can I go out?"</td>
+                            <td>Homework done AND Weather good</td>
+                            <td><code>if homework_done and weather_good:</code></td>
+                        </tr>
+                        <tr>
+                            <td>"Should I bring umbrella?"</td>
+                            <td>Raining OR Clouds dark</td>
+                            <td><code>if raining or clouds_dark:</code></td>
+                        </tr>
+                        <tr>
+                            <td>"Is password wrong?"</td>
+                            <td>NOT (password correct)</td>
+                            <td><code>if not password_correct:</code></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Why We Need Comparison Operators:</h4>
+                <div class="decision-example">
+                    <p><strong>The Problem:</strong> How do we create Boolean values from data?</p>
+                    <ul>
+                        <li>We have: <code>age = 16</code></li>
+                        <li>We need: A True/False answer to "Can drive?"</li>
+                        <li>Solution: <code>age >= 17</code> returns True or False</li>
+                    </ul>
+                    
+                    <p><strong>Comparison operators convert data into Boolean values for decision-making!</strong></p>
+                </div>
+            </div>
+
+            <h3>Comparison Operators (15 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>The Six Comparison Operators:</h4>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Meaning</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td><strong>==</strong></td>
+                        <td>Equal to</td>
+                        <td><code>5 == 5</code></td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong>!=</strong></td>
+                        <td>Not equal to</td>
+                        <td><code>5 != 3</code></td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong><</strong></td>
+                        <td>Less than</td>
+                        <td><code>3 < 5</code></td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong>></strong></td>
+                        <td>Greater than</td>
+                        <td><code>5 > 3</code></td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong><=</strong></td>
+                        <td>Less than or equal</td>
+                        <td><code>5 <= 5</code></td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong>>=</strong></td>
+                        <td>Greater than or equal</td>
+                        <td><code>5 >= 3</code></td>
+                        <td>True</td>
+                    </tr>
+                </table>
+
+                <h4>CRITICAL: Assignment vs Equality</h4>
+                <div class="code-example">
+                    <pre><code># Assignment (storing a value)
+age = 16          # Store 16 in variable age
+
+# Equality comparison (checking if equal)
+can_drive = age == 17    # Check if age equals 17, store True/False result
+print(can_drive)         # False (because 16 ≠ 17)
+
+# Common mistake:
+if age = 17:     # ERROR! This tries to assign, not compare
+if age == 17:    # CORRECT! This compares</code></pre>
+                </div>
+
+                <h4>Comparing Different Data Types:</h4>
+                <div class="code-example">
+                    <pre><code># Numbers
+score = 85
+passed = score >= 60    # True
+
+# Strings (alphabetical order)
+name = "Alice"
+comes_before_bob = name < "Bob"    # True ('A' comes before 'B')
+
+# Be careful with mixed types:
+age = 16
+age_text = "16"
+same = age == age_text    # False! (integer 16 ≠ string "16")</code></pre>
+                </div>
+            </div>
+
+            <h3>Logical Operators - Boolean Logic in Programming (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>From Gates to Code:</h4>
+                <div class="logic-example">
+                    <p><strong>Remember from Boolean Logic lesson:</strong></p>
+                    <ul>
+                        <li>AND gate: Output True only when BOTH inputs are True</li>
+                        <li>OR gate: Output True when AT LEAST ONE input is True</li>
+                        <li>NOT gate: Output opposite of input</li>
+                    </ul>
+                    
+                    <p><strong>In Python:</strong></p>
+                    <ul>
+                        <li><strong>and:</strong> Both conditions must be True</li>
+                        <li><strong>or:</strong> At least one condition must be True</li>
+                        <li><strong>not:</strong> Flips True to False, False to True</li>
+                    </ul>
+                </div>
+
+                <h4>Truth Tables in Programming:</h4>
+                <div class="truth-table">
+                    <p><strong>AND operator (and):</strong></p>
+                    <table>
+                        <tr><th>A</th><th>B</th><th>A and B</th></tr>
+                        <tr><td>True</td><td>True</td><td>True</td></tr>
+                        <tr><td>True</td><td>False</td><td>False</td></tr>
+                        <tr><td>False</td><td>True</td><td>False</td></tr>
+                        <tr><td>False</td><td>False</td><td>False</td></tr>
+                    </table>
+                </div>
+
+                <div class="truth-table">
+                    <p><strong>OR operator (or):</strong></p>
+                    <table>
+                        <tr><th>A</th><th>B</th><th>A or B</th></tr>
+                        <tr><td>True</td><td>True</td><td>True</td></tr>
+                        <tr><td>True</td><td>False</td><td>True</td></tr>
+                        <tr><td>False</td><td>True</td><td>True</td></tr>
+                        <tr><td>False</td><td>False</td><td>False</td></tr>
+                    </table>
+                </div>
+
+                <h4>Practical Examples:</h4>
+                <div class="code-example">
+                    <pre><code># AND: Both conditions must be true
+age = 16
+has_license = False
+can_drive = age >= 17 and has_license    # False (age condition fails)
+
+# OR: At least one condition must be true
+is_weekend = True
+is_holiday = False
+can_sleep_in = is_weekend or is_holiday    # True (weekend condition passes)
+
+# NOT: Flip the boolean value
+logged_in = True
+need_to_login = not logged_in    # False
+
+# Complex combinations
+temperature = 25
+sunny = True
+good_weather = temperature > 20 and sunny    # True (both conditions pass)</code></pre>
+                </div>
+            </div>
+
+            <h3>IF Statements - Making Decisions (15 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Basic IF Statement Structure:</h4>
+                <div class="flow-diagram">
+                    <p><strong>Decision Flow:</strong></p>
+                    <p>Condition (Boolean expression) → True? → Execute code block</p>
+                    <p>Condition (Boolean expression) → False? → Skip code block</p>
+                </div>
+
+                <div class="code-example">
+                    <pre><code># Basic if statement
+age = 16
+if age >= 18:
+    print("You can vote!")
+    print("Democracy depends on participation!")
+
+print("This always runs regardless of age")</code></pre>
+                </div>
+
+                <h4>IF-ELSE: Two-Way Decisions</h4>
+                <div class="code-example">
+                    <pre><code># Two-way decision
+score = 75
+if score >= 60:
+    print("You passed!")
+    grade = "Pass"
+else:
+    print("You failed. Study harder next time.")
+    grade = "Fail"
+
+print(f"Your grade is: {grade}")</code></pre>
+                </div>
+
+                <h4>IF-ELIF-ELSE: Multiple Conditions</h4>
+                <div class="code-example">
+                    <pre><code># Multiple conditions (like a series of gates)
+score = 85
+
+if score >= 90:
+    grade = "A"
+    print("Excellent work!")
+elif score >= 80:
+    grade = "B" 
+    print("Good job!")
+elif score >= 70:
+    grade = "C"
+    print("Satisfactory")
+elif score >= 60:
+    grade = "D"
+    print("You passed")
+else:
+    grade = "F"
+    print("You failed")
+
+print(f"Your grade is: {grade}")</code></pre>
+                </div>
+
+                <h4>Key Points About IF Statements:</h4>
+                <ul>
+                    <li><strong>Indentation matters!</strong> Code inside if block must be indented (4 spaces or 1 tab)</li>
+                    <li><strong>Colon required:</strong> Every if/elif/else line ends with :</li>
+                    <li><strong>Boolean condition:</strong> The condition must evaluate to True or False</li>
+                    <li><strong>Only first True executes:</strong> In if-elif chain, only first True condition runs</li>
+                </ul>
+            </div>
+
+            <h3>Complex Conditions - Combining Everything (10 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Combining Comparison and Logical Operators:</h4>
+                <div class="code-example">
+                    <pre><code># Complex decision making
+age = 16
+has_permit = True
+has_adult = True
+
+# Multiple conditions with AND
+if age >= 16 and has_permit and has_adult:
+    print("You can drive with supervision")
+elif age >= 18:
+    print("You can drive alone")
+else:
+    print("You cannot drive yet")
+
+# Complex conditions with OR
+weather = "sunny"
+temperature = 22
+weekend = True
+
+if (weather == "sunny" and temperature > 20) or weekend:
+    print("Great day to go out!")
+else:
+    print("Maybe stay inside today")
+
+# Using NOT with complex conditions
+username = "admin"
+password = "secret123"
+logged_in = False
+
+if not logged_in and username == "admin" and password == "secret123":
+    logged_in = True
+    print("Welcome, admin!")
+else:
+    print("Access denied")</code></pre>
+                </div>
+
+                <h4>Order of Operations in Boolean Expressions:</h4>
+                <div class="logic-example">
+                    <p><strong>Priority Order (highest to lowest):</strong></p>
+                    <ol>
+                        <li>Parentheses: <code>()</code></li>
+                        <li>Comparison operators: <code>==, !=, <, >, <=, >=</code></li>
+                        <li>NOT: <code>not</code></li>
+                        <li>AND: <code>and</code></li>
+                        <li>OR: <code>or</code></li>
+                    </ol>
+                    
+                    <div class="code-example">
+                        <pre><code># Without parentheses
+result = True or False and False    # True (and executes first)
+
+# With parentheses for clarity
+result = True or (False and False)  # True (same result, but clearer)
+result = (True or False) and False  # False (different result!)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Nested IF Statements (5 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>IF Statements Inside IF Statements:</h4>
+                <div class="nested-example">
+                    <p><strong>Sometimes we need to make a decision, then make another decision based on that result:</strong></p>
+                    <div class="code-example">
+                        <pre><code># Nested if statements
+weather = "sunny"
+temperature = 25
+have_sunscreen = False
+
+if weather == "sunny":
+    print("It's sunny!")
+    if temperature > 25:
+        print("It's hot - wear light clothes")
+        if have_sunscreen:
+            print("Don't forget sunscreen!")
+        else:
+            print("Buy sunscreen first!")
+    else:
+        print("Nice temperature for a walk")
+else:
+    print("Not sunny today")
+
+# Alternative: using logical operators instead of nesting
+if weather == "sunny" and temperature > 25 and not have_sunscreen:
+    print("Sunny and hot but no sunscreen - buy some!")</code></pre>
+                    </div>
+                    
+                    <p><strong>Tip:</strong> Often you can avoid deep nesting by using logical operators!</p>
+                </div>
+            </div>
+
+            <h3>Putting It All Together - Complete Program (5 minutes)</h3>
+            <div class="concept-explanation">
+                <h4>Goal: Create a Simple Game Character Stats Checker</h4>
+                <div class="code-example">
+                    <pre><code># Game character stats program
+print("Character Stats Checker")
+print("=" * 25)
+
+# Get character stats
+name = input("Enter character name: ")
+level = int(input("Enter level (1-100): "))
+health = int(input("Enter health (0-100): "))
+magic = int(input("Enter magic points (0-100): "))
+
+print(f"\n{name}'s Status Report:")
+print("-" * 20)
+
+# Check character status using decision making
+if health <= 0:
+    print("💀 Character is dead!")
+    print("Visit a healer immediately!")
+elif health < 20:
+    print("🚨 Critically injured!")
+    if magic > 50:
+        print("Use magic to heal yourself!")
+    else:
+        print("Find a health potion quickly!")
+elif health < 50:
+    print("⚠️  Injured - be careful")
+else:
+    print("✅ Healthy")
+
+# Check combat readiness
+if level >= 10 and health > 30 and magic > 20:
+    print("⚔️  Ready for combat!")
+elif level < 10:
+    print("🎯 Train more to level up")
+elif health <= 30 or magic <= 20:
+    print("🛡️  Rest before fighting")
+
+# Special abilities check
+if level >= 20 and magic >= 80:
+    print("✨ Can cast powerful spells!")
+elif level >= 50:
+    print("🏆 Master level character!")
+
+print(f"\nThanks for checking {name}'s stats!")
+</code></pre>
+                </div>
+                
+                <h4>What This Program Demonstrates:</h4>
+                <ul>
+                    <li>Multiple comparison operators (<=, <, >=, >)</li>
+                    <li>Logical operators (and, or)</li>
+                    <li>Nested if statements</li>
+                    <li>If-elif-else chains</li>
+                    <li>Complex boolean expressions</li>
+                    <li>Real-world decision making in code</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Mistakes to Address</h2>
+            <div class="mistake-prevention">
+                <ul>
+                    <li><strong>Assignment vs Comparison:</strong> Using = instead of == in conditions</li>
+                    <li><strong>Indentation Errors:</strong> Forgetting to indent code blocks properly</li>
+                    <li><strong>Missing Colons:</strong> Forgetting : after if/elif/else statements</li>
+                    <li><strong>Boolean Logic Errors:</strong> Confusing and/or logic (remember your truth tables!)</li>
+                    <li><strong>Comparison Precedence:</strong> Not using parentheses for complex conditions</li>
+                    <li><strong>Data Type Mixing:</strong> Comparing strings with numbers without conversion</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Assessment Approach</h2>
+            <div class="assessment-grid">
+                <div>
+                    <h3>During Lesson:</h3>
+                    <ul>
+                        <li>Quick boolean logic review</li>
+                        <li>Comparison operator practice</li>
+                        <li>Truth table connections</li>
+                        <li>Code reading exercises</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Worksheet (30 mins):</h3>
+                    <ul>
+                        <li>Boolean expression evaluation</li>
+                        <li>If statement completion</li>
+                        <li>Logic error identification</li>
+                        <li>Decision tree programming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Activities</h2>
+            <ul>
+                <li>Create a simple quiz program with multiple choice answers</li>
+                <li>Design a password strength checker using multiple conditions</li>
+                <li>Build a simple text-based adventure game with branching stories</li>
+                <li>Program a calculator that handles division by zero and invalid inputs</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Next Lesson Preview</h2>
+            <p><strong>Topic:</strong> Programming Fundamentals Part 3 - Iteration (Loops)</p>
+            <p><strong>Focus:</strong> for loops, while loops, count-controlled and condition-controlled iteration</p>
+            <p><strong>Connection:</strong> "Now we can repeat decisions and actions - the power of loops!"</p>
+            <p><strong>Goal:</strong> Create programs that can repeat tasks efficiently</p>
+        </div>
+    </div>
+</body>
+</html>

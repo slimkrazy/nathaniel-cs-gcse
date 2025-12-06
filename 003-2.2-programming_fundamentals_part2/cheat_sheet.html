@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Part 2 - Decision Making - Cheat Sheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cheat-sheet.css">
+    <style>
+        .operator-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .operator-table th, .operator-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .operator-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .truth-table {
+            width: 300px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+        
+        .truth-table th, .truth-table td {
+            border: 1px solid #dee2e6;
+            padding: 6px;
+            text-align: center;
+            font-family: monospace;
+        }
+        
+        .truth-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .syntax-box {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        
+        .example-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        
+        .quick-tip {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        
+        .warning-tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        
+        .boolean-connection {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals Part 2 - Decision Making</h1>
+            <h2>Quick Reference Cheat Sheet</h2>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Connection to Boolean Logic</h2>
+            <div class="boolean-connection">
+                <div class="grid-2-col">
+                    <div>
+                        <h4>Boolean Logic (Hardware)</h4>
+                        <ul>
+                            <li><strong>AND gate:</strong> Output True when both inputs True</li>
+                            <li><strong>OR gate:</strong> Output True when at least one input True</li>
+                            <li><strong>NOT gate:</strong> Output opposite of input</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Programming Logic (Software)</h4>
+                        <ul>
+                            <li><strong>and operator:</strong> True when both conditions True</li>
+                            <li><strong>or operator:</strong> True when at least one condition True</li>
+                            <li><strong>not operator:</strong> Flips True ↔ False</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Comparison Operators</h2>
+            <div class="important-note">
+                <strong>Purpose:</strong> Compare values and return True or False
+            </div>
+            
+            <table class="operator-table">
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td><code>==</code></td>
+                    <td>Equal to</td>
+                    <td><code>5 == 5</code></td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td><code>!=</code></td>
+                    <td>Not equal to</td>
+                    <td><code>5 != 3</code></td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>Less than</td>
+                    <td><code>3 &lt; 5</code></td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>Greater than</td>
+                    <td><code>5 &gt; 3</code></td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>Less than or equal</td>
+                    <td><code>5 &lt;= 5</code></td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>Greater than or equal</td>
+                    <td><code>5 &gt;= 3</code></td>
+                    <td>True</td>
+                </tr>
+            </table>
+
+            <div class="warning-tip">
+                <strong>⚠️ CRITICAL:</strong> <code>=</code> assigns, <code>==</code> compares!
+                <br><code>age = 16</code> (store 16 in age)
+                <br><code>age == 16</code> (check if age equals 16)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧠 Logical Operators</h2>
+            
+            <table class="operator-table">
+                <tr>
+                    <th>Operator</th>
+                    <th>Boolean Gate</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>and</code></td>
+                    <td>AND</td>
+                    <td>Both conditions must be True</td>
+                    <td><code>age >= 18 and has_license</code></td>
+                </tr>
+                <tr>
+                    <td><code>or</code></td>
+                    <td>OR</td>
+                    <td>At least one condition must be True</td>
+                    <td><code>weekend or holiday</code></td>
+                </tr>
+                <tr>
+                    <td><code>not</code></td>
+                    <td>NOT</td>
+                    <td>Flips True to False, False to True</td>
+                    <td><code>not logged_in</code></td>
+                </tr>
+            </table>
+
+            <div class="grid-2-col">
+                <div>
+                    <h4>AND Truth Table</h4>
+                    <table class="truth-table">
+                        <tr><th>A</th><th>B</th><th>A and B</th></tr>
+                        <tr><td>True</td><td>True</td><td>True</td></tr>
+                        <tr><td>True</td><td>False</td><td>False</td></tr>
+                        <tr><td>False</td><td>True</td><td>False</td></tr>
+                        <tr><td>False</td><td>False</td><td>False</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>OR Truth Table</h4>
+                    <table class="truth-table">
+                        <tr><th>A</th><th>B</th><th>A or B</th></tr>
+                        <tr><td>True</td><td>True</td><td>True</td></tr>
+                        <tr><td>True</td><td>False</td><td>True</td></tr>
+                        <tr><td>False</td><td>True</td><td>True</td></tr>
+                        <tr><td>False</td><td>False</td><td>False</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔀 IF Statement Syntax</h2>
+            
+            <h3>Basic IF</h3>
+            <div class="syntax-box">
+if condition:
+    # code to execute if True
+    statement1
+    statement2
+            </div>
+
+            <h3>IF-ELSE</h3>
+            <div class="syntax-box">
+if condition:
+    # code if True
+    statement1
+else:
+    # code if False
+    statement2
+            </div>
+
+            <h3>IF-ELIF-ELSE</h3>
+            <div class="syntax-box">
+if condition1:
+    # code if condition1 is True
+elif condition2:
+    # code if condition2 is True
+elif condition3:
+    # code if condition3 is True
+else:
+    # code if all conditions are False
+            </div>
+
+            <div class="quick-tip">
+                <strong>🔧 Key Rules:</strong>
+                <ul>
+                    <li>Every if/elif/else line ends with <code>:</code></li>
+                    <li>Code inside must be indented (4 spaces or 1 tab)</li>
+                    <li>Only the first True condition executes in if-elif chain</li>
+                    <li>else is optional and runs if all conditions are False</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Quick Examples</h2>
+            
+            <h3>Simple Decision</h3>
+            <div class="example-code">age = 16
+if age >= 18:
+    print("You can vote!")
+else:
+    print("Too young to vote")</div>
+
+            <h3>Multiple Conditions (AND)</h3>
+            <div class="example-code">temperature = 22
+sunny = True
+if temperature > 20 and sunny:
+    print("Perfect weather!")</div>
+
+            <h3>Multiple Conditions (OR)</h3>
+            <div class="example-code">weekend = True
+holiday = False
+if weekend or holiday:
+    print("No school today!")</div>
+
+            <h3>Grade Calculator</h3>
+            <div class="example-code">score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+print(f"Grade: {grade}")</div>
+
+            <h3>Complex Condition</h3>
+            <div class="example-code">age = 16
+has_permit = True
+has_adult = True
+
+if age >= 18:
+    print("Can drive alone")
+elif age >= 16 and has_permit and has_adult:
+    print("Can drive with supervision")
+else:
+    print("Cannot drive")</div>
+        </div>
+
+        <div class="section">
+            <h2>⚡ Order of Operations</h2>
+            <div class="important-note">
+                <strong>Priority (highest to lowest):</strong>
+                <ol>
+                    <li><strong>Parentheses:</strong> <code>()</code></li>
+                    <li><strong>Comparison:</strong> <code>==, !=, &lt;, &gt;, &lt;=, &gt;=</code></li>
+                    <li><strong>NOT:</strong> <code>not</code></li>
+                    <li><strong>AND:</strong> <code>and</code></li>
+                    <li><strong>OR:</strong> <code>or</code></li>
+                </ol>
+            </div>
+
+            <div class="example-code"># Examples:
+True or False and False    # True (and first)
+(True or False) and False  # False (parentheses first)
+
+age > 18 and not tired or weekend
+# Same as: ((age > 18) and (not tired)) or weekend</div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 Common Mistakes</h2>
+            <div class="mistake-prevention">
+                <div class="grid-2-col">
+                    <div>
+                        <h4>❌ Wrong</h4>
+                        <div class="example-code">if age = 18:        # Assignment!
+if age == "18":     # String comparison
+if 10 < age < 20    # Missing colon
+    print("Teen")   # Missing indentation</div>
+                    </div>
+                    <div>
+                        <h4>✅ Correct</h4>
+                        <div class="example-code">if age == 18:       # Comparison!
+if age == 18:       # Number comparison
+if 10 < age < 20:   # Has colon
+    print("Teen")   # Proper indentation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quick Practice</h2>
+            <div class="practice-problems">
+                <h4>Evaluate these expressions:</h4>
+                <ol>
+                    <li><code>5 > 3 and 2 < 4</code> = ?</li>
+                    <li><code>True or False and False</code> = ?</li>
+                    <li><code>not (5 == 5)</code> = ?</li>
+                    <li><code>10 >= 10 and not False</code> = ?</li>
+                </ol>
+                
+                <details>
+                    <summary><strong>Answers (click to reveal)</strong></summary>
+                    <ol>
+                        <li>True (both 5>3 and 2<4 are True)</li>
+                        <li>True (or has lower priority, so False and False = False, then True or False = True)</li>
+                        <li>False (5==5 is True, not True is False)</li>
+                        <li>True (10>=10 is True, not False is True, True and True is True)</li>
+                    </ol>
+                </details>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Memory Tips</h2>
+            <ul>
+                <li><strong>== vs =:</strong> "Equals equals compares, single equals stores"</li>
+                <li><strong>AND logic:</strong> "ALL conditions must pass" (like AND gate)</li>
+                <li><strong>OR logic:</strong> "At least ONE condition must pass" (like OR gate)</li>
+                <li><strong>Indentation:</strong> "Python cares about spaces - be consistent!"</li>
+                <li><strong>Colons:</strong> "Every decision line ends with a colon"</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Programming Fundamentals Part 2 - Decision Making | GCSE Computer Science | Specification 2.2</p>
+        </div>
+    </div>
+</body>
+</html>
