@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling - Cheat Sheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cheat-sheet.css">
+    <style>
+        .key-concept {
+            background: #e8f4f8;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .code-box {
+            background: #2c3e50;
+            color: #2ecc71;
+            border-radius: 5px;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+        }
+
+        .quick-ref {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 5px solid #e74c3c;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .tip-box {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .byte-visual {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.85em;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .comparison-item {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            padding: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            padding: 8px;
+            border: 1px solid #2c3e50;
+            font-size: 0.9em;
+        }
+
+        td {
+            border: 1px solid #2c3e50;
+            padding: 6px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>File Handling - Quick Reference</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>What is a File?</h2>
+            <div class="key-concept">
+                <p><strong>Definition:</strong> A file is a named collection of <strong>bytes</strong> stored on your hard drive/SSD.</p>
+                <p><strong>Key Point:</strong> Everything in a file is just bytes - different file types organize those bytes differently!</p>
+            </div>
+
+            <div class="byte-visual">
+<strong>Example: hello.txt</strong>
+Content: "Hello"
+Bytes (hex): 48 65 6C 6C 6F
+Bytes (dec): 72 101 108 108 111
+Characters:  H  e   l   l   o
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>File Extensions</h2>
+            <div class="quick-ref">
+                <p><strong>What:</strong> The part after the dot (.) that hints at the file type</p>
+                <p><strong>Format:</strong> filename.extension</p>
+                <p><strong>Important:</strong> Extensions are just hints! The actual bytes determine what the file really is.</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Extension</th>
+                    <th>File Type</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>.txt</td>
+                    <td>Plain text</td>
+                    <td>notes.txt</td>
+                </tr>
+                <tr>
+                    <td>.py</td>
+                    <td>Python code</td>
+                    <td>game.py</td>
+                </tr>
+                <tr>
+                    <td>.jpg / .jpeg</td>
+                    <td>JPEG image</td>
+                    <td>photo.jpg</td>
+                </tr>
+                <tr>
+                    <td>.png</td>
+                    <td>PNG image</td>
+                    <td>logo.png</td>
+                </tr>
+                <tr>
+                    <td>.mp3</td>
+                    <td>Audio file</td>
+                    <td>song.mp3</td>
+                </tr>
+                <tr>
+                    <td>.pdf</td>
+                    <td>PDF document</td>
+                    <td>report.pdf</td>
+                </tr>
+                <tr>
+                    <td>.docx</td>
+                    <td>Word document</td>
+                    <td>essay.docx</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Magic Bytes (File Signatures)</h2>
+            <div class="quick-ref">
+                <p><strong>What:</strong> Special byte patterns at the start of files that identify their real type</p>
+                <p><strong>Why:</strong> This is how computers REALLY know what type of file it is!</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>File Type</th>
+                    <th>Magic Bytes (Hex)</th>
+                    <th>As Text</th>
+                </tr>
+                <tr>
+                    <td>JPEG Image</td>
+                    <td>FF D8 FF</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>PNG Image</td>
+                    <td>89 50 4E 47</td>
+                    <td>.PNG</td>
+                </tr>
+                <tr>
+                    <td>PDF Document</td>
+                    <td>25 50 44 46</td>
+                    <td>%PDF</td>
+                </tr>
+                <tr>
+                    <td>MP3 Audio</td>
+                    <td>49 44 33</td>
+                    <td>ID3</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Plain Text vs Binary Files</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item" style="border-color: #27ae60;">
+                    <h4 style="color: #27ae60;">📝 Plain Text Files</h4>
+                    <p><strong>Contains:</strong> Human-readable text characters</p>
+                    <p><strong>Can open in:</strong> Any text editor</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>.txt (text files)</li>
+                        <li>.py (Python code)</li>
+                        <li>.html (web pages)</li>
+                        <li>.csv (data)</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-item" style="border-color: #e74c3c;">
+                    <h4 style="color: #e74c3c;">⚙️ Binary Files</h4>
+                    <p><strong>Contains:</strong> Non-text data (images, audio, etc.)</p>
+                    <p><strong>Can open in:</strong> Specific programs only</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>.jpg, .png (images)</li>
+                        <li>.mp3, .wav (audio)</li>
+                        <li>.pdf (documents)</li>
+                        <li>.exe (programs)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Python File Modes</h2>
+            <table>
+                <tr>
+                    <th>Mode</th>
+                    <th>Name</th>
+                    <th>What it Does</th>
+                    <th>Creates File?</th>
+                </tr>
+                <tr>
+                    <td><strong>"r"</strong></td>
+                    <td>Read</td>
+                    <td>Open for reading only (file must exist)</td>
+                    <td>No - Error if doesn't exist</td>
+                </tr>
+                <tr>
+                    <td><strong>"w"</strong></td>
+                    <td>Write</td>
+                    <td>Open for writing (OVERWRITES existing content!)</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td><strong>"a"</strong></td>
+                    <td>Append</td>
+                    <td>Open for writing (ADDS to end of file)</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+
+            <div class="warning-box">
+                <strong>⚠️ Warning:</strong> Mode "w" will ERASE the entire file! Use "a" to add to the end instead.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>File Operations - Quick Reference</h2>
+
+            <div class="quick-ref">
+                <h4>1️⃣ Opening a File</h4>
+                <div class="code-box">file = open("filename.txt", "mode")</div>
+                <p>Replace "mode" with "r", "w", or "a"</p>
+            </div>
+
+            <div class="quick-ref">
+                <h4>2️⃣ Reading from a File</h4>
+                <div class="code-box"># Read entire file
+content = file.read()
+
+# Read line by line
+for line in file:
+    print(line.strip())
+
+# Read all lines into list
+lines = file.readlines()</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>3️⃣ Writing to a File</h4>
+                <div class="code-box"># Write a line
+file.write("Hello World\n")
+
+# Write multiple lines
+file.write("Line 1\n")
+file.write("Line 2\n")</div>
+                <p><strong>Remember:</strong> Add \n for new lines!</p>
+            </div>
+
+            <div class="quick-ref">
+                <h4>4️⃣ Closing a File</h4>
+                <div class="code-box">file.close()</div>
+                <p><strong>Always close files when done!</strong></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The 'with' Statement (Best Practice)</h2>
+            <div class="tip-box">
+                <p><strong>✨ Better Way:</strong> Use 'with' statement - automatically closes the file!</p>
+            </div>
+
+            <div class="code-box"># Reading
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+# File automatically closed here!
+
+# Writing
+with open("output.txt", "w") as file:
+    file.write("Hello World\n")
+# File automatically closed here!</div>
+
+            <div class="tip-box">
+                <strong>Why use 'with'?</strong>
+                <ul>
+                    <li>Automatically closes file (even if error occurs)</li>
+                    <li>Cleaner code</li>
+                    <li>Recommended best practice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Patterns</h2>
+
+            <div class="quick-ref">
+                <h4>Pattern 1: Read and Display</h4>
+                <div class="code-box">with open("story.txt", "r") as file:
+    content = file.read()
+    print(content)</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Pattern 2: Write Multiple Lines</h4>
+                <div class="code-box">with open("list.txt", "w") as file:
+    file.write("Item 1\n")
+    file.write("Item 2\n")
+    file.write("Item 3\n")</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Pattern 3: Read Numbers from File</h4>
+                <div class="code-box">with open("scores.txt", "r") as file:
+    for line in file:
+        score = int(line.strip())
+        print(score)</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Pattern 4: Append to Log File</h4>
+                <div class="code-box">with open("log.txt", "a") as file:
+    file.write("New entry\n")</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Pattern 5: Save and Load Single Value</h4>
+                <div class="code-box"># Save
+score = 1000
+with open("score.txt", "w") as file:
+    file.write(str(score))
+
+# Load
+with open("score.txt", "r") as file:
+    score = int(file.read())
+    print(score)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Important Methods</h2>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>What it Does</th>
+                    <th>Returns</th>
+                </tr>
+                <tr>
+                    <td>file.read()</td>
+                    <td>Read entire file</td>
+                    <td>String with all content</td>
+                </tr>
+                <tr>
+                    <td>file.readline()</td>
+                    <td>Read one line</td>
+                    <td>String (one line)</td>
+                </tr>
+                <tr>
+                    <td>file.readlines()</td>
+                    <td>Read all lines</td>
+                    <td>List of strings (one per line)</td>
+                </tr>
+                <tr>
+                    <td>file.write(text)</td>
+                    <td>Write text to file</td>
+                    <td>Number of characters written</td>
+                </tr>
+                <tr>
+                    <td>file.close()</td>
+                    <td>Close the file</td>
+                    <td>Nothing</td>
+                </tr>
+                <tr>
+                    <td>line.strip()</td>
+                    <td>Remove \n and spaces</td>
+                    <td>Cleaned string</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Common Mistakes to Avoid</h2>
+
+            <div class="warning-box">
+                <strong>❌ Mistake 1:</strong> Forgetting to close the file
+                <div class="code-box"># BAD
+file = open("data.txt", "r")
+content = file.read()
+# Missing file.close()!</div>
+                <strong>✅ Fix:</strong> Use 'with' statement or remember to close()
+            </div>
+
+            <div class="warning-box">
+                <strong>❌ Mistake 2:</strong> Wrong mode for operation
+                <div class="code-box"># BAD - Can't write in read mode!
+file = open("data.txt", "r")
+file.write("Hello")  # ERROR!</div>
+                <strong>✅ Fix:</strong> Use "w" or "a" mode for writing
+            </div>
+
+            <div class="warning-box">
+                <strong>❌ Mistake 3:</strong> Using "w" when you mean "a"
+                <div class="code-box"># BAD - This erases the file!
+file = open("log.txt", "w")
+file.write("New entry\n")</div>
+                <strong>✅ Fix:</strong> Use "a" to append instead
+            </div>
+
+            <div class="warning-box">
+                <strong>❌ Mistake 4:</strong> Forgetting to convert types
+                <div class="code-box"># BAD - Reading gives strings!
+score = file.read()  # "100" (string)
+total = score + 50   # ERROR!</div>
+                <strong>✅ Fix:</strong> Convert with int()
+                <div class="code-box">score = int(file.read())  # 100 (integer)
+total = score + 50  # Works!</div>
+            </div>
+
+            <div class="warning-box">
+                <strong>❌ Mistake 5:</strong> Forgetting newlines when writing
+                <div class="code-box"># BAD - Everything on one line!
+file.write("Line 1")
+file.write("Line 2")</div>
+                <strong>✅ Fix:</strong> Add \n
+                <div class="code-box">file.write("Line 1\n")
+file.write("Line 2\n")</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Complete Examples</h2>
+
+            <div class="quick-ref">
+                <h4>Example 1: Save High Score</h4>
+                <div class="code-box"># Save
+score = 1500
+with open("highscore.txt", "w") as file:
+    file.write(str(score))
+
+# Load
+with open("highscore.txt", "r") as file:
+    saved = int(file.read())
+    print(f"High score: {saved}")</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Example 2: Process a List of Numbers</h4>
+                <div class="code-box">with open("numbers.txt", "r") as file:
+    total = 0
+    count = 0
+    for line in file:
+        num = int(line.strip())
+        total += num
+        count += 1
+
+    average = total / count
+    print(f"Average: {average}")</div>
+            </div>
+
+            <div class="quick-ref">
+                <h4>Example 3: Shopping List Manager</h4>
+                <div class="code-box"># Add items
+items = ["Milk", "Bread", "Eggs"]
+with open("shopping.txt", "w") as file:
+    for item in items:
+        file.write(item + "\n")
+
+# Read items
+with open("shopping.txt", "r") as file:
+    for line in file:
+        print("- " + line.strip())</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Points to Remember</h2>
+            <div class="key-concept">
+                <ul>
+                    <li>Files are collections of bytes with names</li>
+                    <li>Extensions are hints, magic bytes are the truth</li>
+                    <li>Plain text = readable, Binary = needs special program</li>
+                    <li>Always close files (or use 'with')</li>
+                    <li>"r" = read, "w" = write (overwrites!), "a" = append</li>
+                    <li>Reading gives strings - convert with int() if needed</li>
+                    <li>Add \n for new lines when writing</li>
+                    <li>Use strip() to remove \n when reading</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

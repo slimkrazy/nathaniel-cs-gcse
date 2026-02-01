@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling - Worksheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/worksheet.css">
+    <style>
+        .byte-sequence {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .file-icon {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            font-family: monospace;
+            margin: 2px;
+        }
+
+        .code-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .answer-box {
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            min-height: 80px;
+            background: #f8f9fa;
+        }
+
+        .answer-line {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            min-width: 300px;
+            margin: 0 5px;
+        }
+
+        .hint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>File Handling - Worksheet</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>Instructions</h2>
+            <p><strong>Time:</strong> 30 minutes</p>
+            <p><strong>What you need:</strong> Pen/pencil, this worksheet, Python IDLE (for coding questions)</p>
+            <p><strong>Remember:</strong> Take your time and think about what files really are - collections of bytes!</p>
+        </div>
+
+        <div class="section">
+            <h2>Section A: File Fundamentals (12 marks)</h2>
+
+            <div class="question">
+                <h3>Question 1 (2 marks)</h3>
+                <p>Complete the sentence:</p>
+                <p>A file is a named collection of <span class="answer-line"></span> stored on your <span class="answer-line"></span>.</p>
+            </div>
+
+            <div class="question">
+                <h3>Question 2 (4 marks)</h3>
+                <p>For each filename below, write the file extension and identify the file type:</p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                    <tr style="background: #3498db; color: white;">
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Filename</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Extension</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">File Type</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">holiday_photo.jpg</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">homework.docx</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">favourite_song.mp3</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">notes.txt</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="question">
+                <h3>Question 3 (2 marks)</h3>
+                <p>Tom renames his file from "photo.jpg" to "photo.txt". He then tries to open it in Notepad.</p>
+                <p><strong>(a)</strong> What will he see when he opens it? (1 mark)</p>
+                <div class="answer-box"></div>
+
+                <p><strong>(b)</strong> Explain why this happens. (1 mark)</p>
+                <div class="answer-box"></div>
+            </div>
+
+            <div class="question">
+                <h3>Question 4 (2 marks)</h3>
+                <p>Here are the first few bytes of a file in hexadecimal:</p>
+                <div class="byte-sequence">FF D8 FF E0 00 10 4A 46 49 46</div>
+                <p>What type of file is this likely to be?</p>
+                <div class="answer-box"></div>
+
+                <div class="hint">
+                    <strong>Hint:</strong> Look back at the magic bytes table in your notes. What file type starts with FF D8 FF?
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 5 (2 marks)</h3>
+                <p>Tick ONE box to show which of these is a plain text file:</p>
+                <div style="margin: 10px 0;">
+                    <input type="checkbox"> photo.png<br>
+                    <input type="checkbox"> song.mp3<br>
+                    <input type="checkbox"> code.py<br>
+                    <input type="checkbox"> video.mp4
+                </div>
+                <p>Explain why the file you chose is a plain text file. (1 mark)</p>
+                <div class="answer-box"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section B: File Operations Concepts (8 marks)</h2>
+
+            <div class="question">
+                <h3>Question 6 (3 marks)</h3>
+                <p>Match each Python file mode to its correct description:</p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>"r"</strong></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">A. Open for writing (overwrites existing file)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>"w"</strong></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">B. Open for reading (file must exist)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>"a"</strong></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">C. Open for appending (adds to end of file)</td>
+                    </tr>
+                </table>
+
+                <p>Write your answers: "r" = <span class="answer-line"></span>, "w" = <span class="answer-line"></span>, "a" = <span class="answer-line"></span></p>
+            </div>
+
+            <div class="question">
+                <h3>Question 7 (2 marks)</h3>
+                <p>State TWO reasons why it's important to close a file after you've finished using it.</p>
+                <p>1. <span class="answer-line"></span></p>
+                <p>2. <span class="answer-line"></span></p>
+            </div>
+
+            <div class="question">
+                <h3>Question 8 (3 marks)</h3>
+                <p>Look at this Python code:</p>
+                <div class="code-box">file = open("scores.txt", "w")
+file.write("100")
+file.write("200")
+file.close()</div>
+
+                <p><strong>(a)</strong> What will be the contents of scores.txt after this code runs? (1 mark)</p>
+                <div class="answer-box"></div>
+
+                <p><strong>(b)</strong> The programmer wanted each score on a separate line. What should they change? (2 marks)</p>
+                <div class="answer-box"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section C: Writing File Handling Code (12 marks)</h2>
+
+            <div class="question">
+                <h3>Question 9 (3 marks)</h3>
+                <p>Write Python code to open a file called "message.txt", read its entire contents, and print them to the screen. Make sure to close the file properly.</p>
+                <div class="answer-box" style="min-height: 120px;"></div>
+
+                <div class="hint">
+                    <strong>Hint:</strong> You need three steps: open the file, read it, close it. Which mode do you need for reading?
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 10 (4 marks)</h3>
+                <p>Write Python code that asks the user for their name and age, then saves both pieces of information to a file called "userdata.txt". Each piece of data should be on a separate line.</p>
+                <div class="answer-box" style="min-height: 150px;"></div>
+
+                <div class="hint">
+                    <strong>Hint:</strong> Use input() to get the data, open() to create the file (which mode?), write() to save the data (don't forget \n for new lines), and close() when done.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 11 (5 marks)</h3>
+                <p>A file called "scores.txt" contains the following data (each score on a separate line):</p>
+                <div class="code-box">85
+92
+78
+95
+88</div>
+
+                <p>Write Python code that:</p>
+                <ol>
+                    <li>Opens the file</li>
+                    <li>Reads all the scores</li>
+                    <li>Calculates and prints the average score</li>
+                    <li>Closes the file</li>
+                </ol>
+                <div class="answer-box" style="min-height: 180px;"></div>
+
+                <div class="hint">
+                    <strong>Hints:</strong>
+                    <ul>
+                        <li>Use a loop to read each line</li>
+                        <li>Convert each line to an integer using int()</li>
+                        <li>Use a variable to keep a running total</li>
+                        <li>Count how many scores there are</li>
+                        <li>Average = total ÷ count</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section D: Problem Solving (8 marks)</h2>
+
+            <div class="question">
+                <h3>Question 12 (4 marks)</h3>
+                <p>Identify and fix the TWO errors in this code:</p>
+                <div class="code-box">file = open("data.txt", "r")
+file.write("Hello World")
+print(file.read())
+# File never closed</div>
+
+                <p><strong>Error 1:</strong> <span class="answer-line"></span></p>
+                <p><strong>How to fix:</strong> <span class="answer-line"></span></p>
+                <p><strong>Error 2:</strong> <span class="answer-line"></span></p>
+                <p><strong>How to fix:</strong> <span class="answer-line"></span></p>
+            </div>
+
+            <div class="question">
+                <h3>Question 13 (4 marks)</h3>
+                <p>A game needs to save the player's high score. When the game starts, it should load the previous high score (if it exists). After the game ends, it should save the new score if it's higher than the old one.</p>
+
+                <p>Explain, using bullet points, the steps the program needs to take. Include which file operations (open, read, write, close) are needed at each step.</p>
+
+                <div class="answer-box" style="min-height: 150px;"></div>
+
+                <div class="hint">
+                    <strong>Hint:</strong> Think about the sequence:
+                    <ul>
+                        <li>What happens when the game starts?</li>
+                        <li>What happens during the game?</li>
+                        <li>What happens when the game ends?</li>
+                        <li>What if this is the first time playing (no file exists yet)?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Challenge (Optional)</h2>
+
+            <div class="question">
+                <h3>Challenge Question</h3>
+                <p>Create a Python program that maintains a simple to-do list using a file. The program should:</p>
+                <ul>
+                    <li>Show a menu with options: 1) View tasks, 2) Add task, 3) Quit</li>
+                    <li>Option 1: Read and display all tasks from "todo.txt"</li>
+                    <li>Option 2: Ask for a new task and append it to "todo.txt"</li>
+                    <li>Option 3: Exit the program</li>
+                    <li>Keep showing the menu until the user chooses to quit</li>
+                </ul>
+
+                <p><strong>Write your program here or in Python IDLE:</strong></p>
+                <div class="answer-box" style="min-height: 250px;"></div>
+
+                <div class="hint">
+                    <strong>Hints:</strong>
+                    <ul>
+                        <li>Use a while loop to keep the menu running</li>
+                        <li>Use "r" mode to read tasks</li>
+                        <li>Use "a" mode to add tasks (why not "w"?)</li>
+                        <li>Use if/elif/else for the menu choices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Self-Assessment Checklist</h2>
+            <p>After completing this worksheet, you should be able to:</p>
+            <div style="margin: 10px 0;">
+                <input type="checkbox"> Explain what a file is (bytes stored on disk)<br>
+                <input type="checkbox"> Identify file types from their extensions<br>
+                <input type="checkbox"> Understand the difference between plain text and binary files<br>
+                <input type="checkbox"> Know what file modes "r", "w", and "a" mean<br>
+                <input type="checkbox"> Write code to open and close files<br>
+                <input type="checkbox"> Write code to read from files<br>
+                <input type="checkbox"> Write code to write to files<br>
+                <input type="checkbox"> Debug common file handling errors
+            </div>
+        </div>
+    </div>
+</body>
+</html>

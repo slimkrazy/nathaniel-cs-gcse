@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling - Worksheet Answers - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/worksheet.css">
+    <style>
+        .answer {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .code-answer {
+            background: #f8f9fa;
+            border: 2px solid #27ae60;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .explanation {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .mark-scheme {
+            background: #e3f2fd;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .byte-sequence {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>File Handling - Worksheet Answers</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science - Teacher Resource</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../teacher/">← Back to Teacher Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>Section A: File Fundamentals (12 marks)</h2>
+
+            <div class="question">
+                <h3>Question 1 (2 marks)</h3>
+                <p>Complete the sentence:</p>
+                <p>A file is a named collection of <strong>bytes</strong> stored on your <strong>hard drive/SSD/storage device/disk</strong>.</p>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for "bytes", 1 mark for acceptable storage device name.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 2 (4 marks)</h3>
+                <p>For each filename below, write the file extension and identify the file type:</p>
+
+                <div class="answer">
+                    <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                        <tr style="background: #3498db; color: white;">
+                            <th style="border: 1px solid #2c3e50; padding: 8px;">Filename</th>
+                            <th style="border: 1px solid #2c3e50; padding: 8px;">Extension</th>
+                            <th style="border: 1px solid #2c3e50; padding: 8px;">File Type</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">holiday_photo.jpg</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">.jpg</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">Image file / JPEG image</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">homework.docx</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">.docx</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">Document / Word document</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">favourite_song.mp3</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">.mp3</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">Audio file / Music file</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">notes.txt</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">.txt</td>
+                            <td style="border: 1px solid #2c3e50; padding: 8px;">Text file / Plain text</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for all four extensions correct, 1 mark for each file type (accept reasonable descriptions).
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 3 (2 marks)</h3>
+                <p>Tom renames his file from "photo.jpg" to "photo.txt". He then tries to open it in Notepad.</p>
+
+                <div class="answer">
+                    <p><strong>(a)</strong> What will he see when he opens it? (1 mark)</p>
+                    <p><strong>Answer:</strong> Gibberish / random characters / unreadable symbols / strange characters</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for any answer indicating the content is not readable text.
+                </div>
+
+                <div class="answer">
+                    <p><strong>(b)</strong> Explain why this happens. (1 mark)</p>
+                    <p><strong>Answer:</strong> The file still contains image/binary data (bytes), not text. Changing the extension doesn't change the actual content/bytes of the file.</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for explaining that the file content hasn't changed OR that the bytes are still image data not text.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 4 (2 marks)</h3>
+                <p>Here are the first few bytes of a file in hexadecimal:</p>
+                <div class="byte-sequence">FF D8 FF E0 00 10 4A 46 49 46</div>
+
+                <div class="answer">
+                    <p><strong>Answer:</strong> JPEG image file / .jpg file</p>
+                    <p><strong>Explanation:</strong> The magic bytes FF D8 FF at the start identify this as a JPEG file format.</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for JPEG/JPG, 1 mark for identifying it as an image OR mentioning the magic bytes.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 5 (2 marks)</h3>
+                <p>Tick ONE box to show which of these is a plain text file:</p>
+
+                <div class="answer">
+                    <p><strong>Answer:</strong> ✓ code.py</p>
+                    <p><strong>Explanation:</strong> Python code files (.py) are plain text files because they contain only human-readable text characters. The other files (photo.png, song.mp3, video.mp4) are binary files containing image, audio, and video data respectively.</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for selecting code.py, 1 mark for explaining it contains readable text / is human-readable / contains code as text.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section B: File Operations Concepts (8 marks)</h2>
+
+            <div class="question">
+                <h3>Question 6 (3 marks)</h3>
+                <p>Match each Python file mode to its correct description:</p>
+
+                <div class="answer">
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>"r" = B (Open for reading - file must exist)</li>
+                        <li>"w" = A (Open for writing - overwrites existing file)</li>
+                        <li>"a" = C (Open for appending - adds to end of file)</li>
+                    </ul>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for each correct match.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 7 (2 marks)</h3>
+                <p>State TWO reasons why it's important to close a file after you've finished using it.</p>
+
+                <div class="answer">
+                    <p><strong>Any TWO of:</strong></p>
+                    <ul>
+                        <li>Frees up system resources / memory</li>
+                        <li>Ensures all data is written to disk / saves the data / flushes the buffer</li>
+                        <li>Allows other programs to access/use the file</li>
+                        <li>Prevents data corruption</li>
+                        <li>Prevents file locking issues</li>
+                    </ul>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for each valid reason (accept reasonable variations).
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 8 (3 marks)</h3>
+                <p>Look at this Python code:</p>
+                <div class="code-answer">file = open("scores.txt", "w")
+file.write("100")
+file.write("200")
+file.close()</div>
+
+                <div class="answer">
+                    <p><strong>(a)</strong> What will be the contents of scores.txt after this code runs? (1 mark)</p>
+                    <p><strong>Answer:</strong> 100200 (on one line / all together / concatenated)</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for showing the numbers together without a line break.
+                </div>
+
+                <div class="answer">
+                    <p><strong>(b)</strong> The programmer wanted each score on a separate line. What should they change? (2 marks)</p>
+                    <p><strong>Answer:</strong> Add \n (newline character) after each score / at the end of each write statement.</p>
+                    <div class="code-answer">file.write("100\n")
+file.write("200\n")</div>
+                    <p>OR use separate write() calls for each newline</p>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong> 1 mark for mentioning \n or newline, 1 mark for showing correct placement in code.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section C: Writing File Handling Code (12 marks)</h2>
+
+            <div class="question">
+                <h3>Question 9 (3 marks)</h3>
+                <p>Write Python code to open a file called "message.txt", read its entire contents, and print them to the screen. Make sure to close the file properly.</p>
+
+                <div class="answer">
+                    <p><strong>Answer (Method 1 - Basic):</strong></p>
+                    <div class="code-answer">file = open("message.txt", "r")
+content = file.read()
+print(content)
+file.close()</div>
+
+                    <p><strong>Answer (Method 2 - Using 'with'):</strong></p>
+                    <div class="code-answer">with open("message.txt", "r") as file:
+    content = file.read()
+    print(content)</div>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong>
+                    <ul>
+                        <li>1 mark for correctly opening file in "r" mode</li>
+                        <li>1 mark for reading and printing the content</li>
+                        <li>1 mark for closing the file (or using 'with' statement)</li>
+                    </ul>
+                    <strong>Accept:</strong> Both methods, or variations that accomplish the same goal.
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 10 (4 marks)</h3>
+                <p>Write Python code that asks the user for their name and age, then saves both pieces of information to a file called "userdata.txt". Each piece of data should be on a separate line.</p>
+
+                <div class="answer">
+                    <p><strong>Answer (Method 1 - Basic):</strong></p>
+                    <div class="code-answer">name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+file = open("userdata.txt", "w")
+file.write(name + "\n")
+file.write(age + "\n")
+file.close()</div>
+
+                    <p><strong>Answer (Method 2 - Using 'with'):</strong></p>
+                    <div class="code-answer">name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+with open("userdata.txt", "w") as file:
+    file.write(name + "\n")
+    file.write(age + "\n")</div>
+
+                    <p><strong>Answer (Method 3 - f-strings):</strong></p>
+                    <div class="code-answer">name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+with open("userdata.txt", "w") as file:
+    file.write(f"{name}\n{age}\n")</div>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong>
+                    <ul>
+                        <li>1 mark for getting user input (both name and age)</li>
+                        <li>1 mark for opening file in "w" mode</li>
+                        <li>1 mark for writing both values with newlines (\n)</li>
+                        <li>1 mark for closing the file (or using 'with')</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 11 (5 marks)</h3>
+                <p>Write Python code that reads scores from "scores.txt", calculates the average, and prints it.</p>
+
+                <div class="answer">
+                    <p><strong>Answer (Method 1 - Basic loop):</strong></p>
+                    <div class="code-answer">file = open("scores.txt", "r")
+
+total = 0
+count = 0
+
+for line in file:
+    score = int(line.strip())
+    total = total + score
+    count = count + 1
+
+file.close()
+
+average = total / count
+print(f"Average score: {average}")</div>
+
+                    <p><strong>Answer (Method 2 - Using readlines):</strong></p>
+                    <div class="code-answer">with open("scores.txt", "r") as file:
+    lines = file.readlines()
+
+total = 0
+for line in lines:
+    total = total + int(line.strip())
+
+average = total / len(lines)
+print(f"Average score: {average}")</div>
+
+                    <p><strong>Answer (Method 3 - List comprehension - Advanced):</strong></p>
+                    <div class="code-answer">with open("scores.txt", "r") as file:
+    scores = [int(line.strip()) for line in file]
+
+average = sum(scores) / len(scores)
+print(f"Average score: {average}")</div>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong>
+                    <ul>
+                        <li>1 mark for opening the file in "r" mode</li>
+                        <li>1 mark for reading lines/looping through file</li>
+                        <li>1 mark for converting strings to integers</li>
+                        <li>1 mark for calculating total and count/average correctly</li>
+                        <li>1 mark for closing file (or using 'with') and printing result</li>
+                    </ul>
+                    <strong>Note:</strong> Award marks for correct logic even if syntax varies.
+                </div>
+
+                <div class="explanation">
+                    <strong>Key concepts tested:</strong>
+                    <ul>
+                        <li>Reading file line by line</li>
+                        <li>Converting string to integer (int())</li>
+                        <li>Using strip() to remove newline characters</li>
+                        <li>Accumulating a total</li>
+                        <li>Counting items</li>
+                        <li>Calculating average (total ÷ count)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section D: Problem Solving (8 marks)</h2>
+
+            <div class="question">
+                <h3>Question 12 (4 marks)</h3>
+                <p>Identify and fix the TWO errors in this code:</p>
+                <div class="code-answer">file = open("data.txt", "r")
+file.write("Hello World")
+print(file.read())
+# File never closed</div>
+
+                <div class="answer">
+                    <p><strong>Error 1:</strong> Trying to write to a file opened in read ("r") mode</p>
+                    <p><strong>How to fix:</strong> Change mode to "w" OR remove the write statement (depending on intention)</p>
+
+                    <p><strong>Error 2:</strong> File is never closed</p>
+                    <p><strong>How to fix:</strong> Add file.close() at the end OR use 'with' statement</p>
+
+                    <p><strong>Corrected code (assuming intent is to write):</strong></p>
+                    <div class="code-answer">file = open("data.txt", "w")
+file.write("Hello World")
+file.close()</div>
+
+                    <p><strong>OR (assuming intent is to read):</strong></p>
+                    <div class="code-answer">file = open("data.txt", "r")
+print(file.read())
+file.close()</div>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong>
+                    <ul>
+                        <li>1 mark for identifying mode error</li>
+                        <li>1 mark for correct fix to mode error</li>
+                        <li>1 mark for identifying missing close</li>
+                        <li>1 mark for showing how to fix (adding close() or 'with')</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 13 (4 marks)</h3>
+                <p>A game needs to save the player's high score. Explain the steps needed.</p>
+
+                <div class="answer">
+                    <p><strong>Answer:</strong></p>
+                    <ol>
+                        <li><strong>When game starts:</strong>
+                            <ul>
+                                <li>Try to open "highscore.txt" in read mode ("r")</li>
+                                <li>If file exists, read the high score and convert to integer</li>
+                                <li>Close the file</li>
+                                <li>If file doesn't exist, set high score to 0</li>
+                            </ul>
+                        </li>
+                        <li><strong>During gameplay:</strong>
+                            <ul>
+                                <li>Track the current score</li>
+                                <li>No file operations needed while playing</li>
+                            </ul>
+                        </li>
+                        <li><strong>When game ends:</strong>
+                            <ul>
+                                <li>Compare current score with loaded high score</li>
+                                <li>If current score > high score:</li>
+                                <li>Open "highscore.txt" in write mode ("w")</li>
+                                <li>Write the new score to file</li>
+                                <li>Close the file</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="mark-scheme">
+                    <strong>Marking:</strong>
+                    <ul>
+                        <li>1 mark for reading/loading score at start (mentioning read mode)</li>
+                        <li>1 mark for handling case when file doesn't exist</li>
+                        <li>1 mark for comparing scores</li>
+                        <li>1 mark for writing new score if higher (mentioning write mode)</li>
+                    </ul>
+                    <strong>Accept:</strong> Bullet points, flowchart, or paragraph form with correct logic.
+                </div>
+
+                <div class="explanation">
+                    <strong>Sample implementation:</strong>
+                    <div class="code-answer"># Load high score
+try:
+    with open("highscore.txt", "r") as file:
+        high_score = int(file.read())
+except:
+    high_score = 0
+
+# Play game
+current_score = 150  # Example
+
+# Save if better
+if current_score > high_score:
+    with open("highscore.txt", "w") as file:
+        file.write(str(current_score))
+    print("New high score!")</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Challenge (Optional)</h2>
+
+            <div class="question">
+                <h3>Challenge Question - Sample Solution</h3>
+
+                <div class="answer">
+                    <div class="code-answer">choice = ""
+
+while choice != "3":
+    print("\n=== TO-DO LIST ===")
+    print("1. View tasks")
+    print("2. Add task")
+    print("3. Quit")
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        # View tasks
+        try:
+            with open("todo.txt", "r") as file:
+                tasks = file.read()
+                if tasks:
+                    print("\nYour tasks:")
+                    print(tasks)
+                else:
+                    print("\nNo tasks yet!")
+        except FileNotFoundError:
+            print("\nNo tasks yet!")
+
+    elif choice == "2":
+        # Add task
+        task = input("Enter new task: ")
+        with open("todo.txt", "a") as file:
+            file.write(task + "\n")
+        print("Task added!")
+
+    elif choice == "3":
+        print("Goodbye!")
+
+    else:
+        print("Invalid choice!")
+
+print("Program ended.")</div>
+                </div>
+
+                <div class="explanation">
+                    <strong>Key features demonstrated:</strong>
+                    <ul>
+                        <li>While loop for menu system</li>
+                        <li>Reading from file (mode "r")</li>
+                        <li>Appending to file (mode "a") - important so we don't overwrite!</li>
+                        <li>Error handling (try/except for file not found)</li>
+                        <li>User input validation</li>
+                        <li>Using 'with' statement for automatic file closing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Common Mistakes to Watch For</h2>
+            <div class="explanation">
+                <h4>When reviewing Nathaniel's work, look for these common errors:</h4>
+                <ul>
+                    <li><strong>Forgetting to close files</strong> - Emphasize using 'with' statement</li>
+                    <li><strong>Wrong file mode</strong> - Can't write to "r" mode or read from "w" mode</li>
+                    <li><strong>Mode "w" overwrites</strong> - Students often use "w" when they mean "a"</li>
+                    <li><strong>Not converting types</strong> - Reading numbers as strings, need int() conversion</li>
+                    <li><strong>Forgetting newlines</strong> - Writing without \n causes everything on one line</li>
+                    <li><strong>Not using strip()</strong> - Newline characters can cause issues when reading</li>
+                    <li><strong>File doesn't exist error</strong> - Need to handle case when reading non-existent file</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

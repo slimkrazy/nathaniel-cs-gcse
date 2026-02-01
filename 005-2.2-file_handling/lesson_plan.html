@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Part 4 - File Handling - Lesson Plan - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/lesson-plan.css">
+    <style>
+        .file-visual {
+            background: #e8f4f8;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .file-diagram {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .bytes-visual {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .step-by-step {
+            background: #e8f5e8;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .file-types-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .file-type-card {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .file-type-card.text {
+            border-color: #3498db;
+            background: #e3f2fd;
+        }
+
+        .file-type-card.image {
+            border-color: #e91e63;
+            background: #fce4ec;
+        }
+
+        .file-type-card.audio {
+            border-color: #9c27b0;
+            background: #f3e5f5;
+        }
+
+        .file-type-card.pdf {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .visual-analogy {
+            background: #fff0f5;
+            border-left: 5px solid #e91e63;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .code-pattern {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .important-concept {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .mime-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .mime-table th {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border: 1px solid #2c3e50;
+        }
+
+        .mime-table td {
+            border: 1px solid #2c3e50;
+            padding: 8px;
+        }
+
+        .byte-sequence {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .os-association {
+            background: #f0f8ff;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-side {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .comparison-side.text-file {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+
+        .comparison-side.binary-file {
+            border-color: #e74c3c;
+            background: #ffe6e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Fundamentals Part 4 - File Handling</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
+            <a href="../teacher/">Teacher Resources</a>
+        </div>
+
+        <div class="lesson-overview">
+            <h2>Lesson Overview</h2>
+            <div class="overview-grid">
+                <div>
+                    <strong>Topic:</strong> 2.2 Programming Fundamentals Part 4<br>
+                    <strong>Duration:</strong> 50 minutes<br>
+                    <strong>Prerequisites:</strong> Variables, Loops, Understanding of bytes/binary
+                </div>
+                <div>
+                    <strong>Key Concepts:</strong> File fundamentals, Extensions, MIME types, Plain text vs binary, File operations<br>
+                    <strong>Assessment:</strong> Worksheet (30 minutes)<br>
+                    <strong>Resources:</strong> Cheat sheet, Visual diagrams, File examples
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lesson, Nathaniel will be able to:</p>
+            <ul>
+                <li><strong>Explain what a file really is at the fundamental level (bytes on storage)</strong></li>
+                <li>Understand the purpose and meaning of file extensions</li>
+                <li>Explain MIME types and how operating systems identify file types</li>
+                <li>Distinguish between plain text files and binary files</li>
+                <li>Understand how operating systems associate files with applications</li>
+                <li>Open and close files in Python</li>
+                <li>Read data from text files</li>
+                <li>Write data to text files</li>
+                <li>Apply file handling in practical programming scenarios</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Strategy (50 minutes)</h2>
+
+            <h3>Part 1: What IS a File? - Building from Bytes (10 minutes)</h3>
+
+            <div class="important-concept">
+                <h4>🎯 Start with What Nathaniel Knows: BYTES!</h4>
+                <p><strong>Key Message:</strong> "Remember how everything in a computer is stored as bytes? Well, a file is just a collection of bytes that has been given a name and saved to your storage device!"</p>
+            </div>
+
+            <div class="file-visual">
+                <h4>🗂️ What is a File?</h4>
+                <p><strong>Simple Definition:</strong> A file is a named collection of bytes stored on your hard drive, SSD, or other storage device.</p>
+
+                <div class="visual-analogy">
+                    <h5>📦 Think of it like a labeled box:</h5>
+                    <ul>
+                        <li><strong>The box contents:</strong> The bytes that make up the file</li>
+                        <li><strong>The label:</strong> The filename (e.g., "photo.jpg", "essay.txt")</li>
+                        <li><strong>The storage shelf:</strong> Your hard drive or SSD</li>
+                    </ul>
+                    <p><strong>Just like:</strong> You might label a box "LEGO bricks" or "Football gear", you label files so you know what's inside!</p>
+                </div>
+            </div>
+
+            <div class="bytes-visual">
+                <h4>🔍 Let's Look at Actual File Bytes!</h4>
+                <p><strong>Example 1: A Simple Text File</strong></p>
+                <p>If we create a file called <code>hello.txt</code> containing just the word "Hello":</p>
+
+                <div class="byte-sequence">
+File: hello.txt
+Bytes (in hexadecimal): 48 65 6C 6C 6F
+Bytes (in decimal):      72 101 108 108 111
+As characters:           H  e   l   l   o
+                </div>
+
+                <p><strong>That's it!</strong> The file is literally just 5 bytes stored on your disk with the name "hello.txt".</p>
+
+                <p><strong>Example 2: A JPEG Image Header</strong></p>
+                <p>The first few bytes of a JPEG image file always look like this:</p>
+
+                <div class="byte-sequence">
+File: photo.jpg (first 12 bytes)
+Bytes (hex): FF D8 FF E0 00 10 4A 46 49 46 00 01
+             ^^ ^^          ^^ ^^ ^^ ^^
+             JPEG           J  F  I  F
+             marker         marker text
+                </div>
+
+                <p><strong>Key Insight:</strong> Every type of file is just bytes, but different file types organize their bytes in different ways!</p>
+            </div>
+
+            <div class="step-by-step">
+                <h4>💡 Teaching Points - Emphasize These Concepts:</h4>
+                <ol>
+                    <li><strong>Files are just bytes</strong> - nothing magical, just data stored on disk</li>
+                    <li><strong>Files have names</strong> - so we can find them and identify them</li>
+                    <li><strong>Files persist</strong> - unlike variables in a program, files stay even when the computer is off</li>
+                    <li><strong>Different byte patterns = different file types</strong> - text vs images vs audio</li>
+                </ol>
+            </div>
+
+            <h3>Part 2: File Extensions - Naming Conventions (8 minutes)</h3>
+
+            <div class="file-visual">
+                <h4>📝 What are File Extensions?</h4>
+                <p><strong>Definition:</strong> A file extension is the part after the dot (.) in a filename that hints at what type of file it is.</p>
+
+                <div class="file-diagram">
+<strong>Anatomy of a Filename:</strong>
+
+    my_holiday_photo  .  jpg
+    ^^^^^^^^^^^^^^^^     ^^^
+    Name part            Extension
+    (you choose)         (indicates file type)
+
+    assignment_essay  .  docx
+    ^^^^^^^^^^^^^^^^     ^^^^
+    Name part            Extension
+
+    favourite_song    .  mp3
+    ^^^^^^^^^^^^^^       ^^^
+    Name part            Extension
+                </div>
+            </div>
+
+            <div class="file-types-grid">
+                <div class="file-type-card text">
+                    <h5>📄 Text Files</h5>
+                    <p><strong>.txt</strong> - Plain text file</p>
+                    <p><strong>.html</strong> - Webpage file</p>
+                    <p><strong>.py</strong> - Python program</p>
+                    <p><strong>.csv</strong> - Spreadsheet data</p>
+                    <p><strong>Contains:</strong> Human-readable text characters</p>
+                </div>
+
+                <div class="file-type-card image">
+                    <h5>🖼️ Image Files</h5>
+                    <p><strong>.jpg / .jpeg</strong> - Photo (compressed)</p>
+                    <p><strong>.png</strong> - Image (lossless)</p>
+                    <p><strong>.gif</strong> - Animated image</p>
+                    <p><strong>.bmp</strong> - Bitmap image</p>
+                    <p><strong>Contains:</strong> Pixel color data</p>
+                </div>
+
+                <div class="file-type-card audio">
+                    <h5>🎵 Audio Files</h5>
+                    <p><strong>.mp3</strong> - Compressed audio</p>
+                    <p><strong>.wav</strong> - Uncompressed audio</p>
+                    <p><strong>.flac</strong> - Lossless audio</p>
+                    <p><strong>.m4a</strong> - AAC audio</p>
+                    <p><strong>Contains:</strong> Sound wave data</p>
+                </div>
+
+                <div class="file-type-card pdf">
+                    <h5>📋 Document Files</h5>
+                    <p><strong>.pdf</strong> - Portable Document Format</p>
+                    <p><strong>.docx</strong> - Word document</p>
+                    <p><strong>.xlsx</strong> - Excel spreadsheet</p>
+                    <p><strong>.pptx</strong> - PowerPoint presentation</p>
+                    <p><strong>Contains:</strong> Formatted document data</p>
+                </div>
+            </div>
+
+            <div class="important-concept">
+                <h4>⚠️ Important Misconception to Address!</h4>
+                <p><strong>Common Mistake:</strong> "The extension MAKES the file that type"</p>
+                <p><strong>Truth:</strong> The extension is just a HINT! The actual file content (the bytes) determines what it really is.</p>
+
+                <div class="visual-analogy">
+                    <p><strong>Analogy:</strong> Like putting a "COOKIES" label on a jar of pasta. The label doesn't change what's inside - it's still pasta! The label just tells you (or misleads you) about what you expect to find.</p>
+                    <p><strong>Real Example:</strong> You could rename "photo.jpg" to "photo.txt", but opening it in a text editor would show gibberish because the bytes inside are still image data, not text!</p>
+                </div>
+            </div>
+
+            <h3>Part 3: MIME Types - How Computers REALLY Know (7 minutes)</h3>
+
+            <div class="file-visual">
+                <h4>🔬 MIME Types: The Real Identifier</h4>
+                <p><strong>What is a MIME type?</strong> MIME stands for "Multipurpose Internet Mail Extensions" - it's a standard way of identifying file types.</p>
+                <p><strong>Format:</strong> type/subtype (e.g., "image/jpeg", "text/plain")</p>
+            </div>
+
+            <table class="mime-table">
+                <thead>
+                    <tr>
+                        <th>File Extension</th>
+                        <th>MIME Type</th>
+                        <th>Description</th>
+                        <th>How Computer Knows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>.txt</td>
+                        <td>text/plain</td>
+                        <td>Plain text file</td>
+                        <td>Checks if bytes are readable text</td>
+                    </tr>
+                    <tr>
+                        <td>.jpg / .jpeg</td>
+                        <td>image/jpeg</td>
+                        <td>JPEG image</td>
+                        <td>Looks for FF D8 FF at start</td>
+                    </tr>
+                    <tr>
+                        <td>.png</td>
+                        <td>image/png</td>
+                        <td>PNG image</td>
+                        <td>Looks for 89 50 4E 47 at start</td>
+                    </tr>
+                    <tr>
+                        <td>.mp3</td>
+                        <td>audio/mpeg</td>
+                        <td>MP3 audio</td>
+                        <td>Looks for ID3 tag or FF FB</td>
+                    </tr>
+                    <tr>
+                        <td>.pdf</td>
+                        <td>application/pdf</td>
+                        <td>PDF document</td>
+                        <td>Looks for %PDF at start</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="bytes-visual">
+                <h4>🔍 Magic Bytes - The File Signature</h4>
+                <p><strong>Concept:</strong> Most file types have "magic bytes" (also called file signatures) - specific byte patterns at the start of the file that identify the type.</p>
+
+                <div class="byte-sequence">
+<strong>PNG File:</strong> Always starts with: 89 50 4E 47 0D 0A 1A 0A
+                                            .  P  N  G  ...
+
+<strong>JPEG File:</strong> Always starts with: FF D8 FF
+
+<strong>PDF File:</strong> Always starts with: 25 50 44 46
+                                            %  P  D  F
+
+<strong>MP3 File:</strong> Often starts with: 49 44 33 (ID3 tag)
+                                           I  D  3
+                </div>
+
+                <p><strong>This is how file recovery software works!</strong> It searches the disk for these magic bytes to find deleted files.</p>
+            </div>
+
+            <div class="os-association">
+                <h4>💻 How Does the OS Know Which App to Open?</h4>
+
+                <div class="step-by-step">
+                    <h5>Step-by-Step Process:</h5>
+                    <ol>
+                        <li><strong>You double-click a file:</strong> e.g., "holiday.jpg"</li>
+                        <li><strong>OS looks at extension:</strong> ".jpg" → This is probably an image</li>
+                        <li><strong>OS checks its association table:</strong> "What app handles .jpg files?"</li>
+                        <li><strong>OS finds registered app:</strong> "Photos app is registered for .jpg"</li>
+                        <li><strong>OS launches the app:</strong> Opens Photos app and passes the file to it</li>
+                        <li><strong>App verifies the file:</strong> Checks magic bytes to confirm it's really a JPEG</li>
+                        <li><strong>App processes the file:</strong> Reads the bytes and displays the image</li>
+                    </ol>
+                </div>
+
+                <div class="visual-analogy">
+                    <p><strong>Analogy:</strong> Like a receptionist at a hospital:</p>
+                    <ul>
+                        <li>You arrive with a broken arm → Receptionist sends you to orthopedics</li>
+                        <li>You arrive with a cough → Receptionist sends you to general medicine</li>
+                        <li>You open a .jpg file → OS sends it to your image viewer</li>
+                        <li>You open a .mp3 file → OS sends it to your music player</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Part 4: Plain Text vs Binary Files (8 minutes)</h3>
+
+            <div class="important-concept">
+                <h4>🎯 Critical Concept for Programming!</h4>
+                <p>Understanding the difference between text and binary files is essential for file handling in programming.</p>
+            </div>
+
+            <div class="comparison-box">
+                <div class="comparison-side text-file">
+                    <h5>📝 Plain Text Files</h5>
+                    <p><strong>Definition:</strong> Files that contain only human-readable text characters.</p>
+
+                    <p><strong>Characteristics:</strong></p>
+                    <ul>
+                        <li>Every byte represents a text character</li>
+                        <li>Can open in any text editor (Notepad, VS Code, etc.)</li>
+                        <li>What you see is what's stored</li>
+                        <li>Usually use UTF-8 or ASCII encoding</li>
+                    </ul>
+
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>.txt files</li>
+                        <li>.py files (Python code)</li>
+                        <li>.html files (web pages)</li>
+                        <li>.csv files (data)</li>
+                        <li>.json files (structured data)</li>
+                    </ul>
+
+                    <div class="code-pattern">Example: hello.txt
+Content: "Hello World"
+Bytes: 48 65 6C 6C 6F 20 57...
+       H  e  l  l  o     W...</div>
+
+                    <p><strong>When to use in programming:</strong> Storing configuration, logs, simple data, human-readable output</p>
+                </div>
+
+                <div class="comparison-side binary-file">
+                    <h5>⚙️ Binary Files</h5>
+                    <p><strong>Definition:</strong> Files where bytes represent data in formats other than simple text.</p>
+
+                    <p><strong>Characteristics:</strong></p>
+                    <ul>
+                        <li>Bytes represent images, sound, compressed data, etc.</li>
+                        <li>Opening in text editor shows gibberish</li>
+                        <li>Need specific programs to interpret</li>
+                        <li>Often more space-efficient</li>
+                    </ul>
+
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>.jpg, .png (images)</li>
+                        <li>.mp3, .wav (audio)</li>
+                        <li>.mp4 (video)</li>
+                        <li>.pdf (documents)</li>
+                        <li>.exe (programs)</li>
+                        <li>.zip (compressed files)</li>
+                    </ul>
+
+                    <div class="code-pattern">Example: photo.jpg
+First bytes: FF D8 FF E0 00 10...
+             ^^ ^^ Not readable
+             as simple text!</div>
+
+                    <p><strong>When to use in programming:</strong> Images, audio, video, efficient data storage, compiled programs</p>
+                </div>
+            </div>
+
+            <div class="bytes-visual">
+                <h4>🔬 The Key Difference Demonstrated</h4>
+                <p><strong>Let's store the number 1000:</strong></p>
+
+                <table style="width: 100%; margin: 10px 0; border-collapse: collapse;">
+                    <tr style="background: #3498db; color: white;">
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Method</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">How Stored</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Bytes Used</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Byte Values</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Plain Text</strong></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">As characters "1000"</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">4 bytes</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">31 30 30 30 (ASCII for '1','0','0','0')</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Binary</strong></td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">As actual number</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">2 bytes</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">03 E8 (1000 in binary: 0000001111101000)</td>
+                    </tr>
+                </table>
+
+                <p><strong>Key Insight:</strong> Plain text is readable but less efficient. Binary is efficient but not human-readable!</p>
+            </div>
+
+            <h3>Part 5: Python File Operations (12 minutes)</h3>
+
+            <div class="file-visual">
+                <h4>🐍 Working with Files in Python</h4>
+                <p><strong>The Four Basic Operations:</strong> Open, Read, Write, Close</p>
+            </div>
+
+            <div class="step-by-step">
+                <h5>1️⃣ Opening a File</h5>
+                <p><strong>Syntax:</strong> <code>file_handle = open(filename, mode)</code></p>
+
+                <div class="code-pattern">file = open("data.txt", "r")  # Open for reading
+file = open("output.txt", "w")  # Open for writing (overwrites!)
+file = open("log.txt", "a")     # Open for appending (adds to end)</div>
+
+                <p><strong>Modes:</strong></p>
+                <ul>
+                    <li><strong>"r"</strong> = Read (file must exist)</li>
+                    <li><strong>"w"</strong> = Write (creates new or overwrites existing)</li>
+                    <li><strong>"a"</strong> = Append (creates new or adds to existing)</li>
+                </ul>
+
+                <div class="visual-analogy">
+                    <p><strong>Think of it like a book:</strong></p>
+                    <ul>
+                        <li><strong>"r"</strong> = Opening a book to read it</li>
+                        <li><strong>"w"</strong> = Getting a blank notebook to write in (erases old content)</li>
+                        <li><strong>"a"</strong> = Opening your diary to add today's entry at the end</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <h5>2️⃣ Reading from a File</h5>
+
+                <div class="code-pattern"># Method 1: Read entire file
+file = open("story.txt", "r")
+content = file.read()  # Returns all text as one string
+print(content)
+file.close()
+
+# Method 2: Read line by line
+file = open("names.txt", "r")
+for line in file:
+    print(line.strip())  # strip() removes newline characters
+file.close()
+
+# Method 3: Read all lines into a list
+file = open("data.txt", "r")
+lines = file.readlines()  # Returns list of strings
+file.close()</div>
+
+                <div class="visual-analogy">
+                    <p><strong>Reading a book analogy:</strong></p>
+                    <ul>
+                        <li><strong>read()</strong> = Reading the entire book at once</li>
+                        <li><strong>for line in file</strong> = Reading one line at a time</li>
+                        <li><strong>readlines()</strong> = Putting bookmarks on every line to reference later</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <h5>3️⃣ Writing to a File</h5>
+
+                <div class="code-pattern"># Write single line
+file = open("output.txt", "w")
+file.write("Hello, World!\n")  # \n adds newline
+file.close()
+
+# Write multiple lines
+file = open("scores.txt", "w")
+file.write("Player 1: 100\n")
+file.write("Player 2: 85\n")
+file.write("Player 3: 92\n")
+file.close()
+
+# Append to existing file
+file = open("log.txt", "a")
+file.write("New entry added\n")
+file.close()</div>
+
+                <p><strong>⚠️ Warning:</strong> Mode "w" will ERASE the entire file before writing! Use "a" to add to the end.</p>
+            </div>
+
+            <div class="step-by-step">
+                <h5>4️⃣ Closing a File</h5>
+                <p><strong>Why is this important?</strong></p>
+                <ul>
+                    <li>Frees up system resources</li>
+                    <li>Ensures all data is written to disk (flushes buffers)</li>
+                    <li>Allows other programs to access the file</li>
+                </ul>
+
+                <div class="code-pattern">file = open("data.txt", "r")
+content = file.read()
+file.close()  # Always close when done!</div>
+
+                <div class="important-concept">
+                    <h5>✨ Better Practice: Using 'with' Statement</h5>
+                    <p><strong>Automatic closing - Python closes the file for you!</strong></p>
+
+                    <div class="code-pattern">with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+# File automatically closed here - no need for file.close()!</div>
+
+                    <p><strong>Benefits:</strong></p>
+                    <ul>
+                        <li>Automatically closes file even if error occurs</li>
+                        <li>Cleaner code</li>
+                        <li>Recommended best practice</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Part 6: Practical Examples (5 minutes)</h3>
+
+            <div class="file-visual">
+                <h4>💡 Real-World File Handling Examples</h4>
+
+                <h5>Example 1: Save High Score</h5>
+                <div class="code-pattern"># Save score
+score = 1250
+with open("highscore.txt", "w") as file:
+    file.write(str(score))
+
+# Load score later
+with open("highscore.txt", "r") as file:
+    saved_score = int(file.read())
+    print(f"Your high score: {saved_score}")</div>
+
+                <h5>Example 2: Save Multiple Values</h5>
+                <div class="code-pattern"># Save player data
+name = "Nathaniel"
+level = 15
+coins = 350
+
+with open("savegame.txt", "w") as file:
+    file.write(f"{name}\n")
+    file.write(f"{level}\n")
+    file.write(f"{coins}\n")
+
+# Load player data
+with open("savegame.txt", "r") as file:
+    name = file.readline().strip()
+    level = int(file.readline().strip())
+    coins = int(file.readline().strip())
+    print(f"{name} - Level {level} - {coins} coins")</div>
+
+                <h5>Example 3: Process a List</h5>
+                <div class="code-pattern"># Write shopping list
+items = ["Milk", "Bread", "Eggs", "Cheese"]
+with open("shopping.txt", "w") as file:
+    for item in items:
+        file.write(item + "\n")
+
+# Read shopping list
+with open("shopping.txt", "r") as file:
+    shopping_list = []
+    for line in file:
+        shopping_list.append(line.strip())
+print("Shopping:", shopping_list)</div>
+            </div>
+
+            <h3>Summary and Key Points (2 minutes)</h3>
+            <div class="important-concept">
+                <h4>🎯 Essential Takeaways</h4>
+                <ul>
+                    <li>Files are named collections of bytes stored on disk</li>
+                    <li>File extensions (.txt, .jpg, .mp3) are hints about file type</li>
+                    <li>MIME types and magic bytes are how computers really identify files</li>
+                    <li>Plain text files contain readable characters; binary files contain other data</li>
+                    <li>OS uses file associations to know which app opens which file</li>
+                    <li>Python file operations: open() → read/write → close()</li>
+                    <li>Use 'with' statement for automatic file closing</li>
+                    <li>Always close files to save changes and free resources</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Assessment Strategy</h2>
+            <div class="assessment-grid">
+                <div>
+                    <h3>During Lesson (Formative):</h3>
+                    <ul>
+                        <li>Can Nathaniel explain what a file is using bytes?</li>
+                        <li>Can he identify file types from extensions?</li>
+                        <li>Does he understand plain text vs binary?</li>
+                        <li>Can he explain the file operation sequence?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Worksheet (30 mins):</h3>
+                    <ul>
+                        <li>Identify file types and extensions</li>
+                        <li>Write code to read from files</li>
+                        <li>Write code to write to files</li>
+                        <li>Debug file handling errors</li>
+                        <li>Practical file processing tasks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Extension Activities</h2>
+            <ul>
+                <li>Create a program that reads a file and counts words</li>
+                <li>Build a simple contact list that saves to a file</li>
+                <li>Write a program that combines data from multiple files</li>
+                <li>Explore CSV files for structured data storage</li>
+                <li>Create a quiz program that loads questions from a file</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Next Lesson Preview</h2>
+            <p><strong>Topic:</strong> Working with Lists/Arrays and Data Processing</p>
+            <p><strong>Focus:</strong> Reading data from files into lists and processing it</p>
+            <p><strong>Connection:</strong> "Now that you can save and load data, we'll learn to process collections of data efficiently!"</p>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Notes for Visual Learners</h2>
+            <div class="visual-analogy">
+                <h4>👁️ Key Visual Strategies:</h4>
+                <ul>
+                    <li><strong>Show actual byte sequences</strong> - Use hex editors to show real file bytes</li>
+                    <li><strong>Use file system explorer</strong> - Show how files appear in Finder/Explorer</li>
+                    <li><strong>Demonstrate file associations</strong> - Right-click → "Open With" to show OS associations</li>
+                    <li><strong>Create comparison tables</strong> - Text vs binary side-by-side</li>
+                    <li><strong>Flowcharts for file operations</strong> - Visual flow of open→read/write→close</li>
+                    <li><strong>Real file examples</strong> - Have actual .txt, .jpg, .mp3, .pdf files to examine</li>
+                </ul>
+
+                <p><strong>Hands-on Activities:</strong></p>
+                <ul>
+                    <li>Open a .jpg in Notepad to see the gibberish (binary data)</li>
+                    <li>Open a .py file in Notepad to see readable text</li>
+                    <li>Rename a file extension and see what happens</li>
+                    <li>Check file properties to see actual byte size</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
