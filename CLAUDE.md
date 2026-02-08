@@ -79,6 +79,8 @@ Keep this updated as lessons are completed:
 | 002 | 2.2 | Programming Fundamentals Part 1 | TBD | Materials Ready |
 | 003 | 2.2 | Programming Fundamentals Part 2 - Decision Making | 2024-11-23 | Completed |
 | 004 | 2.2 | Programming Fundamentals Part 3 - Iteration (Loops) | TBD | Materials Ready |
+| 005 | 2.2 | Programming Fundamentals Part 4 - File Handling | TBD | Materials Ready |
+| 006 | 2.1 | Algorithms Introduction - Decomposition, Abstraction & Flowcharts | 2026-02-08 | Materials Ready |
 
 ## Specification Reference
 OCR GCSE Computer Science J277: https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf

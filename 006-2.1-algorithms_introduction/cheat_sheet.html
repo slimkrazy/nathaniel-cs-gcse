@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Introduction - Cheat Sheet - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cheat-sheet.css">
+    <style>
+        .key-concept {
+            background: #e8f4f8;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .decomposition-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .abstraction-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .flowchart-box {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .shape-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .shape-card {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .flowchart-shape {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 8px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .oval {
+            border: 3px solid #e74c3c;
+            border-radius: 50px;
+            background: #ffe6e6;
+        }
+
+        .rectangle {
+            border: 3px solid #3498db;
+            background: #e8f4f8;
+        }
+
+        .parallelogram {
+            border: 3px solid #27ae60;
+            background: #e8f5e8;
+            transform: skew(-20deg);
+            padding: 8px 20px;
+        }
+
+        .parallelogram-text {
+            transform: skew(20deg);
+            display: inline-block;
+        }
+
+        .diamond {
+            border: 3px solid #f39c12;
+            background: #fff3cd;
+            width: 100px;
+            height: 100px;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+        }
+
+        .diamond-text {
+            transform: rotate(-45deg);
+            font-size: 10px;
+        }
+
+        .tip-box {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .construct-card {
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .pseudocode {
+            background: #2c3e50;
+            color: #2ecc71;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 8px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-line;
+            font-size: 0.85em;
+        }
+
+        .flowchart-diagram {
+            background: #fafafa;
+            border: 2px solid #9c27b0;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 8px 0;
+            font-family: monospace;
+            font-size: 0.8em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Algorithms Introduction - Cheat Sheet</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a>
+        </div>
+
+        <div class="section">
+            <h2>Key Concepts Summary</h2>
+
+            <div class="key-concept">
+                <h3>What is an Algorithm?</h3>
+                <p><strong>Definition:</strong> A step-by-step set of instructions to solve a problem or complete a task.</p>
+                <p><strong>Think of it like:</strong> A recipe, a set of directions, or instructions for building LEGO.</p>
+            </div>
+
+            <div class="decomposition-box">
+                <h3>🔹 Decomposition</h3>
+                <p><strong>Definition:</strong> Breaking a complex problem down into smaller, more manageable sub-problems.</p>
+
+                <div class="tip-box">
+                    <strong>Why use decomposition?</strong>
+                    <ul>
+                        <li>Makes big problems less overwhelming</li>
+                        <li>Each small problem is easier to solve</li>
+                        <li>Different people can work on different parts</li>
+                        <li>Easier to test individual pieces</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <strong>Example: Creating a Video Game</strong>
+                    <p><strong>Big problem:</strong> Create a platform game</p>
+                    <p><strong>Decomposed into:</strong></p>
+                    <ul>
+                        <li>Character movement (left, right, jump)</li>
+                        <li>Platform collision detection</li>
+                        <li>Coin collection system</li>
+                        <li>Score tracking</li>
+                        <li>Display and graphics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="abstraction-box">
+                <h3>🔸 Abstraction</h3>
+                <p><strong>Definition:</strong> Removing unnecessary details and focusing only on what's important.</p>
+
+                <div class="tip-box">
+                    <strong>Why use abstraction?</strong>
+                    <ul>
+                        <li>Simplifies the problem</li>
+                        <li>Reduces complexity</li>
+                        <li>Helps you focus on what matters</li>
+                        <li>Makes problems easier to understand</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <strong>Example: Driving a Car</strong>
+                    <p><strong>Without abstraction:</strong> Engineering view (fuel injection, transmission ratios, combustion cycles, thousands of sensors)</p>
+                    <p><strong>With abstraction:</strong> Driving interface (steering wheel, pedals, gear stick, speedometer)</p>
+                    <p><strong>Result:</strong> Can drive without understanding how engines work! The controls hide the complex mechanics.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Flowchart Shapes</h2>
+
+            <div class="flowchart-box">
+                <p><strong>Flowcharts</strong> are visual diagrams showing algorithm steps using standard shapes.</p>
+            </div>
+
+            <div class="shape-grid">
+                <div class="shape-card">
+                    <div class="flowchart-shape oval">START</div>
+                    <h4>Oval (Terminator)</h4>
+                    <p><strong>Used for:</strong> START and END</p>
+                    <p><strong>Example:</strong> START, END, STOP</p>
+                </div>
+
+                <div class="shape-card">
+                    <div class="flowchart-shape rectangle">x = x + 1</div>
+                    <h4>Rectangle (Process)</h4>
+                    <p><strong>Used for:</strong> Instructions, calculations, operations</p>
+                    <p><strong>Example:</strong> x = x + 1, Set count to 0</p>
+                </div>
+
+                <div class="shape-card">
+                    <div class="flowchart-shape parallelogram">
+                        <span class="parallelogram-text">INPUT age</span>
+                    </div>
+                    <h4>Parallelogram (Input/Output)</h4>
+                    <p><strong>Used for:</strong> Getting input or showing output</p>
+                    <p><strong>Example:</strong> INPUT age, OUTPUT total</p>
+                </div>
+
+                <div class="shape-card">
+                    <div class="diamond">
+                        <span class="diamond-text">age ≥ 18?</span>
+                    </div>
+                    <h4>Diamond (Decision)</h4>
+                    <p><strong>Used for:</strong> Yes/No questions, conditions</p>
+                    <p><strong>Example:</strong> age ≥ 18?, x > 10?</p>
+                    <p><strong>Note:</strong> Always has 2 paths (YES/NO)</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>📏 Drawing Flowcharts:</strong>
+                <ul>
+                    <li><strong>Arrows</strong> show the flow direction</li>
+                    <li><strong>Flow direction:</strong> Usually top-to-bottom</li>
+                    <li><strong>Label arrows</strong> from diamonds (YES/NO)</li>
+                    <li><strong>Every flowchart</strong> starts with START and ends with END</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Three Programming Constructs</h2>
+
+            <div class="construct-card">
+                <h3>1️⃣ Sequence</h3>
+                <p><strong>What it is:</strong> Instructions executed one after another in order</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div>
+                        <h5>Pseudocode:</h5>
+                        <div class="pseudocode">START
+name = "Nathaniel"
+age = 14
+OUTPUT name
+OUTPUT age
+END</div>
+                    </div>
+                    <div>
+                        <h5>Flowchart Pattern:</h5>
+                        <div class="flowchart-diagram">
+                            <pre style="line-height: 1.6;">
+    ╭─────────╮
+    │  START  │
+    ╰────┬────╯
+         ▼
+    ┌─────────┐
+    │ Process │
+    └────┬────┘
+         ▼
+    ┌─────────┐
+    │ Process │
+    └────┬────┘
+         ▼
+    ╭─────────╮
+    │   END   │
+    ╰─────────╯
+
+Straight line down
+No branching!
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construct-card">
+                <h3>2️⃣ Selection (IF statements)</h3>
+                <p><strong>What it is:</strong> Making decisions - program takes different paths based on a condition</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div>
+                        <h5>Pseudocode:</h5>
+                        <div class="pseudocode">START
+INPUT age
+IF age ≥ 18 THEN
+    OUTPUT "Can vote"
+ELSE
+    OUTPUT "Too young"
+ENDIF
+END</div>
+                    </div>
+                    <div>
+                        <h5>Flowchart Pattern:</h5>
+                        <div class="flowchart-diagram">
+                            <pre style="line-height: 1.6;">
+    ╭─────────╮
+    │  START  │
+    ╰────┬────╯
+         ▼
+    ╱──────────╲
+   ╱ INPUT age  ╲
+   ╲─────┬──────╱
+         ▼
+      ╱────╲
+     ╱      ╲ YES
+    ╱ age≥18?╲───────┐
+    ╲        ╱        │
+     ╲──┬───╱         ▼
+        │NO     [Process]
+        ▼             │
+   [Process]          │
+        │             │
+        └──────┬──────┘
+               ▼
+          ╭────────╮
+          │  END   │
+          ╰────────╯
+
+Diamond creates 2 paths!
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construct-card">
+                <h3>3️⃣ Iteration (Loops)</h3>
+                <p><strong>What it is:</strong> Repeating a set of instructions multiple times</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div>
+                        <h5>Pseudocode (FOR loop):</h5>
+                        <div class="pseudocode">START
+FOR i = 1 TO 5
+    OUTPUT i
+ENDFOR
+OUTPUT "Done!"
+END</div>
+                        <h5>Pseudocode (WHILE loop):</h5>
+                        <div class="pseudocode">START
+i = 1
+WHILE i ≤ 5
+    OUTPUT i
+    i = i + 1
+ENDWHILE
+OUTPUT "Done!"
+END</div>
+                    </div>
+                    <div>
+                        <h5>Flowchart Pattern:</h5>
+                        <div class="flowchart-diagram">
+                            <pre style="line-height: 1.6;">
+    ╭─────────╮
+    │  START  │
+    ╰────┬────╯
+         ▼
+    ┌─────────┐
+    │ i = 1   │
+    └────┬────┘
+         │
+    ┌────▼────┐
+    │         │
+    ▼         │
+ ╱────╲       │
+╱ i≤5? ╲ NO   │
+╲      ╱──────┼──────┐
+ ╲─┬──╱       │      │
+   │YES       │      │
+   ▼          │      │
+[Process]     │      │
+   │          │      │
+   ▼          │      │
+┌─────────┐   │      │
+│ i = i+1 │   │      │
+└────┬────┘   │      │
+     └────────┘      │
+                     ▼
+                ╭────────╮
+                │  END   │
+                ╰────────╯
+
+Arrow loops back up!
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>🔁 Loop Types:</strong>
+                    <ul>
+                        <li><strong>FOR loop:</strong> Use when you know how many times to repeat</li>
+                        <li><strong>WHILE loop:</strong> Use when repeating as long as a condition is true</li>
+                        <li><strong>Both look similar in flowcharts</strong> — key feature is the loop-back arrow!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Reference Guide</h2>
+
+            <div class="example-box">
+                <h3>Identifying Constructs in Flowcharts</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                    <tr style="background: #3498db; color: white;">
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">If you see...</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">It's a...</th>
+                        <th style="border: 1px solid #2c3e50; padding: 8px;">Construct Type</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Straight line of shapes going down</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Sequence</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">One step after another</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Diamond with two branches (YES/NO)</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Selection</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">IF statement decision</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Arrow that loops back upward</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">Iteration</td>
+                        <td style="border: 1px solid #2c3e50; padding: 8px;">FOR or WHILE loop</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <h3>Common Exam Tips</h3>
+                <ul>
+                    <li>✅ Always start with START and end with END</li>
+                    <li>✅ Use the correct shape for each step</li>
+                    <li>✅ Label YES/NO paths from decision diamonds</li>
+                    <li>✅ Arrows show direction of flow</li>
+                    <li>✅ Every diamond must have exactly 2 exits (YES and NO)</li>
+                    <li>✅ Loops have an arrow going backward to repeat</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Terms</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #3498db; color: white;">
+                    <th style="border: 1px solid #2c3e50; padding: 8px; width: 25%;">Term</th>
+                    <th style="border: 1px solid #2c3e50; padding: 8px;">Definition</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Algorithm</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">A step-by-step set of instructions to solve a problem</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Decomposition</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Breaking a problem down into smaller sub-problems</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Abstraction</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Removing unnecessary detail to focus on what's important</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Flowchart</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Visual diagram showing algorithm steps using standard shapes</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Sequence</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Instructions executed one after another in order</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Selection</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Making decisions (IF statements) - branching paths</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Iteration</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Repeating instructions (loops) - FOR and WHILE</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;"><strong>Pseudocode</strong></td>
+                    <td style="border: 1px solid #2c3e50; padding: 8px;">Plain English-like code showing algorithm steps</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Remember!</h2>
+            <div class="tip-box">
+                <ul>
+                    <li>🔹 <strong>Decomposition</strong> = Break it down into smaller problems</li>
+                    <li>🔸 <strong>Abstraction</strong> = Remove unnecessary details</li>
+                    <li>📐 <strong>Flowcharts</strong> = Visual algorithm representation</li>
+                    <li>⚪ <strong>Oval</strong> = START/END</li>
+                    <li>▭ <strong>Rectangle</strong> = Process</li>
+                    <li>▱ <strong>Parallelogram</strong> = Input/Output</li>
+                    <li>◇ <strong>Diamond</strong> = Decision (YES/NO)</li>
+                    <li>📏 <strong>Sequence</strong> = Straight line</li>
+                    <li>🔀 <strong>Selection</strong> = Diamond with branches</li>
+                    <li>🔁 <strong>Iteration</strong> = Loop-back arrow</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

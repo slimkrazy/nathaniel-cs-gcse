@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Introduction - Lesson Plan - Nathaniel's GCSE Computer Science</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/lesson-plan.css">
+    <style>
+        .decomposition-visual {
+            background: #e8f4f8;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .abstraction-visual {
+            background: #fff3e0;
+            border: 3px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .flowchart-shapes {
+            background: #f3e5f5;
+            border: 3px solid #9c27b0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .shape-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .shape-card {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .shape-example {
+            background: #f8f9fa;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .real-life-example {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .interactive-section {
+            background: #fff9c4;
+            border: 3px solid #fdd835;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .construct-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .pseudocode-box {
+            background: #f5f5f5;
+            border: 2px solid #555;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-line;
+        }
+
+        .flowchart-box {
+            background: #fafafa;
+            border: 2px solid #9c27b0;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .important-concept {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .teaching-tip {
+            background: #e1f5fe;
+            border-left: 5px solid #0288d1;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .flowchart-shape {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .oval {
+            border: 3px solid #e74c3c;
+            border-radius: 50px;
+            background: #ffe6e6;
+        }
+
+        .rectangle {
+            border: 3px solid #3498db;
+            background: #e8f4f8;
+        }
+
+        .parallelogram {
+            border: 3px solid #27ae60;
+            background: #e8f5e8;
+            transform: skew(-20deg);
+            padding: 10px 25px;
+        }
+
+        .parallelogram-text {
+            transform: skew(20deg);
+            display: inline-block;
+        }
+
+        .diamond {
+            border: 3px solid #f39c12;
+            background: #fff3cd;
+            width: 120px;
+            height: 120px;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diamond-text {
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Algorithms Introduction: Decomposition, Abstraction & Flowcharts</h1>
+            <div class="student-name">Nathaniel's GCSE Computer Science</div>
+        </div>
+
+        <div class="nav-breadcrumb">
+            <a href="../">← Back to Home</a> |
+            <a href="../student/">← Back to Student Resources</a> |
+            <a href="../teacher/">Teacher Resources</a>
+        </div>
+
+        <div class="lesson-overview">
+            <h2>Lesson Overview</h2>
+            <div class="overview-grid">
+                <div>
+                    <strong>Topic:</strong> 2.1 Algorithms - Introduction<br>
+                    <strong>Duration:</strong> 50-60 minutes<br>
+                    <strong>Prerequisites:</strong> Programming constructs (sequence, selection, iteration)
+                </div>
+                <div>
+                    <strong>Key Concepts:</strong> Decomposition, Abstraction, Flowcharts, Programming constructs<br>
+                    <strong>Session Type:</strong> Whiteboard teaching (minimal worksheet)<br>
+                    <strong>Resources:</strong> Whiteboard, cheat sheet
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lesson, Nathaniel will be able to:</p>
+            <ul>
+                <li><strong>Explain decomposition as breaking problems into smaller parts</strong></li>
+                <li>Apply decomposition to real-life and programming problems</li>
+                <li><strong>Explain abstraction as removing unnecessary detail</strong></li>
+                <li>Apply abstraction to simplify problems</li>
+                <li>Recognize all flowchart shapes and their purposes</li>
+                <li>Read and understand flowcharts showing the three programming constructs</li>
+                <li>Match pseudocode to equivalent flowcharts</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Strategy (50-60 minutes)</h2>
+
+            <h3>Part 1: How Programmers Approach Big Problems (15 minutes)</h3>
+
+            <div class="important-concept">
+                <h4>🎯 Opening Hook</h4>
+                <p><strong>"How do you eat an elephant?"</strong></p>
+                <p><em>One bite at a time!</em></p>
+                <p>This is exactly how programmers tackle complex problems. Today we'll learn the two main techniques: <strong>Decomposition</strong> and <strong>Abstraction</strong>.</p>
+            </div>
+
+            <h4>🔹 Decomposition - Breaking Problems Down</h4>
+
+            <div class="decomposition-visual">
+                <h5>What is Decomposition?</h5>
+                <p><strong>Definition:</strong> Breaking a complex problem down into smaller, more manageable sub-problems that are easier to solve.</p>
+
+                <div class="teaching-tip">
+                    <strong>Why decomposition?</strong>
+                    <ul>
+                        <li>Makes complex problems less overwhelming</li>
+                        <li>Each smaller problem can be solved separately</li>
+                        <li>Different people can work on different parts</li>
+                        <li>Easier to test individual pieces</li>
+                        <li>Can reuse solutions to sub-problems elsewhere</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="real-life-example">
+                <h5>📚 Real-Life Example 1: Planning a Birthday Party</h5>
+                <p><strong>The Big Problem:</strong> Organize a birthday party for 20 friends</p>
+
+                <p><strong>Without Decomposition:</strong> "I need to organize a party" — OVERWHELMING!</p>
+
+                <p><strong>With Decomposition:</strong> Break it down into smaller tasks:</p>
+                <ol>
+                    <li><strong>Guest Management</strong>
+                        <ul>
+                            <li>Create guest list</li>
+                            <li>Send invitations</li>
+                            <li>Track RSVPs</li>
+                        </ul>
+                    </li>
+                    <li><strong>Venue & Decorations</strong>
+                        <ul>
+                            <li>Choose location</li>
+                            <li>Buy decorations</li>
+                            <li>Set up on the day</li>
+                        </ul>
+                    </li>
+                    <li><strong>Food & Drinks</strong>
+                        <ul>
+                            <li>Plan menu</li>
+                            <li>Shop for ingredients</li>
+                            <li>Prepare food</li>
+                        </ul>
+                    </li>
+                    <li><strong>Entertainment</strong>
+                        <ul>
+                            <li>Create playlist</li>
+                            <li>Plan games/activities</li>
+                            <li>Organize equipment</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Key Insight:</strong> Each sub-problem is much easier to tackle than the whole party! You're already using decomposition in everyday life without realizing it.</p>
+            </div>
+
+            <h4>🔸 Abstraction - Removing Unnecessary Detail</h4>
+
+            <div class="abstraction-visual">
+                <h5>What is Abstraction?</h5>
+                <p><strong>Definition:</strong> Removing unnecessary details and focusing only on what's important for solving the problem.</p>
+
+                <div class="teaching-tip">
+                    <strong>Why abstraction?</strong>
+                    <ul>
+                        <li>Simplifies the problem by hiding complexity</li>
+                        <li>Helps you focus on what matters</li>
+                        <li>Makes problems easier to understand</li>
+                        <li>Reduces information overload</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="real-life-example">
+                <h5>🚗 Real-Life Example 2: Driving a Car</h5>
+                <p><strong>The Problem:</strong> Travel from home to a friend's house in a car</p>
+
+                <p><strong>Without Abstraction - Engineering View:</strong></p>
+                <ul>
+                    <li>Fuel injection timing sequences</li>
+                    <li>Transmission gear ratios</li>
+                    <li>Engine combustion cycles (thousands per minute!)</li>
+                    <li>Brake hydraulic pressure calculations</li>
+                    <li>Electronic stability control algorithms</li>
+                    <li>Thousands of sensors and processors working together</li>
+                    <li><strong>Result:</strong> You'd need an engineering degree just to drive to the shops!</li>
+                </ul>
+
+                <p><strong>With Abstraction - Driving Interface:</strong></p>
+                <ul>
+                    <li>Shows ONLY: Steering wheel, pedals (gas/brake), gear stick, speedometer</li>
+                    <li>Hides: All the complex mechanics and electronics</li>
+                    <li>Simple controls: Turn wheel → car turns, Press pedal → car goes faster</li>
+                    <li><strong>Result:</strong> Anyone can learn to drive without understanding how engines work!</li>
+                </ul>
+
+                <p><strong>Key Insight:</strong> The driving controls abstract away all the engine complexity. You don't need to know about fuel injection or transmission ratios to drive - you just use the simple interface (wheel and pedals). The unnecessary engineering details are hidden so you can focus on what matters: steering and speed!</p>
+            </div>
+
+            <h4>🎮 Interactive Example: Walk Through Together (5-7 minutes)</h4>
+
+            <div class="interactive-section">
+                <h5>Problem: Create a Simple Video Game</h5>
+                <p><strong>Task for Nathaniel:</strong> "You need to create a basic 2D platform game where a character jumps between platforms and collects coins. How would you break this down?"</p>
+
+                <div class="teaching-tip">
+                    <strong>🎤 Guide Nathaniel with prompting questions:</strong>
+                    <ol>
+                        <li><strong>"What are the main things this game needs to do?"</strong>
+                            <br><em>Expected answers: Display graphics, move character, detect collisions, track score, etc.</em>
+                        </li>
+                        <li><strong>"Can we break those down even further?"</strong>
+                            <br><em>Lead him to identify sub-problems within each main component</em>
+                        </li>
+                        <li><strong>"What details don't we need to worry about right now?"</strong>
+                            <br><em>Help him identify what to abstract away: e.g., exact character appearance, sound effects, background music</em>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="decomposition-visual">
+                    <h5>✅ Example Decomposition (reveal after Nathaniel's attempt):</h5>
+                    <ol>
+                        <li><strong>Character Control</strong>
+                            <ul>
+                                <li>Move left/right with arrow keys</li>
+                                <li>Jump when spacebar pressed</li>
+                                <li>Apply gravity to bring character down</li>
+                            </ul>
+                        </li>
+                        <li><strong>Platform System</strong>
+                            <ul>
+                                <li>Draw platforms at specific positions</li>
+                                <li>Detect when character lands on platform</li>
+                                <li>Stop character falling through platforms</li>
+                            </ul>
+                        </li>
+                        <li><strong>Coin Collection</strong>
+                            <ul>
+                                <li>Place coins on platforms</li>
+                                <li>Detect when character touches coin</li>
+                                <li>Remove collected coin</li>
+                                <li>Add to score</li>
+                            </ul>
+                        </li>
+                        <li><strong>Display & Interface</strong>
+                            <ul>
+                                <li>Draw game window</li>
+                                <li>Display score counter</li>
+                                <li>Show game over screen</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="abstraction-visual">
+                    <h5>✅ Example Abstraction (reveal after Nathaniel's attempt):</h5>
+                    <p><strong>Details we DON'T need to worry about initially:</strong></p>
+                    <ul>
+                        <li>❌ Detailed character animation (sprite sheets, walking frames)</li>
+                        <li>❌ Background scenery (clouds, trees, mountains)</li>
+                        <li>❌ Sound effects and music</li>
+                        <li>❌ Multiple levels</li>
+                        <li>❌ Enemy characters</li>
+                        <li>❌ Power-ups or special abilities</li>
+                        <li>✅ <strong>Focus on:</strong> Basic movement, platform collision, coin collection</li>
+                    </ul>
+                    <p><strong>Key Message:</strong> Start simple, add detail later!</p>
+                </div>
+            </div>
+
+            <h3>Part 2: Introduction to Flowcharts (10 minutes)</h3>
+
+            <div class="important-concept">
+                <h4>🎯 What is a Flowchart?</h4>
+                <p><strong>Definition:</strong> A visual diagram that shows the steps of an algorithm using standardized shapes and arrows.</p>
+                <p><strong>Why use flowcharts?</strong> They're visual representations that show the flow of logic through a program — perfect for visual learners like Nathaniel!</p>
+            </div>
+
+            <div class="flowchart-shapes">
+                <h4>📐 Flowchart Shapes - The Building Blocks</h4>
+                <p><strong>Every shape has a specific meaning:</strong></p>
+
+                <div class="shape-grid">
+                    <div class="shape-card">
+                        <div class="flowchart-shape oval">START / END</div>
+                        <h5>Oval / Rounded Rectangle</h5>
+                        <p><strong>Purpose:</strong> Terminator</p>
+                        <p><strong>Used for:</strong> START and END of program</p>
+                        <p><strong>Examples:</strong> "START", "END", "STOP"</p>
+                    </div>
+
+                    <div class="shape-card">
+                        <div class="flowchart-shape rectangle">PROCESS</div>
+                        <h5>Rectangle</h5>
+                        <p><strong>Purpose:</strong> Process / Action</p>
+                        <p><strong>Used for:</strong> Instructions, calculations, operations</p>
+                        <p><strong>Examples:</strong> "x = x + 1", "Calculate total", "Set count to 0"</p>
+                    </div>
+
+                    <div class="shape-card">
+                        <div class="flowchart-shape parallelogram">
+                            <span class="parallelogram-text">INPUT/OUTPUT</span>
+                        </div>
+                        <h5>Parallelogram</h5>
+                        <p><strong>Purpose:</strong> Input / Output</p>
+                        <p><strong>Used for:</strong> Getting input from user or displaying output</p>
+                        <p><strong>Examples:</strong> "INPUT age", "OUTPUT total", "PRINT name"</p>
+                    </div>
+
+                    <div class="shape-card">
+                        <div class="diamond">
+                            <span class="diamond-text">DECISION</span>
+                        </div>
+                        <h5>Diamond</h5>
+                        <p><strong>Purpose:</strong> Decision / Condition</p>
+                        <p><strong>Used for:</strong> Yes/no questions, conditions</p>
+                        <p><strong>Examples:</strong> "age ≥ 18?", "x > 10?", "is_valid?"</p>
+                        <p><strong>Note:</strong> Always has 2 paths: YES/TRUE and NO/FALSE</p>
+                    </div>
+                </div>
+
+                <div class="teaching-tip">
+                    <h5>🎨 Drawing Flowcharts on Whiteboard:</h5>
+                    <ul>
+                        <li><strong>Arrows:</strong> Show the flow/direction of the program</li>
+                        <li><strong>Flow direction:</strong> Usually top-to-bottom or left-to-right</li>
+                        <li><strong>Label arrows from diamonds:</strong> Mark which path is "YES" and which is "NO"</li>
+                        <li><strong>Keep it neat:</strong> Use ruler or straight lines where possible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Part 3: The Three Programming Constructs (25 minutes)</h3>
+
+            <div class="important-concept">
+                <h4>🎯 Quick Reminder: The Three Constructs</h4>
+                <p>Nathaniel already knows these from previous lessons. Today we'll see them as flowcharts!</p>
+                <ul>
+                    <li><strong>Sequence:</strong> Instructions executed one after another</li>
+                    <li><strong>Selection:</strong> Making decisions (IF statements)</li>
+                    <li><strong>Iteration:</strong> Repeating instructions (loops)</li>
+                </ul>
+            </div>
+
+            <h4>1️⃣ Sequence - One Step After Another</h4>
+
+            <div class="construct-box">
+                <h5>What is Sequence?</h5>
+                <p>Instructions that run in order, one after the other, from top to bottom.</p>
+
+                <div class="two-column">
+                    <div>
+                        <h6>Pseudocode:</h6>
+                        <div class="pseudocode-box">START
+name = "Nathaniel"
+age = 14
+birth_year = 2026 - age
+OUTPUT "Name: " + name
+OUTPUT "Born in: " + birth_year
+END</div>
+                    </div>
+                    <div>
+                        <h6>Flowchart:</h6>
+                        <div class="flowchart-box">
+                            <pre style="text-align: left; font-family: monospace; line-height: 2;">
+    ╭─────────╮
+    │  START  │
+    ╰────┬────╯
+         │
+         ▼
+    ┌──────────────────┐
+    │ name = "Nathaniel"│
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────┐
+    │   age = 14   │
+    └──────┬───────┘
+           │
+           ▼
+    ┌──────────────────────┐
+    │ birth_year = 2026-age│
+    └──────────┬───────────┘
+               │
+               ▼
+    ╱──────────────────────╲
+   ╱ OUTPUT "Name: " + name╲
+   ╲──────────┬─────────────╱
+              │
+              ▼
+    ╱────────────────────────╲
+   ╱ OUTPUT "Born in: " +    ╲
+   ╲ birth_year   ┬───────────╱
+                  │
+                  ▼
+             ╭────────╮
+             │  END   │
+             ╰────────╯
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teaching-tip">
+                    <strong>💡 Teaching Point:</strong> Notice how the flowchart flows straight down? That's sequence — no branching, no loops, just one step after another.
+                </div>
+            </div>
+
+            <h4>2️⃣ Selection - Making Decisions (IF statements)</h4>
+
+            <div class="construct-box">
+                <h5>What is Selection?</h5>
+                <p>The program makes a decision and takes different paths based on a condition.</p>
+
+                <div class="two-column">
+                    <div>
+                        <h6>Pseudocode:</h6>
+                        <div class="pseudocode-box">START
+INPUT age
+IF age ≥ 18 THEN
+    OUTPUT "You can vote"
+ELSE
+    OUTPUT "Too young to vote"
+ENDIF
+END</div>
+                    </div>
+                    <div>
+                        <h6>Flowchart:</h6>
+                        <div class="flowchart-box">
+                            <pre style="text-align: left; font-family: monospace; line-height: 1.8;">
+      ╭─────────╮
+      │  START  │
+      ╰────┬────╯
+           │
+           ▼
+      ╱──────────╲
+     ╱ INPUT age  ╲
+     ╲──────┬─────╱
+            │
+            ▼
+         ╱────╲
+        ╱      ╲
+       ╱ age ≥  ╲   YES
+      ╱   18?    ╲────────────┐
+      ╲          ╱             │
+       ╲        ╱              ▼
+        ╲──┬───╱      ╱──────────────────╲
+           │         ╱ OUTPUT "You can    ╲
+           │NO       ╲       vote"         ╱
+           │          ╲──────────┬────────╱
+           │                     │
+           ▼                     │
+    ╱────────────────╲           │
+   ╱ OUTPUT "Too     ╲           │
+   ╲ young to vote"   ╱          │
+    ╲────────┬────────╱           │
+             │                    │
+             └────────┬───────────┘
+                      │
+                      ▼
+                 ╭────────╮
+                 │  END   │
+                 ╰────────╯
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teaching-tip">
+                    <strong>💡 Teaching Point:</strong> See how the diamond creates TWO paths? One for YES, one for NO. They join back together before the END. This is selection!
+                </div>
+            </div>
+
+            <h4>3️⃣ Iteration - Repeating (Loops)</h4>
+
+            <div class="construct-box">
+                <h5>What is Iteration?</h5>
+                <p>Repeating a set of instructions multiple times. Notice the arrow that loops back!</p>
+
+                <div class="two-column">
+                    <div>
+                        <h6>Pseudocode (FOR loop):</h6>
+                        <div class="pseudocode-box">START
+FOR count = 1 TO 5
+    OUTPUT count
+ENDFOR
+OUTPUT "Blast off!"
+END</div>
+                    </div>
+                    <div>
+                        <h6>Flowchart:</h6>
+                        <div class="flowchart-box">
+                            <pre style="text-align: left; font-family: monospace; line-height: 1.8;">
+      ╭─────────╮
+      │  START  │
+      ╰────┬────╯
+           │
+           ▼
+    ┌──────────────┐
+    │ count = 1    │
+    └──────┬───────┘
+           │
+      ┌────▼────┐
+      │         │
+      ▼         │
+   ╱────╲       │
+  ╱      ╲      │
+ ╱ count  ╲ NO  │
+╱  ≤ 5?   ╲────┼──────┐
+╲         ╱     │      │
+ ╲       ╱      │      │
+  ╲─┬───╱       │      │
+    │YES        │      │
+    ▼           │      │
+╱────────────╲  │      │
+╲OUTPUT count╱  │      │
+ ╲────┬──────╱  │      │
+      │         │      │
+      ▼         │      │
+┌──────────────┐│      │
+│count = count+1││      │
+└──────┬───────┘│      │
+       │        │      │
+       └────────┘      │
+                       │
+                       ▼
+            ╱────────────────────╲
+           ╱ OUTPUT "Blast off!" ╲
+           ╲──────────┬───────────╱
+                      │
+                      ▼
+                 ╭────────╮
+                 │  END   │
+                 ╰────────╯
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teaching-tip">
+                    <strong>💡 Teaching Point:</strong> See the arrow that goes BACK UP? That's the loop! The program keeps going around until the condition becomes FALSE, then it exits the loop and continues.
+                </div>
+            </div>
+
+            <div class="construct-box">
+                <h5>Alternative: WHILE Loop</h5>
+                <p>Same concept, different syntax. Condition is checked BEFORE executing the loop body.</p>
+
+                <div class="two-column">
+                    <div>
+                        <h6>Pseudocode (WHILE loop):</h6>
+                        <div class="pseudocode-box">START
+count = 1
+WHILE count ≤ 5
+    OUTPUT count
+    count = count + 1
+ENDWHILE
+OUTPUT "Blast off!"
+END</div>
+                    </div>
+                    <div>
+                        <h6>Note:</h6>
+                        <p>Flowchart looks very similar to FOR loop! The key difference:</p>
+                        <ul style="text-align: left;">
+                            <li><strong>FOR:</strong> Number of iterations is known</li>
+                            <li><strong>WHILE:</strong> Repeats as long as condition is true</li>
+                        </ul>
+                        <p><em>In flowchart form, both show the same pattern: decision diamond with a loop-back arrow.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Summary and Key Points (5 minutes)</h3>
+            <div class="important-concept">
+                <h4>🎯 Essential Takeaways</h4>
+                <ul>
+                    <li><strong>Decomposition:</strong> Break big problems into smaller, manageable sub-problems</li>
+                    <li><strong>Abstraction:</strong> Remove unnecessary detail to focus on what matters</li>
+                    <li><strong>Flowcharts:</strong> Visual way to represent algorithms using standard shapes</li>
+                    <li><strong>Flowchart shapes:</strong>
+                        <ul>
+                            <li>Oval = START/END</li>
+                            <li>Rectangle = Process/instruction</li>
+                            <li>Parallelogram = Input/Output</li>
+                            <li>Diamond = Decision (splits into YES/NO paths)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Three constructs in flowcharts:</strong>
+                        <ul>
+                            <li>Sequence = Straight line down</li>
+                            <li>Selection = Diamond with two branches</li>
+                            <li>Iteration = Arrow looping back up</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Whiteboard Session Guide</h2>
+            <div class="teaching-tip">
+                <h3>📝 Recommended Whiteboard Flow:</h3>
+                <ol>
+                    <li><strong>Draw flowchart shapes</strong> — leave them visible throughout lesson</li>
+                    <li><strong>Birthday party example</strong> — draw decomposition tree</li>
+                    <li><strong>Map abstraction</strong> — sketch simple comparison diagrams</li>
+                    <li><strong>Interactive game example</strong> — co-create the decomposition/abstraction with Nathaniel</li>
+                    <li><strong>Draw sequence flowchart</strong> — simple example</li>
+                    <li><strong>Draw selection flowchart</strong> — show the branching clearly</li>
+                    <li><strong>Draw iteration flowchart</strong> — emphasize the loop-back arrow</li>
+                </ol>
+
+                <h3>💬 Engagement Techniques:</h3>
+                <ul>
+                    <li>Ask Nathaniel to come to the board and add boxes/arrows</li>
+                    <li>Have him suggest examples from his daily life</li>
+                    <li>Ask "what shape would this be?" when describing algorithm steps</li>
+                    <li>Trace through flowcharts with a finger or pointer to show flow</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Assessment Strategy</h2>
+            <div class="assessment-grid">
+                <div>
+                    <h3>During Lesson (Formative):</h3>
+                    <ul>
+                        <li>Can Nathaniel explain decomposition in his own words?</li>
+                        <li>Can he identify what to abstract away in a problem?</li>
+                        <li>Can he name all four flowchart shapes?</li>
+                        <li>Can he identify which construct a flowchart represents?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Check for Understanding:</h3>
+                    <ul>
+                        <li>Give him a problem and ask him to decompose it</li>
+                        <li>Show a flowchart and ask which construct it uses</li>
+                        <li>Ask him to match pseudocode to flowchart</li>
+                        <li>Have him suggest what shape to use for a given step</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Next Lesson Preview</h2>
+            <p><strong>Topic:</strong> Writing Algorithms - From Problems to Flowcharts</p>
+            <p><strong>Focus:</strong> Creating complete flowcharts from problem descriptions, more complex algorithms</p>
+            <p><strong>Connection:</strong> "Now that you know how to read flowcharts, next time we'll practice designing them from scratch!"</p>
+        </div>
+
+        <div class="section">
+            <h2>Teaching Notes for Visual Learners</h2>
+            <div class="real-life-example">
+                <h4>👁️ Key Visual Strategies:</h4>
+                <ul>
+                    <li><strong>Use color coding</strong> - Different colors for each flowchart shape</li>
+                    <li><strong>Draw big and clear</strong> - Nathaniel needs to see the shapes clearly</li>
+                    <li><strong>Use real-world analogies</strong> - Birthday party, maps, games</li>
+                    <li><strong>Gesture and trace</strong> - Use hands to show flow direction</li>
+                    <li><strong>Leave key diagrams visible</strong> - Don't erase the shape reference guide</li>
+                    <li><strong>Co-create diagrams</strong> - Get Nathaniel drawing too</li>
+                </ul>
+
+                <h4>🎯 Avoiding Common Pitfalls:</h4>
+                <ul>
+                    <li>Don't go too deep into abstraction theory — keep it practical</li>
+                    <li>Focus on recognition first, creation later</li>
+                    <li>Use simple, relatable examples</li>
+                    <li>Connect back to Python code he's already written</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>OCR Specification Alignment</h2>
+            <div class="teaching-tip">
+                <p><strong>Section 2.1 - Algorithms</strong></p>
+                <ul>
+                    <li>✅ Understand and explain decomposition (breaking problems down)</li>
+                    <li>✅ Understand and explain abstraction (removing unnecessary detail)</li>
+                    <li>✅ Interpret and create flowcharts using standard symbols</li>
+                    <li>✅ Recognize sequence, selection, and iteration in flowcharts</li>
+                </ul>
+                <p><strong>Note:</strong> This lesson introduces concepts at appropriate depth for GCSE. Abstraction is kept practical and accessible, focusing on problem-solving applications rather than theoretical computer science concepts.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
